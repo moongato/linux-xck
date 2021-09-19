@@ -82,7 +82,6 @@ source=(
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
-  0000-cacule-5.14-full.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
@@ -95,13 +94,11 @@ validpgpkeys=(
 sha256sums=('54848c1268771ee3515e4c33e29abc3f1fa90d8144894cce6d0ebc3b158bccec'
             'SKIP'
             # config
-            '664b6b97ccd85ffb76399c8e652d83692b1bf0c27ea1cfd4e8ae3c1e6a6cf457'
+            'aac2ce6edbb7dc7304f0695c83571e2f8050c88f22d61c0e040eea6ad6f3c943'
             # gcc patch
             'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
             # hrtimers patch
             '722b53e72842247eaa4fde397da1889cbbb54b40c7ed1eb0afb95fff80bffbe4'
-            # cacule scheduler
-            '44bb8f6208139581110bab58b151c37d9d2218c6b7b71023e90dd440df433e45'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
