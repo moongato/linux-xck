@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.14.5
+pkgver=5.14.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -86,16 +86,16 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch
+  0002-SUNRPC-dont-pause-on-incomplete-allocation.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('65168d1cd6cb6558ff57d9e3bc7507cbc722e1bb053cd80793b0ac804b546cfd'
+sha256sums=('54848c1268771ee3515e4c33e29abc3f1fa90d8144894cce6d0ebc3b158bccec'
             'SKIP'
             # config
-            '46bd000dd5111d730dc67843421e96e477fc1fe73f8116f7a6d623d9063332fa'
+            '664b6b97ccd85ffb76399c8e652d83692b1bf0c27ea1cfd4e8ae3c1e6a6cf457'
             # gcc patch
             'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
             # hrtimers patch
@@ -108,7 +108,7 @@ sha256sums=('65168d1cd6cb6558ff57d9e3bc7507cbc722e1bb053cd80793b0ac804b546cfd'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
-            '8d02816705b168239234f629a9b842c7613c292c8383667cf4b5e53a4f8ad382'
+            'bd540fa3f25d3c5c6f821bd9b93d6c30986581605507b854f40bcb8a91f1ba2f'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
