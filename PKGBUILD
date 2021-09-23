@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.14.6
+pkgver=5.14.7
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -86,12 +86,17 @@ source=(
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-SUNRPC-dont-pause-on-incomplete-allocation.patch
+  0003-Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
+  0004-Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
+  0005-ALSA-pcm-Check-mmap-capability-of-runtime-dma-buffer-at-first.patch
+  0006-ALSA-pci-rme-Set-up-buffer-type-properly.patch
+  0007-ALSA-pci-cs46xx-Fix-set-up-buffer-type-properly.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('54848c1268771ee3515e4c33e29abc3f1fa90d8144894cce6d0ebc3b158bccec'
+sha256sums=('af2539449f6a6161621609572b17d269bbbae4fcfffe3e044249b0b8b5ba7eab'
             'SKIP'
             # config
             'aac2ce6edbb7dc7304f0695c83571e2f8050c88f22d61c0e040eea6ad6f3c943'
@@ -106,6 +111,11 @@ sha256sums=('54848c1268771ee3515e4c33e29abc3f1fa90d8144894cce6d0ebc3b158bccec'
             # archlinux patches
             '53a203472800fb75aae6cfa1b1b627f11e906a5246510f82a93c924ca780d685'
             'bd540fa3f25d3c5c6f821bd9b93d6c30986581605507b854f40bcb8a91f1ba2f'
+            '961e42507e3f68689a797bb80875deadae71a19f69cc99164076bd091f53a35d'
+            '25ed3e0edc6b1dfb83ea9421ebce75c28daa65be72fddd725346ed4527490fe9'
+            '28d825af0563ea607cd42f4cc0184f62fe1ea160bdd99000043e5e11d9133fce'
+            '7d6aa2996ce2cdd20288819cd1f5950b9ee32784e128935f8fa75dfc30d24f24'
+            '3b8e660e775c22b011bbb2bdaf78027595eb8dc96aefdedb6a6c1009d40a572b'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
