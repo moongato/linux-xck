@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.14.10
+pkgver=5.14.11
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -95,7 +95,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('45ce25e0abd1b46b273c804a00cd3513cd2a5bbcd89180e2e2a5dc8d062085d8'
+sha256sums=('93830a24df5342fb8fb857b7ca58d637f99d84b0ac54610fbf49743e3e8d5731'
             'SKIP'
             # config
             '6ddd791684524d5361033628b92f921e41a7859774e164dec0388c3df73438bd'
@@ -175,6 +175,7 @@ prepare() {
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
   make olddefconfig
+  diff -u ../config .config || :
 
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
@@ -207,7 +208,7 @@ prepare() {
   [[ -z "$_makenconfig" ]] || make nconfig
 
   # save configuration for later reuse
-  cat .config > "${startdir}/config.last"
+  # cat .config > "${startdir}/config.last"
 
   # uncomment if you want to build with distcc
   ### sed -i '/HAVE_GCC_PLUGINS/d' arch/x86/Kconfig
