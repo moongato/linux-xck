@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.14.14
+pkgver=5.14.15
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -95,7 +95,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('4dff4e96d4052195002538027f8a810411ba6116a41bff5575952702d509d06a'
+sha256sums=('74f39a0c69e9d7c94d290515645396725e3ce3667b85baf4b3c3f6f303c7a406'
             'SKIP'
             # config
             'dc94bd3642c62f0d33f12cd05444afa63532b6d222c4b2860c65723b8ca55222'
