@@ -78,6 +78,7 @@ _commit=8ba6612318090567422d49ccc79bc7bbe5484cfc
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20210914
 _amd64=0001-amd64-patches.patch
+_cpufreq=0001-cpufreq-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -86,6 +87,7 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/amd64-patches/$_amd64
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v2/$_cpufreq
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
 )
 validpgpkeys=(
@@ -106,6 +108,8 @@ sha256sums=('32fdcd33c8ac571b9a7a297f33860f6171327961f2a2ea6bd54bf82275b614c8'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # amd patch
             'e8feff3e684ac567f28606dc1597db1373cea1f8932f3fe198910d7164037e17'
+            # cpufreq patch
+            '67ec9b3eeb426843b9243e41b60877c1bee48b3442a3f9fae3e229a6e73a7875'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
 )          
