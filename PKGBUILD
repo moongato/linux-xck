@@ -76,7 +76,7 @@ options=('!strip')
 # thankfully xanmod keeps the hrtimer patches up to date
 _commit=8ba6612318090567422d49ccc79bc7bbe5484cfc
 _xan=linux-5.15.y-xanmod
-_gcc_more_v=20210914
+_gcc_more_v=20211114
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -95,7 +95,7 @@ sha256sums=('5634033a4981be42d3259f50d5371a2cdc9ace5d9860da67a2879630533ab175'
             # config
             '255d562b42dd025dce02381e4072b481982758674db2299d09a472a3be47e841'
             # gcc patch
-            'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
+            'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
             '2f9ee9dbe95595c91286853c0bee80a562d68eaefbc1b168eb8d5e58fa47cf9b'
             # enable-O3
