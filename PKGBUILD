@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.15.2
+pkgver=5.15.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -85,15 +85,21 @@ source=(
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code-was.patch
+  0003-PCI-MSI-Deal-with-devices-lying-about-their-MSI-mask-capability.patch
+  0004-PCI-Add-MSI-masking-quirk-for-Nvidia-ION-AHCI.patch
+  0005-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
+  0006-drm-amd-pm-avoid-duplicate-powergate-ungate-setting.patch
+  0007-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('5634033a4981be42d3259f50d5371a2cdc9ace5d9860da67a2879630533ab175'
+sha256sums=('a9f3dae18387b5a315bda66004cd10777a7dc5da11517214e4fd016fd5fc05e6'
             'SKIP'
             # config
-            '255d562b42dd025dce02381e4072b481982758674db2299d09a472a3be47e841'
+            '132db84748cd7c4b71b3332af94311d079d9fd76f371008764560cebc743da6b'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
@@ -104,6 +110,12 @@ sha256sums=('5634033a4981be42d3259f50d5371a2cdc9ace5d9860da67a2879630533ab175'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
+            '6ff1ff036eeef71765aa3d3670b98a6c9de0526b4f3848a6645c72cf65110705'
+            '24123d900fbf98732d9f594430f756d4e5f876288cbabf7d395189e51e1880aa'
+            '7cd9e278c1fe07e37be03e88db33b38ddb37df5d7fe94224edf608ea53802e36'
+            '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
+            'eff279dd502bd376bb6691d29d670e7e7307dbec788498c168d0073941467838'
+            'c7cc92e91a5e01752aa21129ac8d9c329f2ed8936d9bdef14d437c37a998d539' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
