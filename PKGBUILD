@@ -64,8 +64,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.15.1
-pkgrel=3
+pkgver=5.15.5
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -76,7 +76,7 @@ options=('!strip')
 # thankfully xanmod keeps the hrtimer patches up to date
 _commit=8ba6612318090567422d49ccc79bc7bbe5484cfc
 _xan=linux-5.15.y-xanmod
-_gcc_more_v=20210914
+_gcc_more_v=20211114
 _cpufreq=0001-cpufreq-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -87,17 +87,23 @@ source=(
   0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v2/$_cpufreq
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code-was.patch
+  0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
+  0004-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
+  0005-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
+  0006-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
+  0007-lg-laptop-Recognize-more-models.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('32fdcd33c8ac571b9a7a297f33860f6171327961f2a2ea6bd54bf82275b614c8'
+sha256sums=('e9565a301525ac81c142ceb832f9053dd5685e107dbcf753d0de4c58bc98851f'
             'SKIP'
             # config
-            '9666c81a0a5869da838056abc78f84e7610cd1b3e1120f57266727f274cc83e0'
+            'e66ffaba76597d79b8cef2cf22c356cf101307b8ff0a4ea717d33a3b0a2029ce'
             # gcc patch
-            'b70720e7537a0b6455edaeb198d52151fb3b3c3a91631b8f43d2e71b694da611'
+            'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
             '2f9ee9dbe95595c91286853c0bee80a562d68eaefbc1b168eb8d5e58fa47cf9b'
             # enable-O3
@@ -108,6 +114,12 @@ sha256sums=('32fdcd33c8ac571b9a7a297f33860f6171327961f2a2ea6bd54bf82275b614c8'
             '67ec9b3eeb426843b9243e41b60877c1bee48b3442a3f9fae3e229a6e73a7875'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
+            '6ff1ff036eeef71765aa3d3670b98a6c9de0526b4f3848a6645c72cf65110705'
+            '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
+            'c7cc92e91a5e01752aa21129ac8d9c329f2ed8936d9bdef14d437c37a998d539'
+            '0b8ddbebf54f2097d789a709b796cbfaf5a3992106abdc377514a0210324898d'
+            'c0c2675c5e209842dc6747c367f063988d35f1a55500f39227588e35755f0852'
+            '26455dfedafb8d47e3a5823ad7aa22a9efefd99853a313bd000913df3493fcac'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
