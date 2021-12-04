@@ -85,7 +85,7 @@ source=(
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v2/$_cpufreq
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v3/$_cpufreq
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code-was.patch
   0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
@@ -111,7 +111,7 @@ sha256sums=('e9565a301525ac81c142ceb832f9053dd5685e107dbcf753d0de4c58bc98851f'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpufreq patch
-            '67ec9b3eeb426843b9243e41b60877c1bee48b3442a3f9fae3e229a6e73a7875'
+            'b43fb1653fa966d92e0a589447759b1171686b8c7583c76d1317f34084c69ed9'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
             '6ff1ff036eeef71765aa3d3670b98a6c9de0526b4f3848a6645c72cf65110705'
