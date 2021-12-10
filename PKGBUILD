@@ -78,6 +78,7 @@ _commit=8ba6612318090567422d49ccc79bc7bbe5484cfc
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
 _cpufreq=0001-cpufreq-patches.patch
+_amd64=0001-amd64-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -85,7 +86,8 @@ source=(
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v3/$_cpufreq
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v4/$_cpufreq
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/amd64-patches-v2/$_amd64
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
   0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
@@ -110,7 +112,9 @@ sha256sums=('5d9050a839edc7480c5c8f7a284cd28bee6db07bec9e41c684f399192bbe5db1'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpufreq patch
-            'b43fb1653fa966d92e0a589447759b1171686b8c7583c76d1317f34084c69ed9'
+            'db1b2732f4c237c15221c7972db296cfee805ffe3ff10a5f88af7d864d1a76e5'
+            # amd64 patch
+            '3fbb1429afcdd874c0168f2f4b9e6ae11f81ffb47e447723eef038bab2c3e928'
             # archlinux patches
             'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
             '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
