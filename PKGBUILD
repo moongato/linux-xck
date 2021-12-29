@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.15.11
+pkgver=5.15.12
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -90,13 +90,12 @@ source=(
   0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
   0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
   0006-lg-laptop-Recognize-more-models.patch
-  0007-HID-holtek-fix-mouse-probing.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('c1178b7e7e12d91292e670191268e3fe9a3563faf899eef43e468577e973a1ce'
+sha256sums=('7de919772b62647591527e904e3b3583783381a29d812404f58a222484e751a0'
             'SKIP'
             # config
             '73d45857d36db5d25e33f38f5143cf937384bda22df788b15556295b590833f5'
@@ -115,7 +114,6 @@ sha256sums=('c1178b7e7e12d91292e670191268e3fe9a3563faf899eef43e468577e973a1ce'
             '0b8ddbebf54f2097d789a709b796cbfaf5a3992106abdc377514a0210324898d'
             'c0c2675c5e209842dc6747c367f063988d35f1a55500f39227588e35755f0852'
             '26455dfedafb8d47e3a5823ad7aa22a9efefd99853a313bd000913df3493fcac'
-            '4753850a30c6a64e2bb27b1c07ea72f3c40b8c7ee73e890bbc4745860ce1798d'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
