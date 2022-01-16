@@ -86,8 +86,8 @@ source=(
   #"xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v4/$_cpufreq
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/amd64-patches-v2/$_amd64
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/cpufreq-patches/$_cpufreq
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/amd64-patches/$_amd64
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
  )
@@ -108,9 +108,9 @@ sha256sums=('c7bf36231c6ea1e67283802a005430d14fe3f8a3498c0724ba3439afaf723545'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpufreq patch
-            'db1b2732f4c237c15221c7972db296cfee805ffe3ff10a5f88af7d864d1a76e5'
+            'ec294d5f958f4ad01f887552684b01e253275c550ea91c2f437dd0d932440fa3'
             # amd64 patch
-            '3fbb1429afcdd874c0168f2f4b9e6ae11f81ffb47e447723eef038bab2c3e928'
+            '1d5082af4e011cc7e693119b9c89eb621a05495bb4d1c238dd6bbeb7587dc8ff'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015' 
