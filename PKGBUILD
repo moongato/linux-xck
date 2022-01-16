@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.15.7
+pkgver=5.16.1
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -83,30 +83,26 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
+  #"xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/cpufreq-patches-v4/$_cpufreq
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.15/amd64-patches-v2/$_amd64
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-quirk.patch
-  0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-flooding.patch
-  0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-system.patch
-  0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
-  0006-lg-laptop-Recognize-more-models.patch
-)
+  0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
+ )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('5d9050a839edc7480c5c8f7a284cd28bee6db07bec9e41c684f399192bbe5db1'
+sha256sums=('c7bf36231c6ea1e67283802a005430d14fe3f8a3498c0724ba3439afaf723545'
             'SKIP'
             # config
-            'e66ffaba76597d79b8cef2cf22c356cf101307b8ff0a4ea717d33a3b0a2029ce'
+            'e40ffa269638267bfd110e92b002e5709a6c8fff4826ff933fb9d6e211b122a0'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
-            '2f9ee9dbe95595c91286853c0bee80a562d68eaefbc1b168eb8d5e58fa47cf9b'
+            #'2f9ee9dbe95595c91286853c0bee80a562d68eaefbc1b168eb8d5e58fa47cf9b'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
@@ -116,12 +112,8 @@ sha256sums=('5d9050a839edc7480c5c8f7a284cd28bee6db07bec9e41c684f399192bbe5db1'
             # amd64 patch
             '3fbb1429afcdd874c0168f2f4b9e6ae11f81ffb47e447723eef038bab2c3e928'
             # archlinux patches
-            'd9bb10257d69d7f88f1774c2903d48d421dc9aed8987c1932f1864f366ac2490'
-            '1a257757ecbed180af7cdcabd51b405aa709854f1ac1ccd8c842e992d5488fcf'
-            'c7cc92e91a5e01752aa21129ac8d9c329f2ed8936d9bdef14d437c37a998d539'
-            '0b8ddbebf54f2097d789a709b796cbfaf5a3992106abdc377514a0210324898d'
-            'c0c2675c5e209842dc6747c367f063988d35f1a55500f39227588e35755f0852'
-            '26455dfedafb8d47e3a5823ad7aa22a9efefd99853a313bd000913df3493fcac'
+            'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
+            'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015' 
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -174,11 +166,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
