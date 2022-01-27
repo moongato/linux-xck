@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.16.2
+pkgver=5.16.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -74,38 +74,40 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
-_commit=8ba6612318090567422d49ccc79bc7bbe5484cfc
+_commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  #"xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
+  "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
+  0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('09fe833a4d6304327bbe00e75ad7a2587188d1f406b3265fed11a0f8c5663b44'
+sha256sums=('ba402fe9c05b70505172664ccf8d3dd2d7b78c4fa8ec8fb27fa83a6ce6b9b5b1'
             'SKIP'
             # config
             'e40ffa269638267bfd110e92b002e5709a6c8fff4826ff933fb9d6e211b122a0'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
-            #'2f9ee9dbe95595c91286853c0bee80a562d68eaefbc1b168eb8d5e58fa47cf9b'
+            'bafbbe58714a95b2655e73dbc2e4879f532fca1400569268d27d3a6237f8ad0b'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
-            'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015' 
+            'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
+            'ea2546e22c68740efd703b692ed0ff1b4dd1e1b49fddd377389bba888739fa3f'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -158,11 +160,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  #echo "Patching with ck hrtimer patches..."
+  echo "Patching with ck hrtimer patches..."
 
-  #for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
-  #  patch -Np1 -i $i
-  #done
+  for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
+    patch -Np1 -i $i
+  done
 
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
@@ -259,11 +261,11 @@ _package-headers() {
   install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
   cp -t "$builddir" -a scripts
 
-  # add objtool for external module building and enabled VALIDATION_STACK option
+  # required when STACK_VALIDATION is enabled
   install -Dt "$builddir/tools/objtool" tools/objtool/objtool
 
-  # add xfs and shmem for aufs building
-  mkdir -p "$builddir"/{fs/xfs,mm}
+  # required when DEBUG_INFO_BTF_MODULES is enabled
+  #install -Dt "$builddir/tools/bpf/resolve_btfids" tools/bpf/resolve_btfids/resolve_btfids
 
   echo "Installing headers..."
   cp -t "$builddir" -a include
@@ -326,7 +328,6 @@ _package-headers() {
   echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/src"
   ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
-
 }
 
 pkgname=("$pkgbase" "$pkgbase-headers")
