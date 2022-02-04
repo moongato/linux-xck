@@ -65,7 +65,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.16.5
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -77,9 +77,8 @@ options=('!strip')
 _commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
-_cpufreq=0001-cpufreq-patches.patch
-_amd64=0001-amd64-patches.patch
-_hwmon=0001-hwmon-patches.patch
+_cpufreq=cpufreq-patches-v2
+_hwmon=hwmon-patches-v8
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -87,9 +86,8 @@ source=(
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/cpufreq-patches-v2/$_cpufreq
-  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/amd64-patches/$_amd64
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/hwmon-patches-v7/$_hwmon
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/$_cpufreq/0001-cpufreq-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
   0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
@@ -112,10 +110,8 @@ sha256sums=('ecaeedd9d289934f97c572aa965b6959d4d47f9789220e4fc3fbb525d8f1c7ab'
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpufreq patch
             '4d592e6bd49ae19db05d758130ae1b6f3bb081923a7b6df0b946ea0f4524168e'
-            # amd64 patch
-            #'1d5082af4e011cc7e693119b9c89eb621a05495bb4d1c238dd6bbeb7587dc8ff'
             # hwmon patch
-            '669e8580b8bbb9ce38738154cf45e7c199cee91c2b9327102564aa9f9d7afd83'
+            '55c025c063b0c7115b892fb6dab863bf85de1bfc93962841883eff7fc36d93b0'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
