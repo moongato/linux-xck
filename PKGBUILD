@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.16.5
+pkgver=5.16.7
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -77,6 +77,8 @@ options=('!strip')
 _commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
+_cpufreq=cpufreq-patches-v2
+_hwmon=hwmon-patches-v8
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -84,6 +86,8 @@ source=(
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/$_cpufreq/0001-cpufreq-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
   0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
@@ -92,7 +96,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('ecaeedd9d289934f97c572aa965b6959d4d47f9789220e4fc3fbb525d8f1c7ab'
+sha256sums=('5751f53e8e5415eb0494ac1513765cbdea28848963999dfdb5d4e7f4c3d8a6cd'
             'SKIP'
             # config
             'e40ffa269638267bfd110e92b002e5709a6c8fff4826ff933fb9d6e211b122a0'
@@ -104,6 +108,10 @@ sha256sums=('ecaeedd9d289934f97c572aa965b6959d4d47f9789220e4fc3fbb525d8f1c7ab'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
+            # cpufreq patch
+            '4d592e6bd49ae19db05d758130ae1b6f3bb081923a7b6df0b946ea0f4524168e'
+            # hwmon patch
+            '55c025c063b0c7115b892fb6dab863bf85de1bfc93962841883eff7fc36d93b0'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
