@@ -91,6 +91,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
   0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
+  0004-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -99,7 +100,7 @@ validpgpkeys=(
 sha256sums=('52aa5f05ee8addcc1ec0020f50e5f88ea1a308c2afac4a2305e1e4cf42580316'
             'SKIP'
             # config
-            'e40ffa269638267bfd110e92b002e5709a6c8fff4826ff933fb9d6e211b122a0'
+            'daec4e8f554eb15ccfd24fd384670a926d3be322c21ab301aca45af3f12ad3f6'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
@@ -116,6 +117,7 @@ sha256sums=('52aa5f05ee8addcc1ec0020f50e5f88ea1a308c2afac4a2305e1e4cf42580316'
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
             'ea2546e22c68740efd703b692ed0ff1b4dd1e1b49fddd377389bba888739fa3f'
+            '07d0043f86fe04e063b578f8de157cd76bd31c95cc843935142fb685d84abb21'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
