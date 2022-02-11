@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.16.8
+pkgver=5.16.9
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -77,7 +77,7 @@ options=('!strip')
 _commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
-_cpufreq=cpufreq-patches-v2
+_cpufreq=cpufreq-patches-v3
 _hwmon=hwmon-patches-v9
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -97,7 +97,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('52aa5f05ee8addcc1ec0020f50e5f88ea1a308c2afac4a2305e1e4cf42580316'
+sha256sums=('1660e7228ec299c187c19739d115ded97f6b1be05a24986c4c443e7c5e8b744f'
             'SKIP'
             # config
             'daec4e8f554eb15ccfd24fd384670a926d3be322c21ab301aca45af3f12ad3f6'
@@ -110,7 +110,7 @@ sha256sums=('52aa5f05ee8addcc1ec0020f50e5f88ea1a308c2afac4a2305e1e4cf42580316'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpufreq patch
-            '4d592e6bd49ae19db05d758130ae1b6f3bb081923a7b6df0b946ea0f4524168e'
+            '6abcacdc0dc3d16dd38312fbe5d8fd51a3003fb58e7019d0940f18c65d465e50'
             # hwmon patch
             '83ff3060a927c63d2ea0eaa9a2d7d7b741eff0084ecab22e758a2d7663cbfd20'
             # archlinux patches
