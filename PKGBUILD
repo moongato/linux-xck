@@ -65,7 +65,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.16.9
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -78,7 +78,7 @@ _commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
 _cpufreq=cpufreq-patches-v3
-_hwmon=hwmon-patches-v9
+_hwmon=hwmon-patches-v10
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -112,7 +112,7 @@ sha256sums=('1660e7228ec299c187c19739d115ded97f6b1be05a24986c4c443e7c5e8b744f'
             # cpufreq patch
             '6abcacdc0dc3d16dd38312fbe5d8fd51a3003fb58e7019d0940f18c65d465e50'
             # hwmon patch
-            '83ff3060a927c63d2ea0eaa9a2d7d7b741eff0084ecab22e758a2d7663cbfd20'
+            '96eae3c59c1b36093632e3e922342204fa86520ec793cdfcbcac1add502fa7f7'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
