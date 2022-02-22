@@ -78,7 +78,7 @@ _commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
 _cpufreq=cpufreq-patches-v3
-_hwmon=hwmon-patches-v11
+_hwmon=hwmon-patches-v12
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -112,7 +112,7 @@ sha256sums=('0c4d6f0081800593852eb155b01e09b78b5bc69d7a553fc58f5ad2070f90239e'
             # cpufreq patch
             '6abcacdc0dc3d16dd38312fbe5d8fd51a3003fb58e7019d0940f18c65d465e50'
             # hwmon patch
-            '5ac3374f45dd9b79e3eb7eaa62e29077ff67646b581c31e9837f01a729d8bcfa'
+            '7396f66133bc88f072c03b47ff2b4731b8664a197a4e6873a0fd598f1ea3369e'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
