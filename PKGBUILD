@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.16.10
+pkgver=5.16.11
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -77,7 +77,7 @@ options=('!strip')
 _commit=6b08df20f31708099a7fbccf5448958b4836118f
 _xan=linux-5.15.y-xanmod
 _gcc_more_v=20211114
-_cpufreq=cpufreq-patches-v3
+_cpufreq=cpufreq-patches-v5
 _hwmon=hwmon-patches-v12
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -92,12 +92,15 @@ source=(
   0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
   0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
   0004-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
+  0005-mt76-mt7921-add-support-for-PCIe-ID-0x0608-0x0616.patch
+  0006-mt76-mt7921-reduce-log-severity-levels-for-informative-messages.patch
+  0007-Revert-NFSv4.1-query-for-fs_location-attr-on-a-new-file-system.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('0c4d6f0081800593852eb155b01e09b78b5bc69d7a553fc58f5ad2070f90239e'
+sha256sums=('6d186158a4c44a4df438e0286ee8186f1cc9cc9d8a909d4c3e25a4f7eca8b023'
             'SKIP'
             # config
             '953c20025e52fda3b7771e3b1fcd1c89d7f16322020e669a8b218c62f5366a4e'
@@ -110,7 +113,7 @@ sha256sums=('0c4d6f0081800593852eb155b01e09b78b5bc69d7a553fc58f5ad2070f90239e'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # cpufreq patch
-            '6abcacdc0dc3d16dd38312fbe5d8fd51a3003fb58e7019d0940f18c65d465e50'
+            '57393adbe46254a8c3f9ff175cb0acbe2c85d26a95e688fae0610315cd3ee2b6'
             # hwmon patch
             '7396f66133bc88f072c03b47ff2b4731b8664a197a4e6873a0fd598f1ea3369e'
             # archlinux patches
@@ -118,6 +121,9 @@ sha256sums=('0c4d6f0081800593852eb155b01e09b78b5bc69d7a553fc58f5ad2070f90239e'
             'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
             'ea2546e22c68740efd703b692ed0ff1b4dd1e1b49fddd377389bba888739fa3f'
             '07d0043f86fe04e063b578f8de157cd76bd31c95cc843935142fb685d84abb21'
+            '49c9da28422b8be5cedfac640cede59919d0e2cfcb95a8620980e11a0ab0c656'
+            'f25a03107c48e3c8276a3129dc34a353bfac5bc635885e782edb8ba1c48bb6f9'
+            '8010211b556f1238f97d67e0a6d11fcaeda9c8b7874c48e1b39d75163f3a8b6c'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
