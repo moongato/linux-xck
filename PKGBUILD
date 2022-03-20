@@ -74,8 +74,8 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
-_commit=6b08df20f31708099a7fbccf5448958b4836118f
-_xan=linux-5.15.y-xanmod
+_commit=c8fd0bce08e6219df068e717c53aa08a7fbb496d
+_xan=linux-5.16.y-xanmod
 _gcc_more_v=20211114
 _cpufreq=cpufreq-patches-v5
 _hwmon=hwmon-patches-v12
@@ -107,7 +107,7 @@ sha256sums=('cca7d6e053e33f44af1b39f7becec73a387911d81ede5a84ecf671692533138f'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
-            'bafbbe58714a95b2655e73dbc2e4879f532fca1400569268d27d3a6237f8ad0b'
+            '4e76eb835dc01c23068f5c907d06448bcc062e20de6a669544c0e2ad0a16d086'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
@@ -178,7 +178,8 @@ prepare() {
   # these are ck's htrimer patches
   echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
+  #for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
+  for i in ../linux-patches-"$_commit"/linux-5.15.y-xanmod/ck-hrtimer/0*.patch; do
     patch -Np1 -i $i
   done
 
