@@ -65,7 +65,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.17
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -89,7 +89,6 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -98,7 +97,7 @@ validpgpkeys=(
 sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
             'SKIP'
             # config
-            '0e7fff67220e7162d3af490f93ea78a4a67f301b15ba8ae3abdec130ecfd7ebc'
+            'b0a76f36a1840a406827ede95e085ced7a38f84ed83c3f59798079d974f6cd84'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
@@ -113,7 +112,6 @@ sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
             '9675c0ab1914bc9d31b520089bd40e8d5f311f6d481e737f7f3f6e122e7c4eb4'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
-            '07d0043f86fe04e063b578f8de157cd76bd31c95cc843935142fb685d84abb21'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
