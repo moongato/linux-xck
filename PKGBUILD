@@ -64,8 +64,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.16.16
-pkgrel=1
+pkgver=5.17
+pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -77,53 +77,43 @@ options=('!strip')
 _commit=c8fd0bce08e6219df068e717c53aa08a7fbb496d
 _xan=linux-5.16.y-xanmod
 _gcc_more_v=20211114
-_cpufreq=cpufreq-patches-v5
-_hwmon=hwmon-patches-v12
+_cpupower=cpupower-patches
+_hwmon=hwmon-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
+  #"xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/$_cpufreq/0001-cpufreq-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.16/$_hwmon/0001-hwmon-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-Bluetooth-btintel-Fix-bdaddress-comparison-with-garbage.patch
-  0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
-  0004-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
-  0005-mt76-mt7921-add-support-for-PCIe-ID-0x0608-0x0616.patch
-  0006-mt76-mt7921-reduce-log-severity-levels-for-informative-messages.patch
-  0007-Revert-NFSv4.1-query-for-fs_location-attr-on-a-new-file-system.patch
+  0002-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('cca7d6e053e33f44af1b39f7becec73a387911d81ede5a84ecf671692533138f'
+sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
             'SKIP'
             # config
             '0e7fff67220e7162d3af490f93ea78a4a67f301b15ba8ae3abdec130ecfd7ebc'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
-            '4e76eb835dc01c23068f5c907d06448bcc062e20de6a669544c0e2ad0a16d086'
+            #'4e76eb835dc01c23068f5c907d06448bcc062e20de6a669544c0e2ad0a16d086'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
-            # cpufreq patch
-            '57393adbe46254a8c3f9ff175cb0acbe2c85d26a95e688fae0610315cd3ee2b6'
+            # cpupower patch
+            '85d3ac9334b1b377a5998e6d37ff8abd01e521e48c509fbe2f80adb244d44d2b'
             # hwmon patch
-            '7396f66133bc88f072c03b47ff2b4731b8664a197a4e6873a0fd598f1ea3369e'
+            '9675c0ab1914bc9d31b520089bd40e8d5f311f6d481e737f7f3f6e122e7c4eb4'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
-            'c0ea436abc1e6009ed0e0c514c809d114077a96dc9d1f01a46f0b3c2828e7015'
-            'ea2546e22c68740efd703b692ed0ff1b4dd1e1b49fddd377389bba888739fa3f'
             '07d0043f86fe04e063b578f8de157cd76bd31c95cc843935142fb685d84abb21'
-            '49c9da28422b8be5cedfac640cede59919d0e2cfcb95a8620980e11a0ab0c656'
-            'f25a03107c48e3c8276a3129dc34a353bfac5bc635885e782edb8ba1c48bb6f9'
-            '8010211b556f1238f97d67e0a6d11fcaeda9c8b7874c48e1b39d75163f3a8b6c'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -176,12 +166,12 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
   #for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
-  for i in ../linux-patches-"$_commit"/linux-5.15.y-xanmod/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/linux-5.15.y-xanmod/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
