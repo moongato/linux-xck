@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.17
+pkgver=5.17.1
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -89,15 +89,17 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-random-treat-bootloader-trust-toggle-the-same-way-as-cpu-trust-toggle.patch
+  0003-Revert-swiotlb-rework-fix-info-leak-with-DMA_FROM_DEVICE.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
+sha256sums=('7cd5c5d432a25f45060868ce6a8578890e550158a2f779c4a20804b551e84c24'
             'SKIP'
             # config
-            'b0a76f36a1840a406827ede95e085ced7a38f84ed83c3f59798079d974f6cd84'
+            '91d4c2df6e3097a908b10c56ff7f36cec514003e7b8547b7bdcfba1021c03d60'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
@@ -112,6 +114,8 @@ sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
             '9675c0ab1914bc9d31b520089bd40e8d5f311f6d481e737f7f3f6e122e7c4eb4'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
+            'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
+            '65469a310cfe0dfc3d25e83ecacc6c144b218f575d49731a1715e6f57f89d521'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
