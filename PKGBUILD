@@ -64,7 +64,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.17.1
+pkgver=5.17.2
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -78,7 +78,7 @@ _commit=c8fd0bce08e6219df068e717c53aa08a7fbb496d
 _xan=linux-5.16.y-xanmod
 _gcc_more_v=20211114
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches
+_hwmon=hwmon-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -91,15 +91,20 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-random-treat-bootloader-trust-toggle-the-same-way-as-cpu-trust-toggle.patch
   0003-Revert-swiotlb-rework-fix-info-leak-with-DMA_FROM_DEVICE.patch
+  0004-tick-Detect-and-fix-jiffies-update-stall.patch
+  0005-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
+  0006-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
+  0007-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
+  0008-x86-speculation-Restore-speculation-related-MSRs-during-S3.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('7cd5c5d432a25f45060868ce6a8578890e550158a2f779c4a20804b551e84c24'
+sha256sums=('2da20f8437cfe813ddee7dcb95e2c4e9e4e8f6168060c05787668ac3ff3f0b99'
             'SKIP'
             # config
-            '91d4c2df6e3097a908b10c56ff7f36cec514003e7b8547b7bdcfba1021c03d60'
+            '450015f2a9e664cabb16c8e712a660ce78b5c34aca703444a1a9da43b39d8e12'
             # gcc patch
             'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
             # hrtimers patch
@@ -111,11 +116,16 @@ sha256sums=('7cd5c5d432a25f45060868ce6a8578890e550158a2f779c4a20804b551e84c24'
             # cpupower patch
             'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '9675c0ab1914bc9d31b520089bd40e8d5f311f6d481e737f7f3f6e122e7c4eb4'
+            'c6e3fe5b1736c343f25632a23318c91ccc8b84e896ce7a0a1f7eb2a05e7a596f'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
-            '65469a310cfe0dfc3d25e83ecacc6c144b218f575d49731a1715e6f57f89d521'
+            '1a373540a49d0f6d43eeb9892907d75f2000023dcb15bd0990976b77222ec39a'
+            '0408d4fa2e0d560238a0768ee23f4299ca2c6e5314ca15f5a88c200359edfcd9'
+            'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
+            '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
+            '5b206d912f48db7225a116ccdc4bf8692a31480503c589ad98a7bdaf451058f6'
+            'e49ee61efcbd91ab769eb41e2437d58a677d760410e34d09c636a41842a02e74'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
