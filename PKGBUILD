@@ -65,7 +65,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.17.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -90,12 +90,11 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_hwmon/0001-hwmon-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-random-treat-bootloader-trust-toggle-the-same-way-as-cpu-trust-toggle.patch
-  0003-Revert-swiotlb-rework-fix-info-leak-with-DMA_FROM_DEVICE.patch
-  0004-tick-Detect-and-fix-jiffies-update-stall.patch
-  0005-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
-  0006-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
-  0007-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
-  0008-x86-speculation-Restore-speculation-related-MSRs-during-S3.patch
+  0003-tick-Detect-and-fix-jiffies-update-stall.patch
+  0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
+  0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
+  0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
+  0007-x86-speculation-Restore-speculation-related-MSRs-during-S3.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -120,7 +119,6 @@ sha256sums=('2da20f8437cfe813ddee7dcb95e2c4e9e4e8f6168060c05787668ac3ff3f0b99'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
-            '1a373540a49d0f6d43eeb9892907d75f2000023dcb15bd0990976b77222ec39a'
             '0408d4fa2e0d560238a0768ee23f4299ca2c6e5314ca15f5a88c200359edfcd9'
             'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
             '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
