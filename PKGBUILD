@@ -64,8 +64,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.17.2
-pkgrel=2
+pkgver=5.17.3
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -94,13 +94,12 @@ source=(
   0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
   0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
   0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
-  0007-x86-speculation-Restore-speculation-related-MSRs-during-S3.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('2da20f8437cfe813ddee7dcb95e2c4e9e4e8f6168060c05787668ac3ff3f0b99'
+sha256sums=('32d0a8e366b87e1cbde951b9f7a01287546670ba60fac35cccfc8a7c005a162c'
             'SKIP'
             # config
             '450015f2a9e664cabb16c8e712a660ce78b5c34aca703444a1a9da43b39d8e12'
@@ -123,7 +122,6 @@ sha256sums=('2da20f8437cfe813ddee7dcb95e2c4e9e4e8f6168060c05787668ac3ff3f0b99'
             'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
             '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
             '5b206d912f48db7225a116ccdc4bf8692a31480503c589ad98a7bdaf451058f6'
-            'e49ee61efcbd91ab769eb41e2437d58a677d760410e34d09c636a41842a02e74'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
