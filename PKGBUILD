@@ -65,18 +65,19 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.17.3
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
-makedepends=(bc kmod libelf cpio perl tar xz)
+depends=(coreutils kmod initramfs)
+makedepends=(bc libelf cpio perl tar xz)
 options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
-_commit=c8fd0bce08e6219df068e717c53aa08a7fbb496d
-_xan=linux-5.16.y-xanmod
-_gcc_more_v=20211114
+_commit=bc1b55888981e44698a1dfccc06821522e6be010
+_xan=linux-5.17.y-xanmod
+_gcc_more_v=20220315
 _cpupower=cpupower-patches
 _hwmon=hwmon-patches-v2
 source=(
@@ -84,6 +85,7 @@ source=(
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
+  "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
@@ -104,9 +106,9 @@ sha256sums=('32d0a8e366b87e1cbde951b9f7a01287546670ba60fac35cccfc8a7c005a162c'
             # config
             '450015f2a9e664cabb16c8e712a660ce78b5c34aca703444a1a9da43b39d8e12'
             # gcc patch
-            'fffcd3b2c139e6a0b80c976a4ce407d450cf8f454e697d5ed39d85e8232ddeba'
+            '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
-            #'4e76eb835dc01c23068f5c907d06448bcc062e20de6a669544c0e2ad0a16d086'
+            '89fbf46ae095f8f836993902ee6b67ba5127658e23a3b50247ecc5dcdebc410f'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
@@ -174,12 +176,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  #echo "Patching with ck hrtimer patches..."
+  echo "Patching with ck hrtimer patches..."
 
-  #for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
-  #for i in ../linux-patches-"$_commit"/linux-5.15.y-xanmod/ck-hrtimer/0*.patch; do
-  #  patch -Np1 -i $i
-  #done
+  for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
+    patch -Np1 -i $i
+  done
 
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
@@ -189,7 +190,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   echo "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.15+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.17+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
@@ -231,7 +232,7 @@ build() {
 _package() {
   pkgdesc="The ${pkgbase/linux/Linux} kernel and modules with ck's hrtimer patches"
   depends=(coreutils kmod initramfs)
-  optdepends=('crda: to set the correct wireless channels of your country'
+  optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
 
@@ -253,10 +254,8 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  #make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
-  # not needed since not building with CONFIG_DEBUG_INFO=y
-
-  make INSTALL_MOD_PATH="$pkgdir/usr" modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+    DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
