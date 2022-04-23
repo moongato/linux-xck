@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.17.3
-pkgrel=3
+pkgver=5.17.4
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -102,15 +102,17 @@ source=(
   0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch
   0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch
   0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as.patch
+  0007-gpio-Request-interrupts-after-IRQ-is-initialized.patch
+  0008-NFSv4_1-provide-mount-option-to-toggle-trunking-discovery.patch
  )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('32d0a8e366b87e1cbde951b9f7a01287546670ba60fac35cccfc8a7c005a162c'
+sha256sums=('6e3cd56ee83a9cb5ac3fde1442c40367ab67368946c4c93bbeb1c65664a0d3c5'
             'SKIP'
             # config
-            '450015f2a9e664cabb16c8e712a660ce78b5c34aca703444a1a9da43b39d8e12'
+            '363affdca65ee90c5ce7cf837ce17d939fafccde2605c774125950c3ea613369'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -130,6 +132,8 @@ sha256sums=('32d0a8e366b87e1cbde951b9f7a01287546670ba60fac35cccfc8a7c005a162c'
             'e0774a9e0c75fefe51e510a95097f1097afeb72882ef2a5bb086d92c0a75eff4'
             '011ea281b25bdb3eac67cdb5977ff6f637c17fd61cfdffd54aaa15a4414555f1'
             '5b206d912f48db7225a116ccdc4bf8692a31480503c589ad98a7bdaf451058f6'
+            '0217b661b92b42930bfdea40a073918b4b3ae3611445ce83efeb42fea89c1f79'
+            '0486c1c7ce4645818be8b68073b1cd3924a1d993f0b7fe579acf7ad11b5fad87'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
