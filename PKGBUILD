@@ -86,7 +86,7 @@ _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches-v2
+_hwmon=hwmon-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -124,7 +124,7 @@ sha256sums=('6e3cd56ee83a9cb5ac3fde1442c40367ab67368946c4c93bbeb1c65664a0d3c5'
             # cpupower patch
             'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            'c6e3fe5b1736c343f25632a23318c91ccc8b84e896ce7a0a1f7eb2a05e7a596f'
+            '6843c69910c8cd285f8d1aa1f8ddaba60899eb1609b218b70f7f681341f7ae89'
             # archlinux patches
             'c842eb45adf1255a255398063a73f12065dbdab2c4fa5e384c3ff5eff6b180a2'
             'a30acaaad0db03e43d14c31e33719f51ef145b055c76606cd5f50eb971b751b4'
