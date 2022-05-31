@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.18
-pkgrel=0
+pkgver=5.18.1
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -91,7 +91,7 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
@@ -102,14 +102,14 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('51f3f1684a896e797182a0907299cc1f0ff5e5b51dd9a55478ae63a409855cee'
+sha256sums=('83d14126c660186a7a1774a4a5c29d38e170fa5e52cfd2d08fd344dcf1f57d22'
             'SKIP'
             # config
-            '4790e527ad239671e18b8962ffb2f25e50be25839003e4f704495d586ef2397b'
+            'a2ed14286a9c951303851a26e551351c0844e126f810092b776712a62e71cae6'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
-            #'0506bdad4255ccc8165e39b2567450a3b12de2759ed7b42c0c90de1c57b1a283'
+            '0506bdad4255ccc8165e39b2567450a3b12de2759ed7b42c0c90de1c57b1a283'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
@@ -172,11 +172,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  #echo "Patching with ck hrtimer patches..."
+  echo "Patching with ck hrtimer patches..."
 
-  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-    #patch -Np1 -i $i
-  #done
+  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+    patch -Np1 -i $i
+  done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
