@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.18.2
+pkgver=5.18.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -86,7 +86,7 @@ _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
 _cpupower=cpupower-patches
-_hwmon=hwmon-patches
+_hwmon=hwmon-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -102,10 +102,10 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('ef9ff2dfa5416a03e7e5fd9c308aaec385fe8ff9f4a62d957b167843849659a2'
+sha256sums=('c70cb405076c3cfd73e4de729430b0342ea21b92a04d8284a03fac664ef1cfea'
             'SKIP'
             # config
-            'a2ed14286a9c951303851a26e551351c0844e126f810092b776712a62e71cae6'
+            '5a1054e93c07b4edce4df1300a8f53aefe63329e50d136cca3d0646dd86c7cfe'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -117,7 +117,7 @@ sha256sums=('ef9ff2dfa5416a03e7e5fd9c308aaec385fe8ff9f4a62d957b167843849659a2'
             # cpupower patch
             #'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '00c549e36e2613b3a82e4e5748567f4c7f6ba4be7db3dffa74a2626c93f62cd2'
+            '344806f8ea9f0f7da883e2c27835153944df7a4b15bb3f97ec6b7b7709682f5d'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
 )          
