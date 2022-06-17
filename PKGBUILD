@@ -85,8 +85,7 @@ _ckhrtimer=linux-5.17.y
 _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
-_cpupower=cpupower-patches
-_hwmon=hwmon-patches-v3
+_hwmon=hwmon-patches-v4
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -94,9 +93,9 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
-  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.17/$_cpupower/0001-cpupower-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0002-HID-apple-Properly-handle-function-keys-on-Keychron.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -105,7 +104,7 @@ validpgpkeys=(
 sha256sums=('4b7193476f79c56b0d9988f68777dd0f885a1965e6fd55ec015922aa789492dd'
             'SKIP'
             # config
-            '5a1054e93c07b4edce4df1300a8f53aefe63329e50d136cca3d0646dd86c7cfe'
+            '091ccbde771faf728d90a35746049379e7c9f8aec86ff3c7207e24648733a66a'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -114,12 +113,11 @@ sha256sums=('4b7193476f79c56b0d9988f68777dd0f885a1965e6fd55ec015922aa789492dd'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
-            # cpupower patch
-            #'c92373359de38b4ac831ab69f57c6bb962a14d214beba55593616c9077003aff'
             # hwmon patch
-            '657d0cf821c4bd11bf14b32956e53056512e114a7e558e11fe2bc32eb9558e05'
+            '7e7db6eb29e04b7d06e393bfe3cf67122184c2584f6aa22a76097bff7e9a5064'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
+            'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
