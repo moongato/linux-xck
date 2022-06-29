@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.18.7
+pkgver=5.18.8
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -86,6 +86,7 @@ _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
 _hwmon=hwmon-patches-v4
+_cachyos=cachyos-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -93,7 +94,9 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
+  https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.18/sched/0001-bore-sched.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_cachyos/0001-cachyos-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-HID-apple-Properly-handle-function-keys-on-Keychron.patch
 )
@@ -101,7 +104,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('a1a2d064bf5a1f02021f66931237ec3d2920994d49910d27d3fe581e2e21525b'
+sha256sums=('0823eb05dba001cf9e2560a76dfa4d81c854e1dcfbfb25cc73ba64cd7e900a36'
             'SKIP'
             # config
             '5559d5e6bc49a894fc9923c080149923204334f28b621b3bf7c4abf622dc6f6a'
@@ -113,8 +116,12 @@ sha256sums=('a1a2d064bf5a1f02021f66931237ec3d2920994d49910d27d3fe581e2e21525b'
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
+            # bore scheduler
+            '7a36fe0a53a644ade0ce85f08f9ca2ebaddd47876966b7cc9d4cae8844649271'
             # hwmon patch
             '7e7db6eb29e04b7d06e393bfe3cf67122184c2584f6aa22a76097bff7e9a5064'
+            # cachyos patch
+            '6013f81eb5750842b6ae83578241e10af488dd891385e4b6ad6601f10323a134'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
             'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
