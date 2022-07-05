@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.18.9
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -86,7 +86,7 @@ _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
 _hwmon=hwmon-patches-v5
-_cachyos=cachyos-patches-v4
+_cachyos=cachyos-patches-v5
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -121,7 +121,7 @@ sha256sums=('3882e26fcedcfe3ccfc158b9be2d95df25f26c3795ecf1ad95708ed532f5c93c'
             # hwmon patch
             'ad2af4150bd7633416103c70bccfc53b12d6c0ed91dc71b5874d09cbf5654b84'
             # cachyos patch
-            '478ca8b7d72217f49a1c00e18ece9e520b774778c91b617500a2e41cd290ece9'
+            'f83207507702e210586d69f3cddccf388e3127916252826da4390679ba7878c1'
             # archlinux patches
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
             'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
