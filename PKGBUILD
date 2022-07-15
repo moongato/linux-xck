@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.18.11
+pkgver=5.18.12
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -85,7 +85,7 @@ _ckhrtimer=linux-5.17.y
 _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
-_hwmon=hwmon-patches-v5
+_hwmon=hwmon-patches-v6
 _cachyos=cachyos-patches-v8
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
@@ -104,7 +104,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('e20d8e54a782f7079b22762e8ee8adec0d08351b1083553adb2d6885ad1815af'
+sha256sums=('40b74d0942f255da07481710e1083412d06e37e45b8f9d9e34ae856db37b9527'
             'SKIP'
             # config
             '5559d5e6bc49a894fc9923c080149923204334f28b621b3bf7c4abf622dc6f6a'
@@ -119,7 +119,7 @@ sha256sums=('e20d8e54a782f7079b22762e8ee8adec0d08351b1083553adb2d6885ad1815af'
             # bore scheduler
             '7a36fe0a53a644ade0ce85f08f9ca2ebaddd47876966b7cc9d4cae8844649271'
             # hwmon patch
-            'ad2af4150bd7633416103c70bccfc53b12d6c0ed91dc71b5874d09cbf5654b84'
+            '572e467da2b211dcf6f5a1744cf339293a80902099494cc2023e63803ef98bb1'
             # cachyos patch
             'f6e76690699064fda73cb005b5a794d4db30b1326f4a06ef5e4209be32a31461'
             # archlinux patches
