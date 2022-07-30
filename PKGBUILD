@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.18.14
+pkgver=5.18.15
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -96,12 +96,15 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-HID-apple-Properly-handle-function-keys-on-Keychron.patch
+  0003-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
+  0004-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
+  0005-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('e17d46451133d3a3099b09e200839e875100b48403171923ab71b6a9b39856af'
+sha256sums=('69804febdc388a69dfb64493b7b58d402853de3a14144ea8db7fd67c30dcbe3c'
             'SKIP'
             # config
             'e62d944830d4aec2b6b88b6582f6ef03d10a3a33815e90681e27fa6e692ce761'
@@ -119,6 +122,8 @@ sha256sums=('e17d46451133d3a3099b09e200839e875100b48403171923ab71b6a9b39856af'
             '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
             'c2f685a718fca6a089ceb4c7af3e7b1013a0b7815d2f2e068d85f5222365d0bb'
             '9838ec0a71938bd0a67c17937da6bbcff867b26430b284dfa8839dd3858866c0'
+            '0a6388cdf9a95f69bd34f993f96c98d8f71ca7ad4eb34df62b48b780ba4dbfeb'
+            '8be6da41037368544af73f5eeb1ad506f7d961a615cf8416c623251025d2f2aa'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
