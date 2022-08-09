@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.19
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -110,7 +110,7 @@ validpgpkeys=(
 sha256sums=('ff240c579b9ee1affc318917de07394fc1c3bb49dac25ec1287370c2e15005a8'
             'SKIP'
             # config
-            'e62d944830d4aec2b6b88b6582f6ef03d10a3a33815e90681e27fa6e692ce761'
+            'fe913724413beafbf284ab9a346a3b8cf3d9a7e33117a8e79fad48788afffac0'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
