@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.19
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -85,8 +85,7 @@ _ckhrtimer=linux-5.17.y
 _commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
 
 _gcc_more_v=20220315
-_hwmon=hwmon-patches-v6
-_cachyos=cachyos-patches-v8
+_xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -94,10 +93,8 @@ source=(
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
-  0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/sched/0001-bore.patch
-  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_hwmon/0001-hwmon-5.18-patches.patch
-  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.18/$_cachyos/0001-cachyos-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.19/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
   0003-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
@@ -117,14 +114,10 @@ sha256sums=('ff240c579b9ee1affc318917de07394fc1c3bb49dac25ec1287370c2e15005a8'
             'f8416c06df96cf997afc25e4359e09d01825113053d0ea1d0b2fe2d38207f4a7'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
-            # ondemand tweaks patch
-            '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # bore scheduler
             '0fe7f1698639df033709c6d32e651d378fc6e320dfc6387f8aee83d9ed0231a8'
-            # hwmon patch
-            #'572e467da2b211dcf6f5a1744cf339293a80902099494cc2023e63803ef98bb1'
-            # cachyos patch
-            #'f6e76690699064fda73cb005b5a794d4db30b1326f4a06ef5e4209be32a31461'
+            # xanmod patch
+            'b681ae28298254463b4972ddc2038912954e507b140dfb2d3b1cbc13176de641'
             # archlinux patches
             '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
             '12b757f5cdc6e56009a18df445ed0e9f0635edf1c34cec6bd1f9ff72a402184b'
