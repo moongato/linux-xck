@@ -126,10 +126,10 @@ sha256sums=('ff240c579b9ee1affc318917de07394fc1c3bb49dac25ec1287370c2e15005a8'
             # cachyos patch
             #'f6e76690699064fda73cb005b5a794d4db30b1326f4a06ef5e4209be32a31461'
             # archlinux patches
-            '6e718f9dd46f489f7299d2d6a4f78a29af7f0eadbfe6f5942d3b766b86a0bb64'
-            '9838ec0a71938bd0a67c17937da6bbcff867b26430b284dfa8839dd3858866c0'
-            '0a6388cdf9a95f69bd34f993f96c98d8f71ca7ad4eb34df62b48b780ba4dbfeb'
-            '8be6da41037368544af73f5eeb1ad506f7d961a615cf8416c623251025d2f2aa'
+            '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
+            '12b757f5cdc6e56009a18df445ed0e9f0635edf1c34cec6bd1f9ff72a402184b'
+            '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
+            '83e1a8e7e560fc6d8c4834371897df8bf6c9e5d29c6918b3cca3f62d381c862f'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
