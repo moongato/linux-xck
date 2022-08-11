@@ -99,6 +99,7 @@ source=(
   0002-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
   0003-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
   0004-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
+  0005-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -123,6 +124,7 @@ sha256sums=('f4e27b926ea2c66b808db1f5706254cf92a8899e2108eedb0c3a7d12499aea55'
             '12b757f5cdc6e56009a18df445ed0e9f0635edf1c34cec6bd1f9ff72a402184b'
             '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
             '83e1a8e7e560fc6d8c4834371897df8bf6c9e5d29c6918b3cca3f62d381c862f'
+            '2c2c72e5f72cf306d38f91869619c6f808b5f694341eeba398de1b0919bf755b'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
