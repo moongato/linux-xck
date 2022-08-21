@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19
+pkgver=5.19.2
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -81,51 +81,49 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-5.17.y
-_commit=5d3a0424bdbfdf2fc4cca389bf0f1ee4876e782d
+_ckhrtimer=linux-5.19.y
+_commit=9b792e6dc19ee6bd70e7c71f579f4d87ff929c60
 
 _gcc_more_v=20220315
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
+  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
   0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/sched/0001-bore.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-soundwire-Raise-DEFAULT_PROBE_TIMEOUT-to-10000-ms.patch
-  0003-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
-  0004-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
+  0002-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
+  0003-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
+  0004-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
+  0005-soundwire-intel-use-pm_runtime_resume-on-component-probe.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('ff240c579b9ee1affc318917de07394fc1c3bb49dac25ec1287370c2e15005a8'
+sha256sums=('48e40a1f5501ec6c40e3c86d3d5319200b688f2d9360f72833084d74801fe63d'
             'SKIP'
             # config
-            'fe913724413beafbf284ab9a346a3b8cf3d9a7e33117a8e79fad48788afffac0'
+            'b879d489b494854fb1f26b88f9597173162c58d3999983fcbbf0d988b63f6f1b'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
-            'f8416c06df96cf997afc25e4359e09d01825113053d0ea1d0b2fe2d38207f4a7'
+            '7037fa27b33666a3bd20c888c667efb218e95e45af8debe591896cc79fe69c76'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # ondemand tweaks patch
             '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # bore scheduler
             '0fe7f1698639df033709c6d32e651d378fc6e320dfc6387f8aee83d9ed0231a8'
-            # hwmon patch
-            #'572e467da2b211dcf6f5a1744cf339293a80902099494cc2023e63803ef98bb1'
-            # cachyos patch
-            #'f6e76690699064fda73cb005b5a794d4db30b1326f4a06ef5e4209be32a31461'
             # archlinux patches
             '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
-            '12b757f5cdc6e56009a18df445ed0e9f0635edf1c34cec6bd1f9ff72a402184b'
             '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
             '83e1a8e7e560fc6d8c4834371897df8bf6c9e5d29c6918b3cca3f62d381c862f'
+            '2c2c72e5f72cf306d38f91869619c6f808b5f694341eeba398de1b0919bf755b'
+            'd89ac12ab70a39f75f5b82569bbf39a888e7a5162e070e93386e1725a9b53ab0'
 )          
 
 export KBUILD_BUILD_HOST=archlinux
@@ -178,11 +176,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  #echo "Patching with ck hrtimer patches..."
+  echo "Patching with ck hrtimer patches..."
 
-  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-  #  patch -Np1 -i $i
-  #done
+  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+    patch -Np1 -i $i
+  done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
@@ -253,11 +251,7 @@ _package() {
   echo "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
-  #install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
-  #
-  # hard-coded path in case user defined CC=xxx for build which causes errors
-  # see this FS https://bugs.archlinux.org/task/64315
-  install -Dm644 arch/x86/boot/bzImage "$modulesdir/vmlinuz"
+  install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
 
   # Used by mkinitcpio to name the kernel
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
@@ -288,7 +282,7 @@ _package-headers() {
   install -Dt "$builddir/tools/objtool" tools/objtool/objtool
 
   # required when DEBUG_INFO_BTF_MODULES is enabled
-  #install -Dt "$builddir/tools/bpf/resolve_btfids" tools/bpf/resolve_btfids/resolve_btfids
+  install -Dt "$builddir/tools/bpf/resolve_btfids" tools/bpf/resolve_btfids/resolve_btfids
 
   echo "Installing headers..."
   cp -t "$builddir" -a include
@@ -344,8 +338,8 @@ _package-headers() {
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
 
-  echo "Stripping vmlinux..."
-  strip -v $STRIP_STATIC "$builddir/vmlinux"
+  #echo "Stripping vmlinux..."
+  #strip -v $STRIP_STATIC "$builddir/vmlinux"
   # not needed since not building with CONFIG_DEBUG_INFO=y
 
   echo "Adding symlink..."
