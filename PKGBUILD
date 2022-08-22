@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19.2
+pkgver=5.19.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -85,6 +85,7 @@ _ckhrtimer=linux-5.19.y
 _commit=9b792e6dc19ee6bd70e7c71f579f4d87ff929c60
 
 _gcc_more_v=20220315
+_xanmod=xanmod-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -92,8 +93,8 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
-  0000-ondemand-tweaks.patch
   https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/sched/0001-bore.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.19/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
   0003-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
@@ -104,20 +105,20 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('48e40a1f5501ec6c40e3c86d3d5319200b688f2d9360f72833084d74801fe63d'
+sha256sums=('513bd672066f5fb22e5739aae3eed60c75c4accc9ba365d1060c4e4225442721'
             'SKIP'
             # config
-            'b879d489b494854fb1f26b88f9597173162c58d3999983fcbbf0d988b63f6f1b'
+            '08a79b7deb5d3473acc1ffc61db929298cd13590459535b8678866f6e36d9c2d'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
             '7037fa27b33666a3bd20c888c667efb218e95e45af8debe591896cc79fe69c76'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
-            # ondemand tweaks patch
-            '9fa06f5e69332f0ab600d0b27734ade1b98a004123583c20a983bbb8529deb7b'
             # bore scheduler
             '0fe7f1698639df033709c6d32e651d378fc6e320dfc6387f8aee83d9ed0231a8'
+            # xanmod patch
+            '57ad5d4033da6121e5e5af53d036ea6b4aaf8e9f431c2a640b8f3f4dcb8989a1'
             # archlinux patches
             '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
             '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
