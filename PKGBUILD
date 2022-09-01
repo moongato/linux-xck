@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.19.6
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -93,7 +93,7 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
   0000-init-Kconfig-enable-O3-for-all-arches.patch
-  https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/sched/0001-bore.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.19/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
   0002-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
@@ -116,7 +116,7 @@ sha256sums=('41a4f824af614460c429a7c723e8dcbb0e042f0047d328c18b4ed6f2b4efa63a'
             # enable-O3
             'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # bore scheduler
-            '0fe7f1698639df033709c6d32e651d378fc6e320dfc6387f8aee83d9ed0231a8'
+            '9659b83b734788c7cecb39d15f3a273d007bfa95fc3ed1951dd92796533fdcb2'
             # xanmod patch
             '57ad5d4033da6121e5e5af53d036ea6b4aaf8e9f431c2a640b8f3f4dcb8989a1'
             # archlinux patches
