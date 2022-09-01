@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19.5
+pkgver=5.19.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -105,10 +105,10 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('8c3f1cc4f93e50056bb0a8c15a41a8eb6acc7fd71bff6de60b1ef8c4532537bd'
+sha256sums=('41a4f824af614460c429a7c723e8dcbb0e042f0047d328c18b4ed6f2b4efa63a'
             'SKIP'
             # config
-            'd012d6096c03fa467b2d5f19ae8473a78d732d657d653ef129b6a3f8171a2194'
+            'e8cce4baee9ca06398b2eb6edfb6b94fb7d0d33b1b805824c8fec0f8915c7d17'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
