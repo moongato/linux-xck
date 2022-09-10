@@ -129,10 +129,6 @@ sha256sums=('616308795a952a6a39b4c74807c33916850eb7166d8ed7c9a87a1ba55d7487ce'
             'e20dc87163a00679b7e3f38cf6b4cd91950169d58b38c48707a3d6d1263216f3'
 )          
 
-export KBUILD_BUILD_HOST=archlinux
-export KBUILD_BUILD_USER=$pkgbase
-export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
-
 prepare() {
   cd linux-${pkgver}
 
@@ -243,7 +239,7 @@ _package() {
   depends=(coreutils kmod initramfs)
   optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
-  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE KSMBD-MODULE)
   replaces=(virtualbox-guest-modules-arch wireguard-arch)
 
   cd linux-${pkgver}
@@ -341,8 +337,8 @@ _package-headers() {
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
 
-  #echo "Stripping vmlinux..."
-  #strip -v $STRIP_STATIC "$builddir/vmlinux"
+  echo "Stripping vmlinux..."
+  strip -v $STRIP_STATIC "$builddir/vmlinux"
   # not needed since not building with CONFIG_DEBUG_INFO=y
 
   echo "Adding symlink..."
