@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19.8
+pkgver=5.19.9
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -100,13 +100,14 @@ source=(
   0003-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
   0004-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
   0005-soundwire-intel-use-pm_runtime_resume-on-component-probe.patch
-  0006-ALSA-hda-Once-again-fix-regression-of-page-allocations-with-IOMMU.patch
+  0006-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
+  0007-ASoC-Intel-sof_sdw-add-support-for-Dell-SKU-0AFF.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('616308795a952a6a39b4c74807c33916850eb7166d8ed7c9a87a1ba55d7487ce'
+sha256sums=('0ad5b5986693adc1962be807bc3a64423a24b6a9da9df39b259d7e3bfd927f37'
             'SKIP'
             # config
             'e8cce4baee9ca06398b2eb6edfb6b94fb7d0d33b1b805824c8fec0f8915c7d17'
@@ -126,7 +127,8 @@ sha256sums=('616308795a952a6a39b4c74807c33916850eb7166d8ed7c9a87a1ba55d7487ce'
             '83e1a8e7e560fc6d8c4834371897df8bf6c9e5d29c6918b3cca3f62d381c862f'
             '2c2c72e5f72cf306d38f91869619c6f808b5f694341eeba398de1b0919bf755b'
             'd89ac12ab70a39f75f5b82569bbf39a888e7a5162e070e93386e1725a9b53ab0'
-            'e20dc87163a00679b7e3f38cf6b4cd91950169d58b38c48707a3d6d1263216f3'
+            '3531f1a98f37bf349e1282df77e42e902ad36a663a20e61d8a348125e531b22f'
+            'a9e4cdc86c0704f0a4adb760ea951e7312c0ae3c90e4a9ff04939dc8d8579d57'
 )          
 
 prepare() {
