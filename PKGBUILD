@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=5.19.9
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -86,7 +86,7 @@ _commit=9b792e6dc19ee6bd70e7c71f579f4d87ff929c60
 
 _gcc_more_v=20220315
 _bore=0001-bore1.4.31.2
-_xanmod=xanmod-patches-v2
+_xanmod=xanmod-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -122,7 +122,7 @@ sha256sums=('0ad5b5986693adc1962be807bc3a64423a24b6a9da9df39b259d7e3bfd927f37'
             # bore scheduler
             '99c591c4c8fb12f2ee15f2cf2c1c6399bc35c1fb794bf6f345bcfa61028d22b6'
             # xanmod patch
-            '57ad5d4033da6121e5e5af53d036ea6b4aaf8e9f431c2a640b8f3f4dcb8989a1'
+            'cbbad50e000f11ce9cb22bbd62bfecc43ba11cfbdcf052785b4c253cc14d02a0'
             # archlinux patches
             '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
             '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
