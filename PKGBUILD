@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19.9
-pkgrel=4
+pkgver=5.19.10
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -109,7 +109,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('0ad5b5986693adc1962be807bc3a64423a24b6a9da9df39b259d7e3bfd927f37'
+sha256sums=('67dab932e85f9b9062ced666c8ea888230a1dadfd624b05aead6b6ebc6d3bdd5'
             'SKIP'
             # config
             'e8cce4baee9ca06398b2eb6edfb6b94fb7d0d33b1b805824c8fec0f8915c7d17'
