@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19.11
+pkgver=5.19.12
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -104,15 +104,16 @@ source=(
   0005-soundwire-intel-use-pm_runtime_resume-on-component-probe.patch
   0006-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
   0007-ASoC-Intel-sof_sdw-add-support-for-Dell-SKU-0AFF.patch
+  0008-ACPI-processor-idle-Practically-limit-Dummy-wait-workaround.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('5554d2f90b806bb3454fcf3432882cf85077d660a89db5a4e8d7375271e3d973'
+sha256sums=('c436a548c7312ce6fc5a3472cbead895eef8f52841fbe7c71fd8e48bdfe2b0ba'
             'SKIP'
             # config
-            '9c4f2c378ffb5a23fbc5196e9582f5d8fe0427889091cb740228293f7401ae92'
+            '8a54274648ab9aaad2422ee5608c5aaa698b7878e7def0296fc07d4d4c6ae1d9'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -131,6 +132,7 @@ sha256sums=('5554d2f90b806bb3454fcf3432882cf85077d660a89db5a4e8d7375271e3d973'
             'd89ac12ab70a39f75f5b82569bbf39a888e7a5162e070e93386e1725a9b53ab0'
             '3531f1a98f37bf349e1282df77e42e902ad36a663a20e61d8a348125e531b22f'
             'a9e4cdc86c0704f0a4adb760ea951e7312c0ae3c90e4a9ff04939dc8d8579d57'
+            '44974c5e310c66ecdab263a172dfe6d417f61579f9f8a1792af22147f58116a7'
 )          
 
 prepare() {
