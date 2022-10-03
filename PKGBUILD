@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=5.19.12
-pkgrel=2
+pkgver=6.0
+pkgrel=0
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -86,31 +86,23 @@ _commit=9b792e6dc19ee6bd70e7c71f579f4d87ff929c60
 
 _gcc_more_v=20220315
 _bore=0001-linux5.17.y-bore1.5.32.3
-_xanmod=xanmod-patches-v3
+_xanmod=xanmod-patches
 source=(
-  "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
+  "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
-  0000-init-Kconfig-enable-O3-for-all-arches.patch
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore.patch
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/5.19/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
-  0002-drm-i915-psr-Use-full-update-In-case-of-area-calc.patch
-  0003-drm-i915-Ensure-damage-clip-area-is-within-pipe-area.patch
-  0004-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
-  0005-soundwire-intel-use-pm_runtime_resume-on-component-probe.patch
-  0006-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
-  0007-ASoC-Intel-sof_sdw-add-support-for-Dell-SKU-0AFF.patch
-  0008-ACPI-processor-idle-Practically-limit-Dummy-wait-workaround.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('c436a548c7312ce6fc5a3472cbead895eef8f52841fbe7c71fd8e48bdfe2b0ba'
+sha256sums=('5c2443a5538de52688efb55c27ab0539c1f5eb58c0cfd16a2b9fbb08fd81788e'
             'SKIP'
             # config
             '8a54274648ab9aaad2422ee5608c5aaa698b7878e7def0296fc07d4d4c6ae1d9'
@@ -118,21 +110,12 @@ sha256sums=('c436a548c7312ce6fc5a3472cbead895eef8f52841fbe7c71fd8e48bdfe2b0ba'
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
             '7037fa27b33666a3bd20c888c667efb218e95e45af8debe591896cc79fe69c76'
-            # enable-O3
-            'de912c6d0de05187fd0ecb0da67326bfde5ec08f1007bea85e1de732e5a62619'
             # bore scheduler
             'c9e0b6b1d2fd2d66809810bb013469d6654cbc348a7419a1e2ee76eaa78ca52d'
             # xanmod patch
-            'cbbad50e000f11ce9cb22bbd62bfecc43ba11cfbdcf052785b4c253cc14d02a0'
+            '4d595deecb0475ca4d2340c2784789a61fb2b6ac0b4652a0901b6a63a93cbfe8'
             # archlinux patches
             '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
-            '0a7b41eee75756f81d3085f1a7ed931b80b7058dc70bad698ea49f6a7d6ef9c2'
-            '83e1a8e7e560fc6d8c4834371897df8bf6c9e5d29c6918b3cca3f62d381c862f'
-            '2c2c72e5f72cf306d38f91869619c6f808b5f694341eeba398de1b0919bf755b'
-            'd89ac12ab70a39f75f5b82569bbf39a888e7a5162e070e93386e1725a9b53ab0'
-            '3531f1a98f37bf349e1282df77e42e902ad36a663a20e61d8a348125e531b22f'
-            'a9e4cdc86c0704f0a4adb760ea951e7312c0ae3c90e4a9ff04939dc8d8579d57'
-            '44974c5e310c66ecdab263a172dfe6d417f61579f9f8a1792af22147f58116a7'
 )          
 
 prepare() {
