@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -96,7 +96,9 @@ source=(
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore.patch
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
-  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-CLONE.patch
+  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
+  0002-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
+  0003-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -105,7 +107,7 @@ validpgpkeys=(
 sha256sums=('5c2443a5538de52688efb55c27ab0539c1f5eb58c0cfd16a2b9fbb08fd81788e'
             'SKIP'
             # config
-            '8a54274648ab9aaad2422ee5608c5aaa698b7878e7def0296fc07d4d4c6ae1d9'
+            '688af436bbfa75cc7d44a7210854605eb1f11bb382e006eaaf9ac0da5d3163a4'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -115,7 +117,9 @@ sha256sums=('5c2443a5538de52688efb55c27ab0539c1f5eb58c0cfd16a2b9fbb08fd81788e'
             # xanmod patch
             '4d595deecb0475ca4d2340c2784789a61fb2b6ac0b4652a0901b6a63a93cbfe8'
             # archlinux patches
-            '1e07df6fc7ff69ad5052185af2b4a284ab871ea672460d2ee0b29d6547a4087e'
+            'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
+            'f9b8a99b076396277f5acbfdca9d088bcbe84b0f649c4fc7cfa4d3530985b2be'
+            '46d07dac0448ee5d4a08130587d891cc46de2279746caf30dfffda36946d7f92' 
 )          
 
 prepare() {
