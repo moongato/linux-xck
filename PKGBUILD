@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -85,15 +85,15 @@ _ckhrtimer=linux-5.19.y
 _commit=9b792e6dc19ee6bd70e7c71f579f4d87ff929c60
 
 _gcc_more_v=20220315
-_bore=0001-linux5.17.y-bore1.5.32.3
-_xanmod=xanmod-patches
+_bore=0001-linux6.0-bore1.5.33.2.patch
+_xanmod=xanmod-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
-  https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore.patch
+  https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
@@ -113,9 +113,9 @@ sha256sums=('5c2443a5538de52688efb55c27ab0539c1f5eb58c0cfd16a2b9fbb08fd81788e'
             # hrtimers patch
             '7037fa27b33666a3bd20c888c667efb218e95e45af8debe591896cc79fe69c76'
             # bore scheduler
-            'c9e0b6b1d2fd2d66809810bb013469d6654cbc348a7419a1e2ee76eaa78ca52d'
+            'e40b068df12c2316b9040230e56725281be9989096830e1bd5ea837acffe7ceb'
             # xanmod patch
-            '4d595deecb0475ca4d2340c2784789a61fb2b6ac0b4652a0901b6a63a93cbfe8'
+            'ca6d16b6dcf8c6385a87a3c25176e3c00f4a730634a5daa3b2ed7ad9b62758ff'
             # archlinux patches
             'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
             'f9b8a99b076396277f5acbfdca9d088bcbe84b0f649c4fc7cfa4d3530985b2be'
