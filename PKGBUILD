@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -81,8 +81,8 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-5.19.y
-_commit=9b792e6dc19ee6bd70e7c71f579f4d87ff929c60
+_ckhrtimer=linux-6.0.y
+_commit=5be918e798e2c2cc94fa7dd0f6f031921a4f7598
 
 _gcc_more_v=20220315
 _bore=0001-linux6.0-bore1.5.33.2.patch
@@ -111,7 +111,7 @@ sha256sums=('5c2443a5538de52688efb55c27ab0539c1f5eb58c0cfd16a2b9fbb08fd81788e'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
-            '7037fa27b33666a3bd20c888c667efb218e95e45af8debe591896cc79fe69c76'
+            '85b197dbe033264925b4803b3c8907ed73b967061c098e269eacd5575d6da34b'
             # bore scheduler
             'e40b068df12c2316b9040230e56725281be9989096830e1bd5ea837acffe7ceb'
             # xanmod patch
