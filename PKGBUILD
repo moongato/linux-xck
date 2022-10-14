@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -86,7 +86,7 @@ _commit=5be918e798e2c2cc94fa7dd0f6f031921a4f7598
 
 _gcc_more_v=20220315
 _bore=0001-linux6.0-bore1.5.33.3.patch
-_xanmod=xanmod-patches-v2
+_xanmod=xanmod-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
@@ -107,7 +107,7 @@ validpgpkeys=(
 sha256sums=('8ede745a69351ea0f27fe0c48780d4efa37ff086135e129358ce09694957e8f9'
             'SKIP'
             # config
-            '9ecebc6b3c5f7ac69e589fbb021b4f9d4beb894d1d3287163242700d9adfaa44'
+            'e26fd2caee30ea74c16013c040875a0359b6b3e4c76749fb7ba693d1031ac19d'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -115,7 +115,7 @@ sha256sums=('8ede745a69351ea0f27fe0c48780d4efa37ff086135e129358ce09694957e8f9'
             # bore scheduler
             '68dbd814075f70ef0bdd20f153ef7d3162d75033cf0ab43ab10b3eb1c10df547'
             # xanmod patch
-            'ca6d16b6dcf8c6385a87a3c25176e3c00f4a730634a5daa3b2ed7ad9b62758ff'
+            'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
             # archlinux patches
             'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
             'f9b8a99b076396277f5acbfdca9d088bcbe84b0f649c4fc7cfa4d3530985b2be'
