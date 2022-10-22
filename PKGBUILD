@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0.3
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -104,6 +104,7 @@ source=(
   0006-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
   0007-drm-amdgpu-Fix-VRAM-BO-swap-issue.patch
   0008-drm-amdgpu-Fix-for-BO-move-issue.patch
+  0009-Revert-ALSA-hda-Fix-page-fault-in-snd_hda_codec_shutdown.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -129,7 +130,8 @@ sha256sums=('b0d522241805794d8af3a67d331ba063a16496c6fb6d365d48f7ed78ee1c3dcf'
             '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
             '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
             'adf1d75a8094c572a6b48bedf013e010851379ded8ba4e31895d4099e833067f'
-            '232ed297c6535e90f51e02449de236297bb2df6d3d159a8cfb78eccb08e68dbe'  
+            '232ed297c6535e90f51e02449de236297bb2df6d3d159a8cfb78eccb08e68dbe'
+            '81fb09ade92448aa708baef474061f9a7e7144f3c2d83a5b4ce6d483aa2676e4'
 )          
 
 prepare() {
