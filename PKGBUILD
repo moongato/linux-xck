@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.0.3
-pkgrel=2
+pkgver=6.0.5
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -98,22 +98,20 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
-  0003-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
-  0004-soundwire-intel-Initialize-clock-stop-timeout.patch
-  0005-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
-  0006-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
-  0007-drm-amdgpu-Fix-VRAM-BO-swap-issue.patch
-  0008-drm-amdgpu-Fix-for-BO-move-issue.patch
-  0009-Revert-ALSA-hda-Fix-page-fault-in-snd_hda_codec_shutdown.patch
+  0003-soundwire-intel-Initialize-clock-stop-timeout.patch
+  0004-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
+  0005-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
+  0006-drm-amdgpu-Fix-VRAM-BO-swap-issue.patch
+  0007-drm-amdgpu-Fix-for-BO-move-issue.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('b0d522241805794d8af3a67d331ba063a16496c6fb6d365d48f7ed78ee1c3dcf'
+sha256sums=('61332ef22b53c50c10faabfb965896a7d1ad4f3381f0f89643c820f28a60418e'
             'SKIP'
             # config
-            '0b010f418558f0a0eb78f92be977002c9acf5a0d04a52a6ae2fc2cbfa63775d2'
+            '581309f0809b3ae329f120f68c4a36d838379a08490a8ffc0be6642a4c9bd1fe'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -125,13 +123,11 @@ sha256sums=('b0d522241805794d8af3a67d331ba063a16496c6fb6d365d48f7ed78ee1c3dcf'
             # archlinux patches
             'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
             'f9b8a99b076396277f5acbfdca9d088bcbe84b0f649c4fc7cfa4d3530985b2be'
-            '46d07dac0448ee5d4a08130587d891cc46de2279746caf30dfffda36946d7f92'
             '6c84ff721c3ef0561f532c92cf0096d9adb7e12414bc1fc80b0824e47a863213'
             '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
             '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
             'adf1d75a8094c572a6b48bedf013e010851379ded8ba4e31895d4099e833067f'
-            '232ed297c6535e90f51e02449de236297bb2df6d3d159a8cfb78eccb08e68dbe'
-            '81fb09ade92448aa708baef474061f9a7e7144f3c2d83a5b4ce6d483aa2676e4'
+            '232ed297c6535e90f51e02449de236297bb2df6d3d159a8cfb78eccb08e68dbe'  
 )          
 
 prepare() {
