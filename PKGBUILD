@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.0.6
+pkgver=6.0.7
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -101,14 +101,12 @@ source=(
   0003-soundwire-intel-Initialize-clock-stop-timeout.patch
   0004-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
   0005-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
-  0006-drm-amdgpu-Fix-VRAM-BO-swap-issue.patch
-  0007-drm-amdgpu-Fix-for-BO-move-issue.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('864b05af2d869ba73d61a9c5959e4531a141ab2bd7b217483671f625f9747faa'
+sha256sums=('67dacc2b78605a56e997f4c08d009be87c98ec66f1870220226c8b3cc676590f'
             'SKIP'
             # config
             '581309f0809b3ae329f120f68c4a36d838379a08490a8ffc0be6642a4c9bd1fe'
@@ -126,8 +124,6 @@ sha256sums=('864b05af2d869ba73d61a9c5959e4531a141ab2bd7b217483671f625f9747faa'
             '6c84ff721c3ef0561f532c92cf0096d9adb7e12414bc1fc80b0824e47a863213'
             '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
             '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
-            'adf1d75a8094c572a6b48bedf013e010851379ded8ba4e31895d4099e833067f'
-            '232ed297c6535e90f51e02449de236297bb2df6d3d159a8cfb78eccb08e68dbe'  
 )          
 
 prepare() {
