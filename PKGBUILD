@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0.7
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -85,7 +85,7 @@ _ckhrtimer=linux-6.0.y
 _commit=5be918e798e2c2cc94fa7dd0f6f031921a4f7598
 
 _gcc_more_v=20220315
-_bore=0001-linux6.0.y-bore1.5.33.4.patch
+_bore=0001-linux6.0.y-bore1.6.34.0.patch
 _xanmod=xanmod-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -95,7 +95,7 @@ source=(
   #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
-  https://github.com/firelzrd/bore-scheduler/raw/main/bore/fixed-latency-granularity-tweaks/0001-Scheduler-fixed-latency-granularity-tweaks.patch
+  https://github.com/firelzrd/bore-scheduler/raw/main/bore/fixed-latency-granularity-tweaks/0001-sched-Make-latency-granularity-constant.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
@@ -116,8 +116,8 @@ sha256sums=('67dacc2b78605a56e997f4c08d009be87c98ec66f1870220226c8b3cc676590f'
             # hrtimers patch
             '85b197dbe033264925b4803b3c8907ed73b967061c098e269eacd5575d6da34b'
             # bore scheduler
-            'c23f7e429185458c8751d1454ef149c084e8ba24b70146291223e676ee9b4d2c'
-            '45f9a3e1f8a8d0cda5ae08ceaa45402bfa65959d41cb5d6305cbf12ad8895405'
+            '1a986748cac94692316fe38ad6d3e877adf66519f99c5597067d91df094609b1'
+            '76942794f7617e9f0146ee0dd1d2794f8a3f6e8cf54aae7df1d8be8ea79077e8'
             # xanmod patch
             'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
             # archlinux patches
@@ -126,7 +126,7 @@ sha256sums=('67dacc2b78605a56e997f4c08d009be87c98ec66f1870220226c8b3cc676590f'
             '6c84ff721c3ef0561f532c92cf0096d9adb7e12414bc1fc80b0824e47a863213'
             '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
             '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
-)          
+)      
 
 prepare() {
   cd linux-${pkgver}
