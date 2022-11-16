@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.0.8
+pkgver=6.0.9
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -94,6 +94,7 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
+  https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/0001-bore1.6.34.0_1.6.34.3.patch
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
   #https://github.com/firelzrd/bore-scheduler/raw/main/bore/fixed-latency-granularity-tweaks/0001-sched-Make-latency-granularity-constant.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
@@ -102,13 +103,12 @@ source=(
   0003-soundwire-intel-Initialize-clock-stop-timeout.patch
   0004-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
   0005-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
-  0006-drm-amdgpu-Fix-the-lpfn-checking-condition-in-drm-buddy.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('0de4f83996951c6faf9b2225db4f645882c47b1a09198190f97bd46e5f5fa257'
+sha256sums=('6114a208e82739b4a1ab059ace35262be2a83be34cd1ae23cb8a09337db831c7'
             'SKIP'
             # config
             '581309f0809b3ae329f120f68c4a36d838379a08490a8ffc0be6642a4c9bd1fe'
@@ -118,7 +118,7 @@ sha256sums=('0de4f83996951c6faf9b2225db4f645882c47b1a09198190f97bd46e5f5fa257'
             '85b197dbe033264925b4803b3c8907ed73b967061c098e269eacd5575d6da34b'
             # bore scheduler
             '1a986748cac94692316fe38ad6d3e877adf66519f99c5597067d91df094609b1'
-            #'76942794f7617e9f0146ee0dd1d2794f8a3f6e8cf54aae7df1d8be8ea79077e8'
+            'da9be565a51dd643a1ee88ab1671713c8491bb4b9999fbf09390da4833fd6a89'
             # xanmod patch
             'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
             # archlinux patches
@@ -127,7 +127,6 @@ sha256sums=('0de4f83996951c6faf9b2225db4f645882c47b1a09198190f97bd46e5f5fa257'
             '6c84ff721c3ef0561f532c92cf0096d9adb7e12414bc1fc80b0824e47a863213'
             '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
             '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
-            '05d9727d4bfad413c66e2adcd8a299a0ae605394afbf62d7be6fc76fbe4d6a9d'
 )      
 
 prepare() {
@@ -326,7 +325,7 @@ _package-headers() {
   echo "Stripping build tools..."
   local file
   while read -rd '' file; do
-    case "$(file -bi "$file")" in
+    case "$(file -Sib "$file")" in
       application/x-sharedlib\;*)      # Libraries (.so)
         strip -v $STRIP_SHARED "$file" ;;
       application/x-archive\;*)        # Libraries (.a)
