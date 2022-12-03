@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.0.10
-pkgrel=2
+pkgver=6.0.11
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -98,19 +98,19 @@ source=(
   #https://github.com/firelzrd/bore-scheduler/raw/main/bore/fixed-latency-granularity-tweaks/0001-sched-Make-latency-granularity-constant.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-mm-vmscan-fix-extreme-overreclaim-and-swap-floods.patch
-  0003-soundwire-intel-Initialize-clock-stop-timeout.patch
-  0004-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
-  0005-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
+  0002-soundwire-intel-Initialize-clock-stop-timeout.patch
+  0003-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
+  0004-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
+  0005-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('39e57fcd84cd70bfa3e1a4185d3aa0ed7f1432f24c6548d16326b0c3c9541dd0'
+sha256sums=('2bae6131e64971e1e34ff395fa542971134c857bdb0b29069ab847c7c9a9c762'
             'SKIP'
             # config
-            '7f0e135345da1bfed7211f1739334448673b838926c43205f4273633cb6c1d22'
+            '188774ba2986a3cf8211b92239121c140ea53b51bd4dbf1a3856c742a857a76b'
             # gcc patch
             '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
             # hrtimers patch
@@ -121,10 +121,10 @@ sha256sums=('39e57fcd84cd70bfa3e1a4185d3aa0ed7f1432f24c6548d16326b0c3c9541dd0'
             'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
             # archlinux patches
             'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
-            'f9b8a99b076396277f5acbfdca9d088bcbe84b0f649c4fc7cfa4d3530985b2be'
-            '6c84ff721c3ef0561f532c92cf0096d9adb7e12414bc1fc80b0824e47a863213'
+            'c010cd638bdd9b139c5b343bb029927586456bee533f23e5339a4c30599cadab'
             '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
             '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
+            '84c2015fc2c1d5ba0e736ca1180a5b76b15338c92b812b78cec823c95cd5c069'
 )      
 
 prepare() {
