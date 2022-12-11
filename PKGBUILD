@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.0.12
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -84,7 +84,7 @@ options=('!strip')
 _ckhrtimer=linux-6.0.y
 _commit=5be918e798e2c2cc94fa7dd0f6f031921a4f7598
 
-_gcc_more_v=20220315
+_gcc_more_v=20221104
 _bore=0001-linux6.0.9-bore1.7.3.patch
 _xanmod=xanmod-patches-v3
 source=(
@@ -97,6 +97,7 @@ source=(
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
   #https://github.com/firelzrd/bore-scheduler/raw/main/bore/fixed-latency-granularity-tweaks/0001-sched-Make-latency-granularity-constant.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-soundwire-intel-Initialize-clock-stop-timeout.patch
   0003-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
@@ -112,13 +113,15 @@ sha256sums=('89b730edf8942b49e02f9894244205886c9a214d629b35b88c4ff06ee9304f01'
             # config
             '188774ba2986a3cf8211b92239121c140ea53b51bd4dbf1a3856c742a857a76b'
             # gcc patch
-            '5a29d172d442a3f31a402d7d306aaa292b0b5ea29139d05080a55e2425f48c5c'
+            '3a8f397b89bad95c46f42c0f80ede7536a4a45a28621e00ed486918a55f905ed'
             # hrtimers patch
             '85b197dbe033264925b4803b3c8907ed73b967061c098e269eacd5575d6da34b'
             # bore scheduler
             '66b8a02c8b5015d4d1f777d5353dfa2e02e41f18978ac2b34c6622a60ad07b2c'
             # xanmod patch
             'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
+            # -O3
+            '379899f326edfdfc92acbddcca08e057eccad2f8e0d804d0592d897d8c95fa0f'
             # archlinux patches
             'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
             'c010cd638bdd9b139c5b343bb029927586456bee533f23e5339a4c30599cadab'
@@ -337,7 +340,6 @@ _package-headers() {
 
   echo "Stripping vmlinux..."
   strip -v $STRIP_STATIC "$builddir/vmlinux"
-  # not needed since not building with CONFIG_DEBUG_INFO=y
 
   echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/src"
