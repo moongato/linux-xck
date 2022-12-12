@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.0.12
-pkgrel=2
+pkgver=6.1
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -91,43 +91,34 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  #https://raw.githubusercontent.com/ptr1337/kernel-patches/master/5.19/misc/0001-ck-hrtimer.patch
+  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
-  #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/5.19/sched/0001-bore.patch
-  #https://github.com/firelzrd/bore-scheduler/raw/main/bore/fixed-latency-granularity-tweaks/0001-sched-Make-latency-granularity-constant.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
+  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1-rc/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-soundwire-intel-Initialize-clock-stop-timeout.patch
-  0003-drm-sched-add-DRM_SCHED_FENCE_DONT_PIPELINE-flag.patch
-  0004-drm-amdgpu-use-DRM_SCHED_FENCE_DONT_PIPELINE-for-VM-updates.patch
-  0005-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
+  0002-drm-i915-improve-the-catch-all-evict-to-handle-lock-content.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('89b730edf8942b49e02f9894244205886c9a214d629b35b88c4ff06ee9304f01'
+sha256sums=('2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb'
             'SKIP'
             # config
-            '188774ba2986a3cf8211b92239121c140ea53b51bd4dbf1a3856c742a857a76b'
+            'f40ce8eda65ac65cd2c511ffed05e27538e0cecd6b32794b7c6d6ade8032b40c'
             # gcc patch
             '3a8f397b89bad95c46f42c0f80ede7536a4a45a28621e00ed486918a55f905ed'
             # hrtimers patch
-            '85b197dbe033264925b4803b3c8907ed73b967061c098e269eacd5575d6da34b'
+            #'85b197dbe033264925b4803b3c8907ed73b967061c098e269eacd5575d6da34b'
             # bore scheduler
             '66b8a02c8b5015d4d1f777d5353dfa2e02e41f18978ac2b34c6622a60ad07b2c'
             # xanmod patch
-            'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
+            #'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
             # -O3
-            '379899f326edfdfc92acbddcca08e057eccad2f8e0d804d0592d897d8c95fa0f'
+            '8c54c57458c1d7ce1830f15b2359b2725410b4b490f0dd38b3b3128c2b595949'
             # archlinux patches
-            'e0369140233d9b0b5be3c8b34f0eee758123c2c997d5bb66876ec76ec36aec72'
-            'c010cd638bdd9b139c5b343bb029927586456bee533f23e5339a4c30599cadab'
-            '5746fc4d850fa05994fe20b436586017ad2270261cdb739a10937796cf65f35d'
-            '7bc0a5aa10af57d3f68157afdb1d1ba252c59582180dbb5d02acb5c334e74d0b'
-            '84c2015fc2c1d5ba0e736ca1180a5b76b15338c92b812b78cec823c95cd5c069'
+            '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
+            'a5a482a4d715f4d11a00f898de520effa01cce31faadd98b02cf10006a4ac8be'
 )      
 
 prepare() {
@@ -176,11 +167,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
