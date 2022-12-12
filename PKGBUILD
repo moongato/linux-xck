@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -86,15 +86,15 @@ _commit=5be918e798e2c2cc94fa7dd0f6f031921a4f7598
 
 _gcc_more_v=20221104
 _bore=0001-linux6.0.9-bore1.7.3.patch
-_xanmod=xanmod-patches-v3
+_xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
-  #https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.0/$_xanmod/0001-xanmod-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1-rc/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drm-i915-improve-the-catch-all-evict-to-handle-lock-content.patch
 )
@@ -113,9 +113,9 @@ sha256sums=('2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb'
             # bore scheduler
             '66b8a02c8b5015d4d1f777d5353dfa2e02e41f18978ac2b34c6622a60ad07b2c'
             # xanmod patch
-            #'e7c0b53fc9c672595c9af6f3dbaf502ff84b91ef7544de6857f7b6a2a2518afd'
+            '9aaa8d7bd1d9f5e24dd77f49ee091b83ac17f01c3ea1c4da968e9ca874f7544d'
             # -O3
-            '8c54c57458c1d7ce1830f15b2359b2725410b4b490f0dd38b3b3128c2b595949'
+            '3aab9ae4ad4fcf5fc4d66ba67793bb979c1d60d8cace8aa85fbc3205ea5a143a'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
             'a5a482a4d715f4d11a00f898de520effa01cce31faadd98b02cf10006a4ac8be'
