@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1
-pkgrel=4
+pkgver=6.1.1
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -97,12 +97,13 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
+  0003-futex-Resend-potentially-swallowed-owner-death-notification.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb'
+sha256sums=('a3e61377cf4435a9e2966b409a37a1056f6aaa59e561add9125a88e3c0971dfb'
             'SKIP'
             # config
             'f40ce8eda65ac65cd2c511ffed05e27538e0cecd6b32794b7c6d6ade8032b40c'
@@ -119,6 +120,7 @@ sha256sums=('2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
             'a5a482a4d715f4d11a00f898de520effa01cce31faadd98b02cf10006a4ac8be'
+            '51ed06554304dff7398903dffff3d6908cfd25987afaa98b96d69f34b1a44b23' 
 )
 
 prepare() {
