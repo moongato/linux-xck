@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1.3
+pkgver=6.1.4
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -96,13 +96,13 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
+  0002-docs-Fix-the-docs-build-with-Sphinx-6.0.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('6dc89ae7a7513e433c597c7346ed7ff4bfd115ea43a3b5e27a6bdb38c5580317'
+sha256sums=('8aa8f64fa60bb13381a9608d1fefbdd0555e2a70c40b2c7d0671b0d64aa4559e'
             'SKIP'
             # config
             'f40ce8eda65ac65cd2c511ffed05e27538e0cecd6b32794b7c6d6ade8032b40c'
@@ -118,7 +118,7 @@ sha256sums=('6dc89ae7a7513e433c597c7346ed7ff4bfd115ea43a3b5e27a6bdb38c5580317'
             '3aab9ae4ad4fcf5fc4d66ba67793bb979c1d60d8cace8aa85fbc3205ea5a143a'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
-            'a5a482a4d715f4d11a00f898de520effa01cce31faadd98b02cf10006a4ac8be'
+            '1fb0133997b91d855bdd42a9f07f4f820c712fb62131b2938b5ca9b1f7103447'
 )
 
 prepare() {
