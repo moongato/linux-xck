@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1.5
+pkgver=6.1.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -97,15 +97,17 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-docs-Fix-the-docs-build-with-Sphinx-6.0.patch
+  0003-Revert-drm-display-dp_mst-Move-all-payload-info-into-the-atomic.patch
+  0004-netfilter-nft_payload-incorrect-arithmetics-when-fetching-VLAN.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('bc7f6d9a8a8bbe9a723e82346bba94b58d926f78bfba106b21e041e0290076fc'
+sha256sums=('3e4d8e561da5703a205ae8d7b2bed6c5c64fc4299eebcbfd20481e63b57d5ee3'
             'SKIP'
             # config
-            'f40ce8eda65ac65cd2c511ffed05e27538e0cecd6b32794b7c6d6ade8032b40c'
+            '9102dd7ebb9d3ce791f6ae50879eb867ae31b642a981f38017711c564cee5c4c'
             # gcc patch
             '3a8f397b89bad95c46f42c0f80ede7536a4a45a28621e00ed486918a55f905ed'
             # hrtimers patch
@@ -119,6 +121,8 @@ sha256sums=('bc7f6d9a8a8bbe9a723e82346bba94b58d926f78bfba106b21e041e0290076fc'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
             '1fb0133997b91d855bdd42a9f07f4f820c712fb62131b2938b5ca9b1f7103447'
+            '235469190321e070e3431061c51b4716614cc715d8a935cfbd22fb1f947a8e15'
+            'e848a3fb645b009cf6298f3ecb10fce6f2cb99e2b599fde4c9dc084269efb257'
 )
 
 prepare() {
