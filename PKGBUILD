@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1.6
-pkgrel=2
+pkgver=6.1.7
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -96,15 +96,15 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-docs-Fix-the-docs-build-with-Sphinx-6.0.patch
-  0003-Revert-drm-display-dp_mst-Move-all-payload-info-into-the-atomic.patch
-  0004-netfilter-nft_payload-incorrect-arithmetics-when-fetching-VLAN.patch
+  0002-Revert-drm-display-dp_mst-Move-all-payload-info-into-the-atomic.patch
+  0003-btrfs-fix-invalid-leaf-access-due-to-inline-extent-during-lseek.patch
+  0004-wifi-mac80211-fix-initialization-of-rx-link-and-rx-link_sta.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('3e4d8e561da5703a205ae8d7b2bed6c5c64fc4299eebcbfd20481e63b57d5ee3'
+sha256sums=('4ab048bad2e7380d3b827f1fad5ad2d2fc4f2e80e1c604d85d1f8781debe600f'
             'SKIP'
             # config
             '9102dd7ebb9d3ce791f6ae50879eb867ae31b642a981f38017711c564cee5c4c'
@@ -120,9 +120,9 @@ sha256sums=('3e4d8e561da5703a205ae8d7b2bed6c5c64fc4299eebcbfd20481e63b57d5ee3'
             '3aab9ae4ad4fcf5fc4d66ba67793bb979c1d60d8cace8aa85fbc3205ea5a143a'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
-            '1fb0133997b91d855bdd42a9f07f4f820c712fb62131b2938b5ca9b1f7103447'
             '235469190321e070e3431061c51b4716614cc715d8a935cfbd22fb1f947a8e15'
-            'e848a3fb645b009cf6298f3ecb10fce6f2cb99e2b599fde4c9dc084269efb257'
+            '730397d28e20b6d0b07359b6a776e64ae6ae1925f1aefc98e1632b08c701652a'
+            '6e4e178f99a939bdcb7ad7536ad224e7cbbc591cf303b15ea69d7b0bd46fc87e'
 )
 
 prepare() {
