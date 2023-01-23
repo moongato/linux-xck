@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.1.7
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -85,7 +85,7 @@ _ckhrtimer=linux-6.1.y
 _commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
 _gcc_more_v=20221104
-_bore=0001-linux6.0.y-bore1.7.7.patch
+_bore=0001-linux6.0.y-bore1.7.8.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -113,7 +113,7 @@ sha256sums=('4ab048bad2e7380d3b827f1fad5ad2d2fc4f2e80e1c604d85d1f8781debe600f'
             # hrtimers patch
             '6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
-            '32f0ae846ba6945caa8283362707185b1a1d48a9d269cb7ecab389a9cc77e67d'
+            '014312ffd79d595924e1553f2d93d589fd07ae2af9f8d931eae3804c3816c257'
             # xanmod patch
             '9aaa8d7bd1d9f5e24dd77f49ee091b83ac17f01c3ea1c4da968e9ca874f7544d'
             # -O3
