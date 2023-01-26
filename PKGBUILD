@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1.7
+pkgver=6.1.8
 pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -85,7 +85,7 @@ _ckhrtimer=linux-6.1.y
 _commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
 _gcc_more_v=20221104
-_bore=0001-linux6.0.y-bore1.7.8.patch
+_bore=0001-linux6.0.y-bore1.7.9.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -97,14 +97,13 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-Revert-drm-display-dp_mst-Move-all-payload-info-into-the-atomic.patch
-  0003-btrfs-fix-invalid-leaf-access-due-to-inline-extent-during-lseek.patch
-  0004-wifi-mac80211-fix-initialization-of-rx-link-and-rx-link_sta.patch
+  0003-drm-amdgpu-display-mst-update-mst_mgr-relevant-variable-when.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('4ab048bad2e7380d3b827f1fad5ad2d2fc4f2e80e1c604d85d1f8781debe600f'
+sha256sums=('b60bb53ab8ba370a270454b11e93d41af29126fc72bd6ede517673e2e57b816d'
             'SKIP'
             # config
             '9102dd7ebb9d3ce791f6ae50879eb867ae31b642a981f38017711c564cee5c4c'
@@ -113,7 +112,7 @@ sha256sums=('4ab048bad2e7380d3b827f1fad5ad2d2fc4f2e80e1c604d85d1f8781debe600f'
             # hrtimers patch
             '6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
-            '014312ffd79d595924e1553f2d93d589fd07ae2af9f8d931eae3804c3816c257'
+            '7c9963bb516822ab6cf1ad72a0946d8e4d8e04446565e0ca20a424507847b9a0'
             # xanmod patch
             '9aaa8d7bd1d9f5e24dd77f49ee091b83ac17f01c3ea1c4da968e9ca874f7544d'
             # -O3
@@ -121,8 +120,7 @@ sha256sums=('4ab048bad2e7380d3b827f1fad5ad2d2fc4f2e80e1c604d85d1f8781debe600f'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
             '235469190321e070e3431061c51b4716614cc715d8a935cfbd22fb1f947a8e15'
-            '730397d28e20b6d0b07359b6a776e64ae6ae1925f1aefc98e1632b08c701652a'
-            '6e4e178f99a939bdcb7ad7536ad224e7cbbc591cf303b15ea69d7b0bd46fc87e'
+            '3110bc99e2ea702e9bf102f9bcf8c0d1bf66f1c7eabba7972a14f51ef2427988'
 )
 
 prepare() {
