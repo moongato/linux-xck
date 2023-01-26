@@ -69,12 +69,12 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.1.8
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(
-  bc libelf        cpio perl tar xz
+  bc libelf pahole cpio perl tar xz
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
@@ -84,7 +84,7 @@ options=('!strip')
 _ckhrtimer=linux-6.1.y
 _commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
-_gcc_more_v=20221104
+_gcc_more_v=20221217
 _bore=0001-linux6.0.y-bore1.7.9.patch
 _xanmod=xanmod-patches
 source=(
@@ -96,8 +96,12 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-Revert-drm-display-dp_mst-Move-all-payload-info-into-the-atomic.patch
-  0003-drm-amdgpu-display-mst-update-mst_mgr-relevant-variable-when.patch
+  0002-Revert-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
+  0003-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
+  0004-drm-amdgpu-display-mst-Fix-mst_state-pbn_div-and-slot-count.patch
+  0005-drm-amdgpu-display-mst-limit-payload-to-be-updated-one-by.patch
+  0006-drm-amdgpu-display-mst-update-mst_mgr-relevant-variable-when.patch
+  0007-drm-display-dp_mst-Correct-the-kref-of-port.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -108,7 +112,7 @@ sha256sums=('b60bb53ab8ba370a270454b11e93d41af29126fc72bd6ede517673e2e57b816d'
             # config
             '9102dd7ebb9d3ce791f6ae50879eb867ae31b642a981f38017711c564cee5c4c'
             # gcc patch
-            '3a8f397b89bad95c46f42c0f80ede7536a4a45a28621e00ed486918a55f905ed'
+            'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
             '6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
@@ -119,8 +123,12 @@ sha256sums=('b60bb53ab8ba370a270454b11e93d41af29126fc72bd6ede517673e2e57b816d'
             '3aab9ae4ad4fcf5fc4d66ba67793bb979c1d60d8cace8aa85fbc3205ea5a143a'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
-            '235469190321e070e3431061c51b4716614cc715d8a935cfbd22fb1f947a8e15'
+            '982806daa2c789a63cf685eef71a82754b0530852b7ba130cc9d4025dab79b2f'
+            '0a32a567966d7c33035634c46d56073e8a6f66e4d9729b8b25d09579d00c3e7b'
+            'd5334ed9c27586bd1fa19925512058653daebecae545bbbd8544b79cc7f2dc72'
+            '18ed150f0779a9d7dbf60c44fcfda928f21fc82f7a04a241c19f71318b6ff83c'
             '3110bc99e2ea702e9bf102f9bcf8c0d1bf66f1c7eabba7972a14f51ef2427988'
+            '5ec5b071537c4b2e065b2c9d0064f8c83529b5df5ac23295b3aa44e2bd90aa7c' 
 )
 
 prepare() {
@@ -142,17 +150,6 @@ prepare() {
 
   echo "Setting config..."
   cp ../config .config
-
-  # disable CONFIG_DEBUG_INFO=y at build time otherwise memory usage blows up
-  # and can easily overwhelm a system with 32 GB of memory using a tmpfs build
-  # partition ... this was introduced by FS#66260, see:
-  # https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux&id=663b08666b269eeeeaafbafaee07fd03389ac8d7
-  scripts/config --disable CONFIG_DEBUG_INFO
-  scripts/config --disable CONFIG_CGROUP_BPF
-  scripts/config --disable CONFIG_BPF_LSM
-  scripts/config --disable CONFIG_BPF_PRELOAD
-  scripts/config --disable CONFIG_BPF_LIRC_MODE2
-  scripts/config --disable CONFIG_BPF_KPROBE_OVERRIDE
 
   # https://bbs.archlinux.org/viewtopic.php?pid=1824594#p1824594
   scripts/config --enable CONFIG_PSI_DEFAULT_DISABLED
@@ -259,8 +256,8 @@ _package() {
 
 _package-headers() {
   pkgdesc="Headers and scripts for building modules for ${pkgbase/linux/Linux} kernel"
-  depends=("$pkgbase") # added to keep kernel and headers packages matched
-
+  depends=(pahole "$pkgbase") # added to keep kernel and headers packages matched
+  
   cd linux-${pkgver}
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
