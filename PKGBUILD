@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1.8
-pkgrel=3
+pkgver=6.1.9
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -85,7 +85,7 @@ _ckhrtimer=linux-6.1.y
 _commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
 _gcc_more_v=20221217
-_bore=0001-linux6.0.y-bore1.7.9.patch
+_bore=0001-linux6.0.y-bore1.7.10.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -96,18 +96,12 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-Revert-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
-  0003-drm-i915-improve-the-catch-all-evict-to-handle-lock.patch
-  0004-drm-amdgpu-display-mst-Fix-mst_state-pbn_div-and-slot-count.patch
-  0005-drm-amdgpu-display-mst-limit-payload-to-be-updated-one-by.patch
-  0006-drm-amdgpu-display-mst-update-mst_mgr-relevant-variable-when.patch
-  0007-drm-display-dp_mst-Correct-the-kref-of-port.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('b60bb53ab8ba370a270454b11e93d41af29126fc72bd6ede517673e2e57b816d'
+sha256sums=('d60cf185693c386e7acd9f3eb3a94ae30ffbfee0a9447a20e83711e0bdf5922b'
             'SKIP'
             # config
             '9102dd7ebb9d3ce791f6ae50879eb867ae31b642a981f38017711c564cee5c4c'
@@ -116,19 +110,13 @@ sha256sums=('b60bb53ab8ba370a270454b11e93d41af29126fc72bd6ede517673e2e57b816d'
             # hrtimers patch
             '6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
-            '7c9963bb516822ab6cf1ad72a0946d8e4d8e04446565e0ca20a424507847b9a0'
+            '5a059f97383e365178c2d65ce519348f937b111e827229fe02bc89428371c757'
             # xanmod patch
             '9aaa8d7bd1d9f5e24dd77f49ee091b83ac17f01c3ea1c4da968e9ca874f7544d'
             # -O3
             '3aab9ae4ad4fcf5fc4d66ba67793bb979c1d60d8cace8aa85fbc3205ea5a143a'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
-            '982806daa2c789a63cf685eef71a82754b0530852b7ba130cc9d4025dab79b2f'
-            '0a32a567966d7c33035634c46d56073e8a6f66e4d9729b8b25d09579d00c3e7b'
-            'd5334ed9c27586bd1fa19925512058653daebecae545bbbd8544b79cc7f2dc72'
-            '18ed150f0779a9d7dbf60c44fcfda928f21fc82f7a04a241c19f71318b6ff83c'
-            '3110bc99e2ea702e9bf102f9bcf8c0d1bf66f1c7eabba7972a14f51ef2427988'
-            '5ec5b071537c4b2e065b2c9d0064f8c83529b5df5ac23295b3aa44e2bd90aa7c' 
 )
 
 prepare() {
