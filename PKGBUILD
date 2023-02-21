@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.1.12
+pkgver=6.2
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -91,30 +91,30 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/$_xanmod/0001-xanmod-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.1/kbuild-cachyos-patches-v2-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('d47aa675170904dcc93eeaa7c96db54d476a11c5d3e8cf3d3b96e364e2a0edea'
+sha256sums=('74862fa8ab40edae85bb3385c0b71fe103288bce518526d63197800b3cbdecb1'
             'SKIP'
             # config
-            'ee3ac8e03fab9f5e613dcb29a04da5478be3e0fd4bde1d231a0207ee46685183'
+            '371081347541212d22b3fbef223721cbaf14d6db90e6af30032edf0f29d5cd24'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            '6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
+            #'6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
             '5a059f97383e365178c2d65ce519348f937b111e827229fe02bc89428371c757'
             # xanmod patch
-            '9aaa8d7bd1d9f5e24dd77f49ee091b83ac17f01c3ea1c4da968e9ca874f7544d'
+            '69c9aea275ed7b5d04947bc96f21598e063add71fd30c329513f5ab0e0f6f7d1'
             # -O3
-            '3aab9ae4ad4fcf5fc4d66ba67793bb979c1d60d8cace8aa85fbc3205ea5a143a'
+            'f2a078a671c440336a0ea32bc6e804c25a6d81a3b1de7d82e7fc8a0b8d4f23c8'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
 )
@@ -154,11 +154,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
