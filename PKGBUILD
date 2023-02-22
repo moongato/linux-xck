@@ -69,20 +69,20 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.2
-pkgrel=2
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(
-  bc libelf pahole cpio perl tar xz gettext
+  bc libelf pahole cpio perl tar xz
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.2.y
-_commit=f6a7d5ea0cbb04b6a00caee62ece1d76270ea922
+_ckhrtimer=linux-6.1.y
+_commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
 _gcc_more_v=20221217
 _bore=0001-linux6.0.y-bore1.7.10.patch
@@ -91,7 +91,7 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
@@ -108,7 +108,7 @@ sha256sums=('74862fa8ab40edae85bb3385c0b71fe103288bce518526d63197800b3cbdecb1'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            'f238716793ef806f6a10df3d21ffce9d32ca3b81dff1d6fe165a1fc9320be17f'
+            #'6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
             '5a059f97383e365178c2d65ce519348f937b111e827229fe02bc89428371c757'
             # xanmod patch
@@ -154,11 +154,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
