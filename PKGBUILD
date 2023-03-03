@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.1
+pkgver=6.2.2
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -101,12 +101,14 @@ source=(
   0004-iommu-Attach-device-group-to-old-domain-in-error-path.patch
   0005-iommu-amd-Skip-attach-device-domain-is-same-as-new-domain.patch
   0006-bpf-x86-Fix-IP-after-emitting-call-depth-accounting.patch
+  0007-drm-i915-Dont-use-stolen-memory-for-ring-buffers-with-LLC.patch
+  0008-drm-i915-Dont-use-BAR-mappings-for-ring-buffers-with-LLC.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('2fcc07e1c90ea4ce148f50f9beeb0dca0b6e4b379a768de8abc7a4a26f252534'
+sha256sums=('c12755a2bb0e19e83457727e949ee1020cc268f44222488256223da8eeecbfb0'
             'SKIP'
             # config
             '493a55d4f112f81395e4b1d79ab4e9764f85d807aa4fd54a765a3aa568aa1f1b'
@@ -127,6 +129,8 @@ sha256sums=('2fcc07e1c90ea4ce148f50f9beeb0dca0b6e4b379a768de8abc7a4a26f252534'
             '07a05fa4ee053d3fcea60e03620db03aab48219ee34880494a169ce0d7d61091'
             '338d593172d91dc38159794231e186a28b503e1328a614578cf9432d4018b11e'
             '8f709361a305684b18ca4a3480096b41b798da28dd13a9404ca1cf6f5e2a4fcb'
+            '588c3fa6e0c2e4cd741a886c817f6596e07138c681cfc387110f86f62c26cc62'
+            'ce193e30b72bbf8eb17639a5d72123c3dec1989188aed91b8cc67230cbd48249'
 )
 
 prepare() {
