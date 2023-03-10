@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.2
+pkgver=6.2.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -96,22 +96,17 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-iommu-amd-Do-not-identity-map-v2-capable-device-when-snp-is-enabled.patch
-  0003-iommu-amd-Improve-page-fault-error-reporting.patch
-  0004-iommu-Attach-device-group-to-old-domain-in-error-path.patch
-  0005-iommu-amd-Skip-attach-device-domain-is-same-as-new-domain.patch
-  0006-bpf-x86-Fix-IP-after-emitting-call-depth-accounting.patch
-  0007-drm-i915-Dont-use-stolen-memory-for-ring-buffers-with-LLC.patch
-  0008-drm-i915-Dont-use-BAR-mappings-for-ring-buffers-with-LLC.patch
+  0002-bpf-x86-Fix-IP-after-emitting-call-depth-accounting.patch
+  0003-eth-fealnx-bring-back-this-old-driver.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('c12755a2bb0e19e83457727e949ee1020cc268f44222488256223da8eeecbfb0'
+sha256sums=('b36d0b54fc13770802aff37d8f8d6fec7b950e4f099884e30445ad2265063924'
             'SKIP'
             # config
-            '493a55d4f112f81395e4b1d79ab4e9764f85d807aa4fd54a765a3aa568aa1f1b'
+            '9f018fabeb2ce9f7f4f83a78cda8e7fa3db16b15babe2e53e9c642b3aaa0e9f0'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -124,13 +119,8 @@ sha256sums=('c12755a2bb0e19e83457727e949ee1020cc268f44222488256223da8eeecbfb0'
             'f2a078a671c440336a0ea32bc6e804c25a6d81a3b1de7d82e7fc8a0b8d4f23c8'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
-            'f7cbb74410ad2e7a7fa4cf6cf63aebde004cb0ac72a247cc43c944f20e7e75e6'
-            '12114ddd740efe4865fbc8877e74573abde098abd967e2952aadfa642bc8f074'
-            '07a05fa4ee053d3fcea60e03620db03aab48219ee34880494a169ce0d7d61091'
-            '338d593172d91dc38159794231e186a28b503e1328a614578cf9432d4018b11e'
-            '8f709361a305684b18ca4a3480096b41b798da28dd13a9404ca1cf6f5e2a4fcb'
-            '588c3fa6e0c2e4cd741a886c817f6596e07138c681cfc387110f86f62c26cc62'
-            'ce193e30b72bbf8eb17639a5d72123c3dec1989188aed91b8cc67230cbd48249'
+            '11b50892536b9f261e55d37b7b6927a1d959a9f8bac9b8653290ec27c60a4684'
+            '053e8c6b96f0a6338858f68b3212638ebc6933d2f630168702d6e2e41962abff'
 )
 
 prepare() {
