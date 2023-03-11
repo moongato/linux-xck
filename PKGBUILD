@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.3
+pkgver=6.2.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -97,16 +97,15 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-bpf-x86-Fix-IP-after-emitting-call-depth-accounting.patch
-  0003-eth-fealnx-bring-back-this-old-driver.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('b36d0b54fc13770802aff37d8f8d6fec7b950e4f099884e30445ad2265063924'
+sha256sums=('65ab0192cf6e5808a075588944de8febf9e61f1a85147e479ffd440708cee5b9'
             'SKIP'
             # config
-            '9f018fabeb2ce9f7f4f83a78cda8e7fa3db16b15babe2e53e9c642b3aaa0e9f0'
+            'd5a1d296c79ef089ab641d560b3f79750ec0b9acf5e2f7e449a6da429517708d'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -120,7 +119,6 @@ sha256sums=('b36d0b54fc13770802aff37d8f8d6fec7b950e4f099884e30445ad2265063924'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
             '11b50892536b9f261e55d37b7b6927a1d959a9f8bac9b8653290ec27c60a4684'
-            '053e8c6b96f0a6338858f68b3212638ebc6933d2f630168702d6e2e41962abff'
 )
 
 prepare() {
