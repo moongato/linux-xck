@@ -71,7 +71,6 @@ pkgbase=linux-xck
 pkgver=6.2.7
 pkgrel=1
 arch=(x86_64)
-url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(
   bc libelf pahole cpio perl tar xz
@@ -80,7 +79,6 @@ makedepends=(
 options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
-# acknowledgment to xanmod for initially keeping the hrtimer patches up to date
 _ckhrtimer=linux-6.1.y
 _commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
