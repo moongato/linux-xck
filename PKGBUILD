@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.2.7
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -83,14 +83,14 @@ _ckhrtimer=linux-6.1.y
 _commit=fdbdf7e0ec56cd59e11d024c473e766429271a5c
 
 _gcc_more_v=20221217
-_bore=0001-linux6.2.y-bore1.7.11.patch
+_bore=0001-linux6.2.y-bore1.7.12.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/bore/$_bore
+  https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/stable/$_bore
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
@@ -109,7 +109,7 @@ sha256sums=('4303105201fb0c0b17155fff87df0a022a32a41eb1ce94a264ae648c64bd0d8d'
             # hrtimers patch
             #'6d3b9cb4639c1c5eb4e2697aed0dbffa5b4a37d63a0861dec8315dd052723e0e'
             # bore scheduler
-            '594b8ba19a1a584659f3b2dfe5719fcefadce425dca2abcfeaea729f7b9f5ea9'
+            '9669f877811dc59a5f3283a268d2b5e5caec70d0a5ff2b2fcae8127719709fce'
             # xanmod patch
             '69c9aea275ed7b5d04947bc96f21598e063add71fd30c329513f5ab0e0f6f7d1'
             # -O3
