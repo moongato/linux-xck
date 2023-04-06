@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.9
-pkgrel=2
+pkgver=6.2.10
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -83,7 +83,7 @@ _ckhrtimer=linux-6.2.y
 _commit=a8be5531ff07e300525c20bdbbe38cc6a665a0c4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.2.y-bore2.0.0.patch
+_bore=0001-linux6.1.y-bore2.1.1.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -100,7 +100,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('903449c164c03f0e742aacc920e18563585e07a28c6cb79e0fd6c36695fd43f5'
+sha256sums=('57c562c3cd2753f232549cab05c8ad770ed848ae86401619c7581bdffaeea4fe'
             'SKIP'
             # config
             '5bc7d692e896a81418a22385667609f6e50aa50567db103bc1228a241bc5ab79'
@@ -109,7 +109,7 @@ sha256sums=('903449c164c03f0e742aacc920e18563585e07a28c6cb79e0fd6c36695fd43f5'
             # hrtimers patch
             '8cc3b4abb89c539fa1588aad65cd5bc79abbf8fcc1c885652e52fb8f66bf0199'
             # bore scheduler
-            'e9237811aac9f10bb4776889b800f8882f608104b1bcb07f6c5b99d76f047d06'
+            '2aff21828b778601666e27d8187c9aeaa226526a8decd12b1d09dc006fef78db'
             # xanmod patch
             '69c9aea275ed7b5d04947bc96f21598e063add71fd30c329513f5ab0e0f6f7d1'
             # -O3
