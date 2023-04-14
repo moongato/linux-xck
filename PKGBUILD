@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.10
+pkgver=6.2.11
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -100,7 +100,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('57c562c3cd2753f232549cab05c8ad770ed848ae86401619c7581bdffaeea4fe'
+sha256sums=('0d236784e60b87c7953535aeb148dd9e773b26495dfa9c6d69615f54fe00dd47'
             'SKIP'
             # config
             '5bc7d692e896a81418a22385667609f6e50aa50567db103bc1228a241bc5ab79'
@@ -202,7 +202,7 @@ prepare() {
   [[ -z "$_makenconfig" ]] || make LLVM=$_LLVM LLVM_IAS=$_LLVM nconfig
 
   # save configuration for later reuse
-  # cat .config > "${startdir}/config.last"
+  cat .config > "${startdir}/config.last"
 
   # uncomment if you want to build with distcc
   ### sed -i '/HAVE_GCC_PLUGINS/d' arch/x86/Kconfig
@@ -229,6 +229,10 @@ _package() {
   echo "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
+  #install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
+  #
+  # hard-coded path in case user defined CC=xxx for build which causes errors
+  # see this FS https://bugs.archlinux.org/task/64315
   install -Dm644 arch/x86/boot/bzImage "$modulesdir/vmlinuz"
 
   # Used by mkinitcpio to name the kernel
