@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.12
-pkgrel=2
+pkgver=6.2.13
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -84,15 +84,16 @@ _commit=a8be5531ff07e300525c20bdbbe38cc6a665a0c4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.1.y-bore2.2.1.patch
-_xanmod=xanmod-patches
+_xanmod=xanmod-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/stable/$_bore
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/$_xanmod/0001-xanmod-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.2/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-bpf-x86-Fix-IP-after-emitting-call-depth-accounting.patch
 )
@@ -100,10 +101,10 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('c7e146b52737adfa4c724bfa41bf4721c5ee3cf220c074fbc60eb3ea62b0ccc8'
+sha256sums=('c7dded14e368834b18bb2ad64af65560d8bcb9d2d6597e0f6ef151fded01e577'
             'SKIP'
             # config
-            '5bc7d692e896a81418a22385667609f6e50aa50567db103bc1228a241bc5ab79'
+            '872df73accfb38d385838572e18682f076b70377a347222d99447b1bf2508caa'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -111,9 +112,10 @@ sha256sums=('c7e146b52737adfa4c724bfa41bf4721c5ee3cf220c074fbc60eb3ea62b0ccc8'
             # bore scheduler
             'd4f8e606eaad9a1fe302f04b9023a3980eb2305108c0d8c90654d23e53ff8bef'
             # xanmod patch
-            '69c9aea275ed7b5d04947bc96f21598e063add71fd30c329513f5ab0e0f6f7d1'
+            'e83338a8bbbc036f5c04b0dd4d3d1e7d080658c82e5b3d6ddd1ed30f3e936a31'
             # -O3
-            'f2a078a671c440336a0ea32bc6e804c25a6d81a3b1de7d82e7fc8a0b8d4f23c8'
+            '41f91823fef4f3736e9769f6ca2502ae64cf7c452416f8c4be3dbef63fc7fd25'
+            '7d77071b35eab90f7a0e3eb940840d092ebb344eb39eaef56a5d6d77c13485e5'
             # archlinux patches
             '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
             '11b50892536b9f261e55d37b7b6927a1d959a9f8bac9b8653290ec27c60a4684'
