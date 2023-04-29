@@ -68,7 +68,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.2.13
+pkgver=6.3
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -95,16 +95,15 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-bpf-x86-Fix-IP-after-emitting-call-depth-accounting.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('c7dded14e368834b18bb2ad64af65560d8bcb9d2d6597e0f6ef151fded01e577'
+sha256sums=('ba3491f5ed6bd270a370c440434e3d69085fcdd528922fa01e73d7657db73b1e'
             'SKIP'
             # config
-            '872df73accfb38d385838572e18682f076b70377a347222d99447b1bf2508caa'
+            '96de7f3a02e7d0d8cb92092936e9dd2de81c24e79901475388aea42fb2bc4787'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -117,15 +116,13 @@ sha256sums=('c7dded14e368834b18bb2ad64af65560d8bcb9d2d6597e0f6ef151fded01e577'
             '41f91823fef4f3736e9769f6ca2502ae64cf7c452416f8c4be3dbef63fc7fd25'
             '7d77071b35eab90f7a0e3eb940840d092ebb344eb39eaef56a5d6d77c13485e5'
             # archlinux patches
-            '03a134d2858e3f2e59c0294b9a596ce5f0636984141e74cb81ce3d7c94b6f80a'
-            '11b50892536b9f261e55d37b7b6927a1d959a9f8bac9b8653290ec27c60a4684'
+            '6588321a5d88cdeba3c0bd6b7a3e138268a2671ad0b77fc5c10a4b92e902f928'
 )
 
 prepare() {
   cd linux-${pkgver}
 
   msg2 "Setting version..."
-  scripts/setlocalversion --save-scmversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
 
