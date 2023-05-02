@@ -68,26 +68,36 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.3
+pkgver=6.3.1
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
-  bc libelf pahole cpio perl tar xz
+  bc
+  cpio
+  gettext
+  git
+  libelf
+  pahole
+  python
+  perl
+  tar
+  xz
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
 options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
-_ckhrtimer=linux-6.2.y
-_commit=a8be5531ff07e300525c20bdbbe38cc6a665a0c4
+# acknowledgment to xanmod for initially keeping the hrtimer patches up to date
+_ckhrtimer=linux-6.3.y
+_commit=d09271d382ae852c98e17bd7426fc8021e7b465e
 
 _gcc_more_v=20221217
-_bore=0001-linux6.1.y-bore2.2.1.patch
+_bore=0001-linux6.1.y-bore2.2.2.patch
 _xanmod=xanmod-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
-  config         # the main kernel config file
+  config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/stable/$_bore
@@ -97,19 +107,19 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
 )
 validpgpkeys=(
-  'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
-  '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
+  ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
+  647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('ba3491f5ed6bd270a370c440434e3d69085fcdd528922fa01e73d7657db73b1e'
+sha256sums=('78620fb4a7d5e0db1d4eb8d5b1c6e207ba5d19564efa63967a59b6daf89b3f2a'
             'SKIP'
             # config
-            '96de7f3a02e7d0d8cb92092936e9dd2de81c24e79901475388aea42fb2bc4787'
+            '8f50f85eb2d884fbf37d2ee261c7da0c838e6200f816bc678b17bb104e0862dd'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            '8cc3b4abb89c539fa1588aad65cd5bc79abbf8fcc1c885652e52fb8f66bf0199'
+            'f781da5ba492d8912c7d4cddac02f21c1799532182e23374c80c19ff0c617373'
             # bore scheduler
-            'd4f8e606eaad9a1fe302f04b9023a3980eb2305108c0d8c90654d23e53ff8bef'
+            'ed7ece1b8c8ea64b819041c4192d8b9bd1cc77abb7c4540cfd9bdad04a860586'
             # xanmod patch
             'e83338a8bbbc036f5c04b0dd4d3d1e7d080658c82e5b3d6ddd1ed30f3e936a31'
             # -O3
@@ -118,6 +128,10 @@ sha256sums=('ba3491f5ed6bd270a370c440434e3d69085fcdd528922fa01e73d7657db73b1e'
             # archlinux patches
             '6588321a5d88cdeba3c0bd6b7a3e138268a2671ad0b77fc5c10a4b92e902f928'
 )
+_make() {
+  test -s version
+  make KERNELRELEASE="$(<version)" "$@"
+}
 
 prepare() {
   cd linux-${pkgver}
@@ -125,6 +139,10 @@ prepare() {
   msg2 "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
+#
+  make defconfig
+  make -s kernelrelease > version
+  make mrproper
 
   local src
   for src in "${source[@]}"; do
@@ -195,7 +213,6 @@ prepare() {
       fi
     fi
 
-  make -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
 
   [[ -z "$_makenconfig" ]] || make LLVM=$_LLVM LLVM_IAS=$_LLVM nconfig
@@ -214,16 +231,27 @@ build() {
 
 _package() {
   pkgdesc="The Linux kernel and modules with ck's hrtimer patches"
-  depends=(coreutils kmod initramfs pahole)
-  optdepends=('wireless-regdb: to set the correct wireless channels of your country'
-              'linux-firmware: firmware images needed for some devices')
-  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE KSMBD-MODULE)
-  replaces=(virtualbox-guest-modules-arch wireguard-arch)
-
+  depends=(
+    coreutils
+    initramfs
+    kmod
+  )
+  optdepends=(
+    'wireless-regdb: to set the correct wireless channels of your country'
+    'linux-firmware: firmware images needed for some devices'
+  )
+  provides=(
+    KSMBD-MODULE
+    VIRTUALBOX-GUEST-MODULES
+    WIREGUARD-MODULE
+  )
+  replaces=(
+    virtualbox-guest-modules-arch
+    wireguard-arch
+  )
+ 
   cd linux-${pkgver}
-
-  local kernver="$(<version)"
-  local modulesdir="$pkgdir/usr/lib/modules/$kernver"
+  local modulesdir="$pkgdir/usr/lib/modules/$(<version)"
 
   echo "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
@@ -238,7 +266,7 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+  _make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
     DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
