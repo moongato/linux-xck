@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.3.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -93,14 +93,14 @@ _ckhrtimer=linux-6.3.y
 _commit=d09271d382ae852c98e17bd7426fc8021e7b465e
 
 _gcc_more_v=20221217
-_bore=0001-linux6.1.y-bore2.2.2.patch
+_bore=0001-linux6.1.y-bore2.2.3.patch
 _xanmod=xanmod-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://raw.githubusercontent.com/firelzrd/bore-scheduler/main/stable/$_bore
+  https://github.com/firelzrd/bore-scheduler/raw/main/bore-stable/$_bore
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
@@ -119,7 +119,7 @@ sha256sums=('78620fb4a7d5e0db1d4eb8d5b1c6e207ba5d19564efa63967a59b6daf89b3f2a'
             # hrtimers patch
             'f781da5ba492d8912c7d4cddac02f21c1799532182e23374c80c19ff0c617373'
             # bore scheduler
-            'ed7ece1b8c8ea64b819041c4192d8b9bd1cc77abb7c4540cfd9bdad04a860586'
+            '65baab0cb7b9faba06bfe473c827d43c441010a4c3ea5b3c3f8c338c0ea61c61'
             # xanmod patch
             'e83338a8bbbc036f5c04b0dd4d3d1e7d080658c82e5b3d6ddd1ed30f3e936a31'
             # -O3
