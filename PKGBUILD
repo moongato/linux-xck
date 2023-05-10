@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.3.1
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -105,6 +105,7 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
+  0002-netfilter-nf_tables-deactivate-anonymous-set-from.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -127,6 +128,7 @@ sha256sums=('78620fb4a7d5e0db1d4eb8d5b1c6e207ba5d19564efa63967a59b6daf89b3f2a'
             '7d77071b35eab90f7a0e3eb940840d092ebb344eb39eaef56a5d6d77c13485e5'
             # archlinux patches
             '6588321a5d88cdeba3c0bd6b7a3e138268a2671ad0b77fc5c10a4b92e902f928'
+            '9e09634b86bd9da0a42aca5236c3930f20e4d096a0d973fda6a16d5935c5b220'
 )
 _make() {
   test -s version
