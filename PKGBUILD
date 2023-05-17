@@ -68,8 +68,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.3.2
-pkgrel=3
+pkgver=6.3.3
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -110,7 +110,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('b612ecf282ca3f7989ff6d9f39082833b7dc2d522cb969a05334d3614e9c5328'
+sha256sums=('8975216a6cee827390586758ed69d19743367098d1fc5dd5694987bb529e44e5'
             'SKIP'
             # config
             '8f50f85eb2d884fbf37d2ee261c7da0c838e6200f816bc678b17bb104e0862dd'
