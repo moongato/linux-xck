@@ -69,7 +69,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.3.3
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -105,6 +105,7 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.3/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
+  0002-drm-amd-display-Have-Payload-Properly-Created-After-Resume.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -113,7 +114,7 @@ validpgpkeys=(
 sha256sums=('8975216a6cee827390586758ed69d19743367098d1fc5dd5694987bb529e44e5'
             'SKIP'
             # config
-            '8f50f85eb2d884fbf37d2ee261c7da0c838e6200f816bc678b17bb104e0862dd'
+            '428dfd520fb40bed14b5279cc52ec8820996d4976832f22f25ee88ed73e8cdcb'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -127,6 +128,7 @@ sha256sums=('8975216a6cee827390586758ed69d19743367098d1fc5dd5694987bb529e44e5'
             '7d77071b35eab90f7a0e3eb940840d092ebb344eb39eaef56a5d6d77c13485e5'
             # archlinux patches
             '6588321a5d88cdeba3c0bd6b7a3e138268a2671ad0b77fc5c10a4b92e902f928'
+            '6ff8cc3b3a0e5a865c33133a8acaf64f527cc62c2cb2f7dcd71c57f81757b33c'
 )
 _make() {
   test -s version
