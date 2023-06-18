@@ -37,39 +37,42 @@ _subarch=
 #  11. AMD Zen (MZEN) (NEW)
 #  12. AMD Zen 2 (MZEN2) (NEW)
 #  13. AMD Zen 3 (MZEN3) (NEW)
-#  14. Intel P4 / older Netburst based Xeon (MPSC)
-#  15. Intel Core 2 (MCORE2)
-#  16. Intel Atom (MATOM)
-#  17. Intel Nehalem (MNEHALEM) (NEW)
-#  18. Intel Westmere (MWESTMERE) (NEW)
-#  19. Intel Silvermont (MSILVERMONT) (NEW)
-#  20. Intel Goldmont (MGOLDMONT) (NEW)
-#  21. Intel Goldmont Plus (MGOLDMONTPLUS) (NEW)
-#  22. Intel Sandy Bridge (MSANDYBRIDGE) (NEW)
-#  23. Intel Ivy Bridge (MIVYBRIDGE) (NEW)
-#  24. Intel Haswell (MHASWELL) (NEW)
-#  25. Intel Broadwell (MBROADWELL) (NEW)
-#  26. Intel Skylake (MSKYLAKE) (NEW)
-#  27. Intel Skylake X (MSKYLAKEX) (NEW)
-#  28. Intel Cannon Lake (MCANNONLAKE) (NEW)
-#  29. Intel Ice Lake (MICELAKE) (NEW)
-#  30. Intel Cascade Lake (MCASCADELAKE) (NEW)
-#  31. Intel Cooper Lake (MCOOPERLAKE) (NEW)
-#  32. Intel Tiger Lake (MTIGERLAKE) (NEW)
-#  33. Intel Sapphire Rapids (MSAPPHIRERAPIDS) (NEW)
-#  34. Intel Rocket Lake (MROCKETLAKE) (NEW)
-#  35. Intel Alder Lake (MALDERLAKE) (NEW)
-#  36. Generic-x86-64 (GENERIC_CPU)
-#  37. Generic-x86-64-v2 (GENERIC_CPU2) (NEW)
-#  38. Generic-x86-64-v3 (GENERIC_CPU3) (NEW)
-#  39. Generic-x86-64-v4 (GENERIC_CPU4) (NEW)
-#  40. Intel-Native optimizations autodetected by GCC (MNATIVE_INTEL) (NEW)
-#  41. AMD-Native optimizations autodetected by GCC (MNATIVE_AMD) (NEW)
+#  14. AMD Zen 4 (MZEN4) (NEW)
+#  15. Intel P4 / older Netburst based Xeon (MPSC)
+#  16. Intel Core 2 (MCORE2)
+#  17. Intel Atom (MATOM)
+#  18. Intel Nehalem (MNEHALEM) (NEW)
+#  19. Intel Westmere (MWESTMERE) (NEW)
+#  20. Intel Silvermont (MSILVERMONT) (NEW)
+#  21. Intel Goldmont (MGOLDMONT) (NEW)
+#  22. Intel Goldmont Plus (MGOLDMONTPLUS) (NEW)
+#  23. Intel Sandy Bridge (MSANDYBRIDGE) (NEW)
+#  24. Intel Ivy Bridge (MIVYBRIDGE) (NEW)
+#  25. Intel Haswell (MHASWELL) (NEW)
+#  26. Intel Broadwell (MBROADWELL) (NEW)
+#  27. Intel Skylake (MSKYLAKE) (NEW)
+#  28. Intel Skylake X (MSKYLAKEX) (NEW)
+#  29. Intel Cannon Lake (MCANNONLAKE) (NEW)
+#  30. Intel Ice Lake (MICELAKE) (NEW)
+#  31. Intel Cascade Lake (MCASCADELAKE) (NEW)
+#  32. Intel Cooper Lake (MCOOPERLAKE) (NEW)
+#  33. Intel Tiger Lake (MTIGERLAKE) (NEW)
+#  34. Intel Sapphire Rapids (MSAPPHIRERAPIDS) (NEW)
+#  35. Intel Rocket Lake (MROCKETLAKE) (NEW)
+#  36. Intel Alder Lake (MALDERLAKE) (NEW)
+#  37. Intel Raptor Lake (MRAPTORLAKE) (NEW)
+#  38. Intel Meteor Lake (MMETEORLAKE) (NEW)
+#  39. Generic-x86-64 (GENERIC_CPU)
+#  40. Generic-x86-64-v2 (GENERIC_CPU2) (NEW)
+#  41. Generic-x86-64-v3 (GENERIC_CPU3) (NEW)
+#  42. Generic-x86-64-v4 (GENERIC_CPU4) (NEW)
+#  43. Intel-Native optimizations autodetected by the compiler (MNATIVE_INTEL) (NEW)
+#  44. AMD-Native optimizations autodetected by the compiler (MNATIVE_AMD) (NEW)
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.3.8
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -93,7 +96,7 @@ _ckhrtimer=linux-6.3.y
 _commit=d09271d382ae852c98e17bd7426fc8021e7b465e
 
 _gcc_more_v=20221217
-_bore=0001-linux6.1.y-bore2.4.0.patch
+_bore=0001-linux6.1.y-bore2.4.1.patch
 _xanmod=xanmod-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -119,7 +122,7 @@ sha256sums=('4323d421250e2e444c35d36f4aa8ddb56591dedc25c68d359d19c4ef9dd20955'
             # hrtimers patch
             'f781da5ba492d8912c7d4cddac02f21c1799532182e23374c80c19ff0c617373'
             # bore scheduler
-            'e788c1d25df2ffa710c3be4786dd477a82e8271d2950ddca89b56957035b4a5f'
+            '59e8ecb29ced4159f0aaf68f1bd01d56a9fdfec7aee22d643b56b812d5f9fa11'
             # xanmod patch
             'e83338a8bbbc036f5c04b0dd4d3d1e7d080658c82e5b3d6ddd1ed30f3e936a31'
             # -O3
@@ -139,7 +142,6 @@ prepare() {
   msg2 "Setting version..."
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
-#
   make defconfig
   make -s kernelrelease > version
   make mrproper
