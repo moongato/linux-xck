@@ -14,7 +14,7 @@ _makenconfig=
 # give module_db a try: https://aur.archlinux.org/packages/modprobed-db
 # This PKGBUILD reads the database kept if it exists
 # More at this wiki page ---> https://wiki.archlinux.org/index.php/Modprobed-db
-_localmodcfg=y
+_localmodcfg=
 
 # Compile using clang rather than gcc
 _clangbuild=
@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.4
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -116,7 +116,7 @@ validpgpkeys=(
 sha256sums=('8fa0588f0c2ceca44cac77a0e39ba48c9f00a6b9dc69761c02a5d3efac8da7f3'
             'SKIP'
             # config
-            '5f07d20cb02eaa74ff4249380d3572e2e2f73e05dde1884686ebd33b726096b0'
+            'ba6288821893423557097412cc64387d1bd3a7ff7ffdc2b04c65f0e277f60229'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -129,7 +129,7 @@ sha256sums=('8fa0588f0c2ceca44cac77a0e39ba48c9f00a6b9dc69761c02a5d3efac8da7f3'
             '72858c7ae18e994451a9f797dc9e8a1e9c72d905ed8bcc06063e13bca1618356'
             'e0485e0891a978bb2378c3d2a2875357ef863c714d9f11a1bad7f950678d3a6b'
             # archlinux patches
-            '6588321a5d88cdeba3c0bd6b7a3e138268a2671ad0b77fc5c10a4b92e902f928'
+            'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
 )
 _make() {
   test -s version
