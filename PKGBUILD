@@ -117,7 +117,7 @@ validpgpkeys=(
 sha256sums=('0d9daa9f1c176fb13b9447f6e3d80e82b49043f0d344c247bbf09b4e625beef3'
             'SKIP'
             # config
-            'ba6288821893423557097412cc64387d1bd3a7ff7ffdc2b04c65f0e277f60229'
+            'fa496e8463767333ca2d6007df36cc93a3865b64a65312031729c182cb68b09d'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
