@@ -22,7 +22,7 @@ _clangbuild=
 # Optionally select a sub architecture by number or leave blank which will
 # require user interaction during the build. Note that the generic (default)
 # option is 36.
-_subarch=
+_subarch=11
 
 #  1. AMD Opteron/Athlon64/Hammer/K8 (MK8)
 #  2. AMD Opteron/Athlon64/Hammer/K8 with SSE3 (MK8SSE3) (NEW)
@@ -71,7 +71,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.3.9
+pkgver=6.3.11
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -113,7 +113,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('41ecf21399b17ab85163750ba22347d09b54fa099b80b63d0e2ef0066129b13e'
+sha256sums=('1d5a3fbd4d4265b6c9605d5c605d947673e7643af2890e4ad5c946940f123e16'
             'SKIP'
             # config
             '5f07d20cb02eaa74ff4249380d3572e2e2f73e05dde1884686ebd33b726096b0'
