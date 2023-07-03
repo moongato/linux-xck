@@ -21,7 +21,7 @@ _clangbuild=
 
 # Optionally select a sub architecture by number or leave blank which will
 # require user interaction during the build. Note that the generic (default)
-# option is 36.
+# option is 39.
 _subarch=
 
 #  1. AMD Opteron/Athlon64/Hammer/K8 (MK8)
@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.4.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -92,8 +92,8 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.3.y
-_commit=d09271d382ae852c98e17bd7426fc8021e7b465e
+_ckhrtimer=linux-6.4.y
+_commit=2870d6ac146aa658af60bb18a9c7503efe5992d4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.1.y-bore2.4.1.patch
@@ -121,7 +121,7 @@ sha256sums=('0d9daa9f1c176fb13b9447f6e3d80e82b49043f0d344c247bbf09b4e625beef3'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            'f781da5ba492d8912c7d4cddac02f21c1799532182e23374c80c19ff0c617373'
+            'ed0b8773d66079198edd1ecdbe0564d6ad33c641e82d85375e50a2d9e0275144'
             # bore scheduler
             '59e8ecb29ced4159f0aaf68f1bd01d56a9fdfec7aee22d643b56b812d5f9fa11'
             # xanmod patch
@@ -270,8 +270,8 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  _make LLVM=$_LLVM LLVM_IAS=$_LLVM ZSTD_CLEVEL=19 INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
-  DEPMOD=/doesnt/exist modules_install  # Suppress depmod
+  ZSTD_CLEVEL=19 _make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+    DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
