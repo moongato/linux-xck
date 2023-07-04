@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.4.1
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -109,6 +109,7 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-nf_tables-unbind-non-anonymous-set-if-rule-construction.patch
+  0003-mm-disable-CONFIG_PER_VMA_LOCK-by-default-until-its-fixed.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -117,7 +118,7 @@ validpgpkeys=(
 sha256sums=('0d9daa9f1c176fb13b9447f6e3d80e82b49043f0d344c247bbf09b4e625beef3'
             'SKIP'
             # config
-            'fa496e8463767333ca2d6007df36cc93a3865b64a65312031729c182cb68b09d'
+            'df4ac5898684c1aa2f7178d2278e5559f10fa075243e2f36e2a7757d683295cf'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -131,7 +132,8 @@ sha256sums=('0d9daa9f1c176fb13b9447f6e3d80e82b49043f0d344c247bbf09b4e625beef3'
             'e0485e0891a978bb2378c3d2a2875357ef863c714d9f11a1bad7f950678d3a6b'
             # archlinux patches
             'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
-            'acfc7e2f8f754a5d33a7031e20b5906430984cab9cab3a632fbe18d7eb869f33' 
+            'acfc7e2f8f754a5d33a7031e20b5906430984cab9cab3a632fbe18d7eb869f33'
+            '9275340bdac9d1a91ebbf9fa75a761d1e8cb8ef71ff812dbb972fbe54cea32fd'
 )
 _make() {
   test -s version
