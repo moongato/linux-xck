@@ -128,8 +128,8 @@ sha256sums=('0d9daa9f1c176fb13b9447f6e3d80e82b49043f0d344c247bbf09b4e625beef3'
             # xanmod patch
             '5d6f1404a198d541db4970785ea8f0983f3c86bb5f16052d4cd79d8bf449bce6'
             # -O3
-            '72858c7ae18e994451a9f797dc9e8a1e9c72d905ed8bcc06063e13bca1618356'
-            'e0485e0891a978bb2378c3d2a2875357ef863c714d9f11a1bad7f950678d3a6b'
+            '5bc09ca0ef1eb9db694456ac71cadff91f26f911d882d041b0a2ccf636f33010'
+            '51f5253056f3bf1a5780e79946763ac122537c06ac074f24a8f874f3b5316d41'
             # archlinux patches
             'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
             'acfc7e2f8f754a5d33a7031e20b5906430984cab9cab3a632fbe18d7eb869f33'
