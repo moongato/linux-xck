@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.4.1
-pkgrel=3
+pkgver=6.4.2
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -108,17 +108,17 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-nf_tables-unbind-non-anonymous-set-if-rule-construction.patch
+  0002-netfilter-nf_tables-unbind-non-anonymous-set-if-rule-construction.patch
   0003-mm-disable-CONFIG_PER_VMA_LOCK-by-default-until-its-fixed.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('0d9daa9f1c176fb13b9447f6e3d80e82b49043f0d344c247bbf09b4e625beef3'
+sha256sums=('a326ab224176c5b17c73c9ccad85f32e49b6e4e764861d57595727b7ef10062c'
             'SKIP'
             # config
-            'df4ac5898684c1aa2f7178d2278e5559f10fa075243e2f36e2a7757d683295cf'
+            '60300007d891d036e2af08e8378b395603f36f9704fa9f7adb20c0ce421c96e7'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
