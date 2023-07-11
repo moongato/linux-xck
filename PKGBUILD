@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.4.2
-pkgrel=2
+pkgver=6.4.3
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -109,13 +109,12 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-netfilter-nf_tables-unbind-non-anonymous-set-if-rule-construction.patch
-  0003-mm-disable-CONFIG_PER_VMA_LOCK-by-default-until-its-fixed.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('a326ab224176c5b17c73c9ccad85f32e49b6e4e764861d57595727b7ef10062c'
+sha256sums=('7134ed29360df6f37a26410630283f0592c91a6d2178a9648226d30ddf8c88a1'
             'SKIP'
             # config
             '60300007d891d036e2af08e8378b395603f36f9704fa9f7adb20c0ce421c96e7'
@@ -133,7 +132,6 @@ sha256sums=('a326ab224176c5b17c73c9ccad85f32e49b6e4e764861d57595727b7ef10062c'
             # archlinux patches
             'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
             'acfc7e2f8f754a5d33a7031e20b5906430984cab9cab3a632fbe18d7eb869f33'
-            '9275340bdac9d1a91ebbf9fa75a761d1e8cb8ef71ff812dbb972fbe54cea32fd'
 )
 _make() {
   test -s version
