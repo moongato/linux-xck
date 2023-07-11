@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.4.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -96,7 +96,7 @@ _ckhrtimer=linux-6.4.y
 _commit=2870d6ac146aa658af60bb18a9c7503efe5992d4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.1.y-bore2.4.1.patch
+_bore=0001-linux6.1.y-bore2.4.2.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -124,7 +124,7 @@ sha256sums=('a326ab224176c5b17c73c9ccad85f32e49b6e4e764861d57595727b7ef10062c'
             # hrtimers patch
             'ed0b8773d66079198edd1ecdbe0564d6ad33c641e82d85375e50a2d9e0275144'
             # bore scheduler
-            '59e8ecb29ced4159f0aaf68f1bd01d56a9fdfec7aee22d643b56b812d5f9fa11'
+            'bbbb5f760b5d038cb55927a1836b9291c4a484252b31126bcd0a7e0a1020768f'
             # xanmod patch
             '5d6f1404a198d541db4970785ea8f0983f3c86bb5f16052d4cd79d8bf449bce6'
             # -O3
