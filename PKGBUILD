@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.4.3
-pkgrel=2
+pkgver=6.4.4
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -108,16 +108,20 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-netfilter-nf_tables-unbind-non-anonymous-set-if-rule-construction.patch
+  0002-tpm-tpm_tis-Disable-interrupts-only-for-AEON-UPX-i11.patch
+  0003-tpm-tpm_tis-Disable-interrupts-for-Framework-Laptop-Intel-12.patch
+  0004-tpm-tpm_tis-Disable-interrupts-for-Framework-Laptop-Intel-13.patch
+  0005-tpm-tpm_tis-Disable-interrupts-for-Lenovo-L590-devices.patch
+  0006-Bluetooth-btusb-Fix-bluetooth-on-Intel-Macbook-2014.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('7134ed29360df6f37a26410630283f0592c91a6d2178a9648226d30ddf8c88a1'
+sha256sums=('9cbc4a2be714a4d154e1312c9f33ded91174907c8b15ee936ad27002ac75ff2a'
             'SKIP'
             # config
-            '1d5a28c2934720007b10039ad7d9486f4cb6a139386881810334c0991d10e65f'
+            '08f7da31925248d79b2793670db011ef63616f96bd1c1a14728f1aa459b53ff0'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -131,7 +135,11 @@ sha256sums=('7134ed29360df6f37a26410630283f0592c91a6d2178a9648226d30ddf8c88a1'
             '51f5253056f3bf1a5780e79946763ac122537c06ac074f24a8f874f3b5316d41'
             # archlinux patches
             'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
-            'acfc7e2f8f754a5d33a7031e20b5906430984cab9cab3a632fbe18d7eb869f33'
+            '8af230f9e6f353dfab52759b7d06b2a4b8dfee2914baa8db00c3bec9fc051dc5'
+            '60772588525630f12b9d044016bc8b4780e6838ed50e9e8efa9eecbf5316ea4c'
+            '7410150b6ab85e57c25d83b221d7fb23c841024bfee492c6212eb0aac4148b9a'
+            '7c20e7a6d0c38f5f686f8d6fd2ec6853a5eec9c3f593f27b781a8879ee17cfce'
+            'ee2559ab4089923ab354a8522739d2c18fcd4ee0b949f16cf71e2348895d475d'
 )
 _make() {
   test -s version
