@@ -96,7 +96,7 @@ _ckhrtimer=linux-6.4.y
 _commit=2870d6ac146aa658af60bb18a9c7503efe5992d4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.3.y-bore2.5.1.patch
+_bore=0001-linux6.3.y-bore2.5.2.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -127,7 +127,7 @@ sha256sums=('9cbc4a2be714a4d154e1312c9f33ded91174907c8b15ee936ad27002ac75ff2a'
             # hrtimers patch
             'ed0b8773d66079198edd1ecdbe0564d6ad33c641e82d85375e50a2d9e0275144'
             # bore scheduler
-            'd60a5b50984a74bac606473c2a324de62b3ee09d0f2a8b18d927b676f30ca8f6'
+            'f6c99b7df43b20d68ecf236adba357adce779965dda929b8eb3facccb8875c64'
             # xanmod patch
             '5d6f1404a198d541db4970785ea8f0983f3c86bb5f16052d4cd79d8bf449bce6'
             # -O3
