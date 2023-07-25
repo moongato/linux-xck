@@ -71,7 +71,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.4.5
+pkgver=6.4.6
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -96,14 +96,16 @@ _ckhrtimer=linux-6.4.y
 _commit=2870d6ac146aa658af60bb18a9c7503efe5992d4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.3.y-bore2.5.2.patch
+_bore=0001-bore-6.4-introduce-BORE-Scheduler-with-EEVDF-patches.patch
+_eevdf=bore-eevdf-scheduler-patches-v6
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/bore-stable/$_bore
+  #https://github.com/firelzrd/bore-scheduler/raw/main/eevdf-bore-dev/$_bore
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/$_eevdf/$_bore
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
@@ -114,7 +116,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('374e2c07463c51dfd71204b7fac3b73c7f973550ae019b74e9f2b815b28de9b7'
+sha256sums=('e1ecc496efc48aaf25a6607a4b8e52d574d6f67a2b0aa1664087d301d3515ea4'
             'SKIP'
             # config
             '08f7da31925248d79b2793670db011ef63616f96bd1c1a14728f1aa459b53ff0'
@@ -123,7 +125,7 @@ sha256sums=('374e2c07463c51dfd71204b7fac3b73c7f973550ae019b74e9f2b815b28de9b7'
             # hrtimers patch
             'ed0b8773d66079198edd1ecdbe0564d6ad33c641e82d85375e50a2d9e0275144'
             # bore scheduler
-            'f6c99b7df43b20d68ecf236adba357adce779965dda929b8eb3facccb8875c64'
+            '3b5ee5726cb2f9ddb6af7dbf2d3b49251aa2f5a9b6b7af4243aca3d4a394b6c6'
             # xanmod patch
             '5d6f1404a198d541db4970785ea8f0983f3c86bb5f16052d4cd79d8bf449bce6'
             # -O3
