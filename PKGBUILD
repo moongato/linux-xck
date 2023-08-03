@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.4.7
-pkgrel=2
+pkgver=6.4.8
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -107,13 +107,14 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
-  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch  
+  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
+  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('de143cb61dcaa756c05f56ff35144316d810615819518a33e34754f064c4a7d8'
+sha256sums=('c59f34e19e84db30206b9373041abf893f9d8a08765d163586570a5238c458b6'
             'SKIP'
             # config
             '08f7da31925248d79b2793670db011ef63616f96bd1c1a14728f1aa459b53ff0'
@@ -129,7 +130,8 @@ sha256sums=('de143cb61dcaa756c05f56ff35144316d810615819518a33e34754f064c4a7d8'
             '5bc09ca0ef1eb9db694456ac71cadff91f26f911d882d041b0a2ccf636f33010'
             '51f5253056f3bf1a5780e79946763ac122537c06ac074f24a8f874f3b5316d41'
             # archlinux patches
-            'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'            
+            'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
+            '36a32f67a9725ae96ad0ba0fb8a6262f666c53e304cc142e88826daa0afc65aa'            
 )
 _make() {
   test -s version
