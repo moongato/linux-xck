@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.4.11
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -109,6 +109,7 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
+  0003-tpm-Dont-make-vendor-check-required-for-probe.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -131,7 +132,8 @@ sha256sums=('546b68b5097d3c0d74722de62aae217729d98e45fbb6bd458b490ac21ea40918'
             '51f5253056f3bf1a5780e79946763ac122537c06ac074f24a8f874f3b5316d41'
             # archlinux patches
             'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
-            '36a32f67a9725ae96ad0ba0fb8a6262f666c53e304cc142e88826daa0afc65aa'            
+            '36a32f67a9725ae96ad0ba0fb8a6262f666c53e304cc142e88826daa0afc65aa'
+            '0f6e9153cf6553abb41df2160798c512f39216f8424187b6929e03a519d328f7'          
 )
 _make() {
   test -s version
