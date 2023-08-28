@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.4.12
-pkgrel=1
+pkgver=6.5
+pkgrel=0
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -103,10 +103,10 @@ source=(
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/bore-stable/$_bore
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/$_xanmod/0001-xanmod-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.4/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.4-bore/$_bore
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/$_xanmod/0001-xanmod-patches.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
+  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
   0003-tpm-Dont-make-vendor-check-required-for-probe.patch
@@ -116,7 +116,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('cca91be956fe081f8f6da72034cded96fe35a50be4bfb7e103e354aa2159a674'
+sha256sums=('7a574bbc20802ea76b52ca7faf07267f72045e861b18915c5272a98c27abf884'
             'SKIP'
             # config
             'fd36f10d06f2eb106043246ba1d8ba81f635d48abb96781baccd39ffc025cbdb'
@@ -127,10 +127,10 @@ sha256sums=('cca91be956fe081f8f6da72034cded96fe35a50be4bfb7e103e354aa2159a674'
             # bore scheduler
             '98be6fd276b9a2ddbe92b7ce3baa9cc6f02f123fcd887cedb4bb2ccb1c963c7d'
             # xanmod patch
-            '5d6f1404a198d541db4970785ea8f0983f3c86bb5f16052d4cd79d8bf449bce6'
+            '5b1d973a2789b1a3439a5b4b8f063b2db11b23f8558796b8898c70faad666b08'
             # -O3
-            '5bc09ca0ef1eb9db694456ac71cadff91f26f911d882d041b0a2ccf636f33010'
-            '51f5253056f3bf1a5780e79946763ac122537c06ac074f24a8f874f3b5316d41'
+            '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
+            'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
             # archlinux patches
             'ccc8ef2d70b501ba9f3bd2a0b0b3ee4eac4136fe8f556de64732f0f5ab419ec4'
             '36a32f67a9725ae96ad0ba0fb8a6262f666c53e304cc142e88826daa0afc65aa'
