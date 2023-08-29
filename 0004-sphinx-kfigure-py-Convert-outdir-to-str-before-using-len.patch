@@ -1,4 +1,4 @@
-From 879f0f7fc0f9130075d722c213014d0cff9d40a1 Mon Sep 17 00:00:00 2001
+From e2cc835e7204aaf7085faa780dcd3518d7bc93b8 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
 Date: Thu, 24 Aug 2023 01:28:17 +0200
 Subject: [PATCH] sphinx: kfigure.py: Convert outdir to str before using len

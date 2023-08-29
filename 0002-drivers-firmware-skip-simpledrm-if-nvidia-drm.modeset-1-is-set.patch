@@ -1,4 +1,4 @@
-From e65a5fe09577d17e2fded61067f759f2bf02f6c0 Mon Sep 17 00:00:00 2001
+From 238ca5411963a76a1e943a4d0c4011cb1ca59673 Mon Sep 17 00:00:00 2001
 From: Javier Martinez Canillas <javierm@redhat.com>
 Date: Thu, 19 May 2022 14:40:07 +0200
 Subject: [PATCH] drivers/firmware: skip simpledrm if nvidia-drm.modeset=1 is
@@ -50,7 +50,7 @@ For: https://bugs.archlinux.org/task/73720
  1 file changed, 17 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/firmware/sysfb.c b/drivers/firmware/sysfb.c
-index 3c197db42c9d93..16e4a2e90fae2a 100644
+index 82fcfd29bc4d29..17b7e096b6828b 100644
 --- a/drivers/firmware/sysfb.c
 +++ b/drivers/firmware/sysfb.c
 @@ -34,6 +34,22 @@
