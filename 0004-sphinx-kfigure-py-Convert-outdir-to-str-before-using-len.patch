@@ -1,4 +1,4 @@
-From e2cc835e7204aaf7085faa780dcd3518d7bc93b8 Mon Sep 17 00:00:00 2001
+From 555b718e90b662cb924b562227e4c4e3cd60cd76 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
 Date: Thu, 24 Aug 2023 01:28:17 +0200
 Subject: [PATCH] sphinx: kfigure.py: Convert outdir to str before using len
@@ -8,8 +8,8 @@ build to fail with a TypeError when attempting to use len on one.
 
 Patch by @loqs; thanks.
 
-Signed-off-by: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 Fixes: https://bugs.archlinux.org/task/79446
+Signed-off-by: Jan Alexander Steffens (heftig) <heftig@archlinux.org>
 ---
  Documentation/sphinx/kfigure.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

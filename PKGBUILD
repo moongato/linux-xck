@@ -71,7 +71,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5
+pkgver=6.5.1
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -92,8 +92,8 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.4.y
-_commit=2870d6ac146aa658af60bb18a9c7503efe5992d4
+_ckhrtimer=linux-6.5.y
+_commit=6ef0e9ff5db0ed380f98cc8c7436ca9c44ea32c9
 
 _gcc_more_v=20221217
 _bore=0001-linux6.4.y-bore3.1.2.patch
@@ -109,21 +109,22 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
-  0003-tpm-Dont-make-vendor-check-required-for-probe.patch
+  0003-tpm-Enable-hwrng-only-for-Pluton-on-AMD-CPUs.patch
   0004-sphinx-kfigure-py-Convert-outdir-to-str-before-using-len.patch
+  0005-Revert-ASoC-Intel-soc-acpi-add-tables-for-Dell-SKU-0B34.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('7a574bbc20802ea76b52ca7faf07267f72045e861b18915c5272a98c27abf884'
+sha256sums=('23765dd44425462cd92adbee52670608fd7f3fd183a83b25ba7a7b4883d0451b'
             'SKIP'
             # config
-            '1f8a7ed48aef8b13771e37fd8572be6d46495dd03bcaf50a9b83a2ee16e064cc'
+            'f4ce8884a9de0020dad5c56cf3d4387d69f9bbd3e4f37ffdcd382ed7af8bf4c6'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            'ed0b8773d66079198edd1ecdbe0564d6ad33c641e82d85375e50a2d9e0275144'
+            'a86a59d089ddd4f31565ff6a27ba74f4697ffa0ab0f57dc839e1da6ab83d77a4'
             # bore scheduler
             '98be6fd276b9a2ddbe92b7ce3baa9cc6f02f123fcd887cedb4bb2ccb1c963c7d'
             # xanmod patch
@@ -132,10 +133,11 @@ sha256sums=('7a574bbc20802ea76b52ca7faf07267f72045e861b18915c5272a98c27abf884'
             '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
             'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
             # archlinux patches
-            '1cbb962715a54cc4a0de4fae8d8b7f0aa7d136b73b47f6bd57ffba556e153b6b'
-            '78858a7a35488aba42fad05536e809c34018ea904dbf22595b374753ee9036a7'
-            'c57e18856080b8c435005428755060267ae3b1ff8a4ed9cadc225b20e2b53ab9'
-            '5ce0cb044c30da3e24c0128e425437e8325262f8f73f751654b7404548fd5131'         
+            '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
+            'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
+            '114d6838cd30f32da5b278bbca0f6972245948694468eff0dfed8a63fa746c94'
+            'c4a4eaa0c7bbdcbdc024a9bedb3f232534db8c7cace6444dc0be0e98d0e83ba9'
+            '92b574811711f8055929cf6eab35eed4de9cb8d229a89a6c5f1412d11846909b'         
 )
 _make() {
   test -s version
