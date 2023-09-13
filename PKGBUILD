@@ -71,7 +71,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5.2
+pkgver=6.5.3
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -109,18 +109,21 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
-  0003-tpm-Enable-hwrng-only-for-Pluton-on-AMD-CPUs.patch
-  0004-sphinx-kfigure-py-Convert-outdir-to-str-before-using-len.patch
-  0005-Revert-ASoC-Intel-soc-acpi-add-tables-for-Dell-SKU-0B34.patch
+  0003-sphinx-kfigure-py-Convert-outdir-to-str-before-using-len.patch
+  0004-ASoC-Intel-soc-acpi-fix-Dell-SKU-0B34.patch
+  0005-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
+  0006-btrfs-set-last-dir-index-to-the-current-last-index-when.patch
+  0007-btrfs-refresh-dir-last-index-during-a-rewinddir-3-call.patch
+  0008-btrfs-fix-race-between-reading-a-directory-and-adding.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('2027e14057d568ad3ddc100dadf4c8853a49b031270478a61d88f6011572650f'
+sha256sums=('4cac13f7b17bd8dcf9032ad68f9123ab5313d698c9f59416043165150763eb4f'
             'SKIP'
             # config
-            'f4ce8884a9de0020dad5c56cf3d4387d69f9bbd3e4f37ffdcd382ed7af8bf4c6'
+            '09b382ecf8e3dc10e7726eafbbf612f82599f3620035b8483d34a63c35b26540'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -135,9 +138,12 @@ sha256sums=('2027e14057d568ad3ddc100dadf4c8853a49b031270478a61d88f6011572650f'
             # archlinux patches
             '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
-            '114d6838cd30f32da5b278bbca0f6972245948694468eff0dfed8a63fa746c94'
             'c4a4eaa0c7bbdcbdc024a9bedb3f232534db8c7cace6444dc0be0e98d0e83ba9'
-            '92b574811711f8055929cf6eab35eed4de9cb8d229a89a6c5f1412d11846909b'         
+            '1825f66174511efcecece27de6ad296ff69200881a988a9ae8af9711c2e2569c'
+            '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
+            '29d941d2826b970ea1439e306b6a8830c389147aaca53ea8cc13e3cb2a6e377f'
+            'fdb827ffaf8106d3ca4bbbf78acebdc357f91f3f605eff6f8d2b3c94e2e52a75'
+            '98801652f56844ba2897f59e74082a964db666db79727896a45a7a1f0f8a0ef5'         
 )
 _make() {
   test -s version
