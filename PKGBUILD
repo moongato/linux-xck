@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.5.4
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -114,6 +114,10 @@ source=(
   0005-btrfs-set-last-dir-index-to-the-current-last-index-when.patch
   0006-btrfs-refresh-dir-last-index-during-a-rewinddir-3-call.patch
   0007-btrfs-fix-race-between-reading-a-directory-and-adding.patch
+  0008-i915-Limit-the-length-of-an-sg-list-to-the-requested-length.patch
+  0009-net-wwan-t7xx-Add-AP-CLDMA.patch
+  0010-nvme-avoid-bogus-CRTO-values.patch
+  0011-Revert-101bd907b424-misc-rtsx-judge-ASPM-Mode-to-set.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -141,7 +145,11 @@ sha256sums=('bdf76c15229b241e578046b8486106f09534d754ea4cbf105e0660e551fb1669'
             '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
             '29d941d2826b970ea1439e306b6a8830c389147aaca53ea8cc13e3cb2a6e377f'
             'fdb827ffaf8106d3ca4bbbf78acebdc357f91f3f605eff6f8d2b3c94e2e52a75'
-            '98801652f56844ba2897f59e74082a964db666db79727896a45a7a1f0f8a0ef5'         
+            '98801652f56844ba2897f59e74082a964db666db79727896a45a7a1f0f8a0ef5'
+            'dfc26c437d5884045e7d8645bbd8f1dadb6820cc5ec01c019c4a454dae30f6cc'
+            '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
+            'f8bd5c75941105877a6cdb08b81409b8277b30ac311030b0a1c1c461b9bab580'
+            '012e88119af98d80e4701b578e3468b6c36cdcccef1c8c51bfd9de8680fea1be'        
 )
 _make() {
   test -s version
