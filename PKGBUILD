@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5.4
-pkgrel=2
+pkgver=6.5.5
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -116,14 +116,13 @@ source=(
   0007-btrfs-fix-race-between-reading-a-directory-and-adding.patch
   0008-i915-Limit-the-length-of-an-sg-list-to-the-requested-length.patch
   0009-net-wwan-t7xx-Add-AP-CLDMA.patch
-  0010-nvme-avoid-bogus-CRTO-values.patch
-  0011-Revert-101bd907b424-misc-rtsx-judge-ASPM-Mode-to-set.patch
+  0010-Revert-101bd907b424-misc-rtsx-judge-ASPM-Mode-to-set.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('bdf76c15229b241e578046b8486106f09534d754ea4cbf105e0660e551fb1669'
+sha256sums=('8cf10379f7df8ea731e09bff3d0827414e4b643dd41dc99d0af339669646ef95'
             'SKIP'
             # config
             '09b382ecf8e3dc10e7726eafbbf612f82599f3620035b8483d34a63c35b26540'
@@ -148,7 +147,6 @@ sha256sums=('bdf76c15229b241e578046b8486106f09534d754ea4cbf105e0660e551fb1669'
             '98801652f56844ba2897f59e74082a964db666db79727896a45a7a1f0f8a0ef5'
             'dfc26c437d5884045e7d8645bbd8f1dadb6820cc5ec01c019c4a454dae30f6cc'
             '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
-            'f8bd5c75941105877a6cdb08b81409b8277b30ac311030b0a1c1c461b9bab580'
             '012e88119af98d80e4701b578e3468b6c36cdcccef1c8c51bfd9de8680fea1be'        
 )
 
