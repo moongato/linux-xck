@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.5.5
-pkgrel=1
+pkgrel=3
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -107,6 +107,7 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.5/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
   0003-ASoC-Intel-soc-acpi-fix-Dell-SKU-0B34.patch
@@ -137,6 +138,8 @@ sha256sums=('8cf10379f7df8ea731e09bff3d0827414e4b643dd41dc99d0af339669646ef95'
             # -O3
             '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
             'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
+            # AMD preferred core patch
+            '82ec304144d1fb179490459a953b9ad0d46ef1d3b37e992f80863e82ecc71a04'
             # archlinux patches
             '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
