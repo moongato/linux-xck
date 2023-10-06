@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5.5
-pkgrel=3
+pkgver=6.5.6
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -112,18 +112,13 @@ source=(
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
   0003-ASoC-Intel-soc-acpi-fix-Dell-SKU-0B34.patch
   0004-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
-  0005-btrfs-set-last-dir-index-to-the-current-last-index-when.patch
-  0006-btrfs-refresh-dir-last-index-during-a-rewinddir-3-call.patch
-  0007-btrfs-fix-race-between-reading-a-directory-and-adding.patch
-  0008-i915-Limit-the-length-of-an-sg-list-to-the-requested-length.patch
-  0009-net-wwan-t7xx-Add-AP-CLDMA.patch
-  0010-Revert-101bd907b424-misc-rtsx-judge-ASPM-Mode-to-set.patch
+  0005-net-wwan-t7xx-Add-AP-CLDMA.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('8cf10379f7df8ea731e09bff3d0827414e4b643dd41dc99d0af339669646ef95'
+sha256sums=('78e36d4214547051c24df2140f4ce09428d6c515ad9a71b38b28e8094a95d2f6'
             'SKIP'
             # config
             '09b382ecf8e3dc10e7726eafbbf612f82599f3620035b8483d34a63c35b26540'
@@ -139,18 +134,13 @@ sha256sums=('8cf10379f7df8ea731e09bff3d0827414e4b643dd41dc99d0af339669646ef95'
             '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
             'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
             # AMD preferred core patch
-            '82ec304144d1fb179490459a953b9ad0d46ef1d3b37e992f80863e82ecc71a04'
+            'cda7ffecbe99cab9eada6dd7b53fbcd0a6f5f38b2b8e0ba7abfe92448a53a2a0'
             # archlinux patches
             '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
             '1825f66174511efcecece27de6ad296ff69200881a988a9ae8af9711c2e2569c'
             '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
-            '29d941d2826b970ea1439e306b6a8830c389147aaca53ea8cc13e3cb2a6e377f'
-            'fdb827ffaf8106d3ca4bbbf78acebdc357f91f3f605eff6f8d2b3c94e2e52a75'
-            '98801652f56844ba2897f59e74082a964db666db79727896a45a7a1f0f8a0ef5'
-            'dfc26c437d5884045e7d8645bbd8f1dadb6820cc5ec01c019c4a454dae30f6cc'
             '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
-            '012e88119af98d80e4701b578e3468b6c36cdcccef1c8c51bfd9de8680fea1be'        
 )
 
 prepare() {
