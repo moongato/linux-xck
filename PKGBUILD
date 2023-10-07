@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.5.6
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -113,7 +113,6 @@ source=(
   0003-ASoC-Intel-soc-acpi-fix-Dell-SKU-0B34.patch
   0004-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
   0005-net-wwan-t7xx-Add-AP-CLDMA.patch
-  0006-Revert-101bd907b424-misc-rtsx-judge-ASPM-Mode-to-set.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -142,7 +141,6 @@ sha256sums=('78e36d4214547051c24df2140f4ce09428d6c515ad9a71b38b28e8094a95d2f6'
             '1825f66174511efcecece27de6ad296ff69200881a988a9ae8af9711c2e2569c'
             '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
             '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
-            '2944f734afae18aec1fbd56cf5b5745a88f4b633d550e64c288b85edb74bdad0'
 )
 
 prepare() {
