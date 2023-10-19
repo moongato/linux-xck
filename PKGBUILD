@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5.6
-pkgrel=2
+pkgver=6.5.8
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -110,15 +110,14 @@ source=(
   https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.5/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
-  0003-ASoC-Intel-soc-acpi-fix-Dell-SKU-0B34.patch
-  0004-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
-  0005-net-wwan-t7xx-Add-AP-CLDMA.patch
+  0003-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
+  0004-net-wwan-t7xx-Add-AP-CLDMA.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('78e36d4214547051c24df2140f4ce09428d6c515ad9a71b38b28e8094a95d2f6'
+sha256sums=('299cca897d90deaa176eebec42f0a80eeb7516afed330a45c14da9de086cf717'
             'SKIP'
             # config
             '09b382ecf8e3dc10e7726eafbbf612f82599f3620035b8483d34a63c35b26540'
@@ -138,7 +137,6 @@ sha256sums=('78e36d4214547051c24df2140f4ce09428d6c515ad9a71b38b28e8094a95d2f6'
             # archlinux patches
             '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
-            '1825f66174511efcecece27de6ad296ff69200881a988a9ae8af9711c2e2569c'
             '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
             '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
 )
