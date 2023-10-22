@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.5.8
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -96,7 +96,7 @@ _ckhrtimer=linux-6.5.y
 _commit=6ef0e9ff5db0ed380f98cc8c7436ca9c44ea32c9
 
 _gcc_more_v=20221217
-_bore=0001-linux6.5.y-bore3.1.5.patch
+_bore=0001-linux6.5.y-bore3.1.8.patch
 _xanmod=xanmod-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -107,6 +107,7 @@ source=(
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/$_xanmod/0001-xanmod-patches.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
   https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.5/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
   0003-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
@@ -125,12 +126,14 @@ sha256sums=('299cca897d90deaa176eebec42f0a80eeb7516afed330a45c14da9de086cf717'
             # hrtimers patch
             'a86a59d089ddd4f31565ff6a27ba74f4697ffa0ab0f57dc839e1da6ab83d77a4'
             # bore scheduler
-            '30bf65a1a73e68fde475ec6e205e53df949b15f84ab2ddc51dd77f4746c2aad7'
+            'd2d3cb379376034c72989d4ae5b6852ebdd08796999e163dd1b7bafbb65bb7a6'
             # xanmod patch
             '5b1d973a2789b1a3439a5b4b8f063b2db11b23f8558796b8898c70faad666b08'
             # -O3
             '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
             'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
+            # AMD preferred core patch
+            '44de77408fb17f138e3cd8aec6cd74cde43fce0165700cd0ec0fff40f4b3348e'
             # archlinux patches
             '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
