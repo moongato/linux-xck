@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5.8
-pkgrel=2
+pkgver=6.5.9
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -117,7 +117,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('299cca897d90deaa176eebec42f0a80eeb7516afed330a45c14da9de086cf717'
+sha256sums=('c6662f64713f56bf30e009c32eac15536fad5fd1c02e8a3daf62a0dc2f058fd5'
             'SKIP'
             # config
             '9bb7de4ec96d242921f071ecf1879e1cc8e0fb1d4ae2653b739442d71942968c'
@@ -133,7 +133,7 @@ sha256sums=('299cca897d90deaa176eebec42f0a80eeb7516afed330a45c14da9de086cf717'
             '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
             'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
             # AMD preferred core patch
-            '44de77408fb17f138e3cd8aec6cd74cde43fce0165700cd0ec0fff40f4b3348e'
+            '7af068606a4951fa711684e3118278f8656c29e26b43cd5f34fcf371c3e3aa0b'
             # archlinux patches
             '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
