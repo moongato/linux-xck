@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.5.9
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -112,6 +112,7 @@ source=(
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
   0003-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
   0004-net-wwan-t7xx-Add-AP-CLDMA.patch
+  0005-scsi-sd-Introduce-manage_shutdown-device-flag.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -139,6 +140,7 @@ sha256sums=('c6662f64713f56bf30e009c32eac15536fad5fd1c02e8a3daf62a0dc2f058fd5'
             'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
             '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
             '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
+            'e4d6b32dbcabf667169485fbf989c2fb165912aed9d4361d735e99219e3f5d69'
 )
 
 prepare() {
