@@ -71,15 +71,14 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.5.9
-pkgrel=2
+pkgver=6.6
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
   bc
   cpio
   gettext
-  git
   libelf
   pahole
   python
@@ -92,55 +91,43 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.5.y
-_commit=6ef0e9ff5db0ed380f98cc8c7436ca9c44ea32c9
+_ckhrtimer=linux-6.6.y
+_commit=c83f27ce602a96d481678dca05fe6fd267b2ea44
 
 _gcc_more_v=20221217
-_bore=0001-linux6.5.y-bore3.1.8.patch
-_xanmod=xanmod-patches
+_bore=0001-linux6.6.y-bore3.2.9.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.5-bore/$_bore
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/$_xanmod/0001-xanmod-patches.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0001-Revert-kbuild-drop-support-for-CONFIG_CC_OPTIMIZE_FO.patch
-  https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/6.5/kbuild-cachyos-patches-sep/0002-init-Kconfig-enable-O3-for-all-arches.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.5/0002-amd-pref-core.patch
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.6-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.6/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/CachyOS/kernel-patches/raw/master/6.6/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm.modeset-1-is-set.patch
-  0003-btrfs-wait-on-uncached-block-groups-on-every-allocation-loop.patch
-  0004-net-wwan-t7xx-Add-AP-CLDMA.patch
-  0005-scsi-sd-Introduce-manage_shutdown-device-flag.patch
+  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c6662f64713f56bf30e009c32eac15536fad5fd1c02e8a3daf62a0dc2f058fd5'
+sha256sums=('d926a06c63dd8ac7df3f86ee1ffc2ce2a3b81a2d168484e76b5b389aba8e56d0'
             'SKIP'
             # config
-            '9bb7de4ec96d242921f071ecf1879e1cc8e0fb1d4ae2653b739442d71942968c'
+            '0eefceff474a341e5c9e553a3262eccfeaf21e60da15cc875483580f76a501ba'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            'a86a59d089ddd4f31565ff6a27ba74f4697ffa0ab0f57dc839e1da6ab83d77a4'
+            'cc82cd1635a0613f6b5abd4a0095a4b64285d015a9d0738a16baf791f23eab57'
             # bore scheduler
-            'd2d3cb379376034c72989d4ae5b6852ebdd08796999e163dd1b7bafbb65bb7a6'
-            # xanmod patch
-            '5b1d973a2789b1a3439a5b4b8f063b2db11b23f8558796b8898c70faad666b08'
+            '15f3d65ab852d4d23ea1ad3e7af27c3789ad2a7324638af91a63581e2bc264a2'
             # -O3
-            '9d8de3547fb16e31f2b3ce8c9e7db9f535d01a419f7b4722d56ddeab4befec2d'
-            'b2f8f84096b023519c3b64333cc0796283a0e88c3d5147a07423dbcc4cdfda0e'
+            'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
             # AMD preferred core patch
-            '7af068606a4951fa711684e3118278f8656c29e26b43cd5f34fcf371c3e3aa0b'
+            '948d010d770ba47f5c49e4f18bfa4740920c842f7c47604e14b303d0b0cc41ae'
             # archlinux patches
-            '868778c7a022b4103842366adef15c60a048d32ad5515da003b72370e9b8d3a4'
-            'ab1506d8b0e5e1eee6495579d036b33bb9e1d245f669b8a4f227c3cc94efb1be'
-            '327f8a1f94056da06d490fa7d4ddd5da0550cccb489bb41fdedb9e8653195906'
-            '4ad2a3b6fe5e87538ed0bfa50b570fc6ca0a81f1aa56517d6016117a3844755d'
-            'e4d6b32dbcabf667169485fbf989c2fb165912aed9d4361d735e99219e3f5d69'
+            '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
+            '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
 )
 
 prepare() {
@@ -277,8 +264,8 @@ _package() {
   ZSTD_CLEVEL=19 make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
     DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
-  # remove build and source links
-  rm "$modulesdir"/{source,build}
+  # remove build links
+  rm "$modulesdir"/build
 }
 
 _package-headers() {

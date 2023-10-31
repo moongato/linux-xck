@@ -1,4 +1,4 @@
-From 8659d263820b50c42036dd38fff16e0f6852575d Mon Sep 17 00:00:00 2001
+From 0f5f96ad4cb82b68c1f6669227b21ad887e8a469 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
 Date: Mon, 16 Sep 2019 04:53:20 +0200
 Subject: [PATCH] ZEN: Add sysctl and CONFIG to disallow unprivileged
@@ -36,10 +36,10 @@ index 45f09bec02c485..87b20e2ee27445 100644
  {
  	return &init_user_ns;
 diff --git a/init/Kconfig b/init/Kconfig
-index f7f65af4ee1293..c2ecb3bb339287 100644
+index 6d35728b94b2b3..0562c8ca7b308d 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -1225,6 +1225,22 @@ config USER_NS
+@@ -1226,6 +1226,22 @@ config USER_NS
  
  	  If unsure, say N.
  
@@ -63,7 +63,7 @@ index f7f65af4ee1293..c2ecb3bb339287 100644
  	bool "PID Namespaces"
  	default y
 diff --git a/kernel/fork.c b/kernel/fork.c
-index d2e12b6d2b180f..95ca80492a3790 100644
+index 3b6d20dfb9a85e..200a77738a803a 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
 @@ -100,6 +100,10 @@
@@ -77,7 +77,7 @@ index d2e12b6d2b180f..95ca80492a3790 100644
  #include <asm/pgalloc.h>
  #include <linux/uaccess.h>
  #include <asm/mmu_context.h>
-@@ -2263,6 +2267,10 @@ __latent_entropy struct task_struct *copy_process(
+@@ -2260,6 +2264,10 @@ __latent_entropy struct task_struct *copy_process(
  	if ((clone_flags & (CLONE_NEWUSER|CLONE_FS)) == (CLONE_NEWUSER|CLONE_FS))
  		return ERR_PTR(-EINVAL);
  
@@ -88,7 +88,7 @@ index d2e12b6d2b180f..95ca80492a3790 100644
  	/*
  	 * Thread groups must share signals as well, and detached threads
  	 * can only be started up within the thread group.
-@@ -3416,6 +3424,12 @@ int ksys_unshare(unsigned long unshare_flags)
+@@ -3413,6 +3421,12 @@ int ksys_unshare(unsigned long unshare_flags)
  	if (unshare_flags & CLONE_NEWNS)
  		unshare_flags |= CLONE_FS;
  
