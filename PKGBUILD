@@ -184,7 +184,7 @@ prepare() {
 
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
-  echo "Patching to enable GCC optimization for other uarchs..."
+  msg2 "Patching to enable GCC optimization for other uarchs..."
   patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.17+.patch"
 
   if [ -n "$_subarch" ]; then
@@ -208,7 +208,7 @@ prepare() {
     fi
 
   make -s kernelrelease > version
-  echo "Prepared $pkgbase version $(<version)"
+  msg2 "Prepared $pkgbase version $(<version)"
 
   [[ -z "$_makenconfig" ]] || make LLVM=$_LLVM LLVM_IAS=$_LLVM nconfig
 
@@ -261,11 +261,12 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  ZSTD_CLEVEL=19 make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
-    DEPMOD=/doesnt/exist modules_install  # Suppress depmod
+  #ZSTD_CLEVEL=19 make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+  #  DEPMOD=/doesnt/exist modules_install  # Suppress depmod
+  ZSTD_CLEVEL=19 make LLVM=$_LLVM LLVM_IAS=$_LLVM INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
 
-  # remove build links
-  rm "$modulesdir"/build
+  # remove build and source links
+  rm -f "$modulesdir"/{source,build}
 }
 
 _package-headers() {
