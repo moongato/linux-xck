@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.6.2
-pkgrel=2
+pkgver=6.6.3
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -100,25 +100,27 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.6-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.6/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://github.com/CachyOS/kernel-patches/raw/master/6.6/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
+  0003-ACPI-video-Use-acpi_video_device-for-cooling-dev-driver.patch
+  0004-HID-amd_sfh-Check-that-sensors-are-enabled-before-set-get.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('73d4f6ad8dd6ac2a41ed52c2928898b7c3f2519ed5dbdb11920209a36999b77e'
+sha256sums=('28edfc3d4f90cd738f2a20f5a2d68510268176d6111f6278d8f495edfd9495a7'
             'SKIP'
             # config
             'c40a232d3be791ab5ac0227100aee4bfd6f7fbc7dd24718c0b28417c610d6791'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            'cc82cd1635a0613f6b5abd4a0095a4b64285d015a9d0738a16baf791f23eab57'
+            #'cc82cd1635a0613f6b5abd4a0095a4b64285d015a9d0738a16baf791f23eab57'
             # bore scheduler
             'ab2bedafb41f78f86f801aa7e88e0c29b342073e05eee62d5c54bbd3262cc02a'
             # -O3
@@ -128,6 +130,8 @@ sha256sums=('73d4f6ad8dd6ac2a41ed52c2928898b7c3f2519ed5dbdb11920209a36999b77e'
             # archlinux patches
             '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
             '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
+            'a8c67163a5bafef5832286e12735bdf1ae3ab23554bd011ab2f4e493686db413'
+            '534d4533e4ee91f0f9c54e24572ec7ee7de88d6f96ec5580e33596325363707d'
 )
 
 prepare() {
@@ -165,11 +169,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
