@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.6.3
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -91,8 +91,8 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.6.y
-_commit=c83f27ce602a96d481678dca05fe6fd267b2ea44
+_ckhrtimer=linux-6.6.3+
+_commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.6.y-bore3.5.3.patch
@@ -100,7 +100,7 @@ source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.6-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.6/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://github.com/CachyOS/kernel-patches/raw/master/6.6/0002-amd-pref-core.patch
@@ -116,17 +116,17 @@ validpgpkeys=(
 sha256sums=('28edfc3d4f90cd738f2a20f5a2d68510268176d6111f6278d8f495edfd9495a7'
             'SKIP'
             # config
-            'c40a232d3be791ab5ac0227100aee4bfd6f7fbc7dd24718c0b28417c610d6791'
+            'c74c0b7f1bfce06233b40f2c5348a6e7f6d6ca4bbedb55e01a23d49ce94a1e11'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
-            #'cc82cd1635a0613f6b5abd4a0095a4b64285d015a9d0738a16baf791f23eab57'
+            '89320b47288f40100e03039585733fe98fd1b60902616f95987b66cbb97502df'
             # bore scheduler
             'ab2bedafb41f78f86f801aa7e88e0c29b342073e05eee62d5c54bbd3262cc02a'
             # -O3
             'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
             # AMD preferred core patch
-            '941c05829a60d14f1483325da56658660a01c3ff74a0f6227f2e428fc2b7e028'
+            '2f72409e58803720aba5ec81e1744954931b960c05052609811b0d70ea3b8758'
             # archlinux patches
             '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
             '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
@@ -169,11 +169,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  #echo "Patching with ck hrtimer patches..."
+  echo "Patching with ck hrtimer patches..."
 
-  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-  #  patch -Np1 -i $i
-  #done
+  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+    patch -Np1 -i $i
+  done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
