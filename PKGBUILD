@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.6.3
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -95,7 +95,7 @@ _ckhrtimer=linux-6.6.3+
 _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.6.y-bore3.5.3.patch
+_bore=0001-linux6.6.y-bore3.5.4.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -122,7 +122,7 @@ sha256sums=('28edfc3d4f90cd738f2a20f5a2d68510268176d6111f6278d8f495edfd9495a7'
             # hrtimers patch
             '89320b47288f40100e03039585733fe98fd1b60902616f95987b66cbb97502df'
             # bore scheduler
-            'ab2bedafb41f78f86f801aa7e88e0c29b342073e05eee62d5c54bbd3262cc02a'
+            '3f4190a0c0e45954ecfbd615f16e10aa84c05a283d9eac968150df0a779f71ac'
             # -O3
             'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
             # AMD preferred core patch
