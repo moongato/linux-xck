@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.6.4
-pkgrel=2
+pkgver=6.6.5
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -106,14 +106,13 @@ source=(
   https://github.com/CachyOS/kernel-patches/raw/master/6.6/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-ACPI-video-Use-acpi_video_device-for-cooling-dev-driver.patch
-  0004-HID-amd_sfh-Check-that-sensors-are-enabled-before-set-get.patch
+  0003-HID-amd_sfh-Check-that-sensors-are-enabled-before-set-get.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('49e49660c93d8d6d58f118360d3ca8131695ec34669263ca8f041c876da93e45'
+sha256sums=('7c92795854a68d218c576097d50611f8eea86fd55810e0bc27724f020753b19e'
             'SKIP'
             # config
             'c74c0b7f1bfce06233b40f2c5348a6e7f6d6ca4bbedb55e01a23d49ce94a1e11'
@@ -126,11 +125,10 @@ sha256sums=('49e49660c93d8d6d58f118360d3ca8131695ec34669263ca8f041c876da93e45'
             # -O3
             'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
             # AMD preferred core patch
-            'a793ad93eb2755882a49685195f487c3db901e92f18aa56b1337cdbf0b647104'
+            '4996f8f567ba8ed667a30698712b58854a4abc27a0bcc707eadb7146978245d8'
             # archlinux patches
             '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
             '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
-            'a8c67163a5bafef5832286e12735bdf1ae3ab23554bd011ab2f4e493686db413'
             '534d4533e4ee91f0f9c54e24572ec7ee7de88d6f96ec5580e33596325363707d'
 )
 
