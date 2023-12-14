@@ -71,7 +71,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.6.6
+pkgver=6.6.7
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -106,13 +106,12 @@ source=(
   https://github.com/CachyOS/kernel-patches/raw/master/6.6/0002-amd-pref-core.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-HID-amd_sfh-Check-that-sensors-are-enabled-before-set-get.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('ebf70a917934b13169e1be5b95c3b6c2fea5bc14e6dc144f1efb8a0016b224c8'
+sha256sums=('0ce68ec6019019140043263520955ecd04839e55a1baab2fa9155b42bb6fd841'
             'SKIP'
             # config
             'c74c0b7f1bfce06233b40f2c5348a6e7f6d6ca4bbedb55e01a23d49ce94a1e11'
@@ -129,7 +128,6 @@ sha256sums=('ebf70a917934b13169e1be5b95c3b6c2fea5bc14e6dc144f1efb8a0016b224c8'
             # archlinux patches
             '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
             '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
-            '534d4533e4ee91f0f9c54e24572ec7ee7de88d6f96ec5580e33596325363707d'
 )
 
 prepare() {
