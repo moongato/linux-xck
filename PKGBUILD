@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.6.7
-pkgrel=2
+pkgver=6.6.8
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -95,7 +95,7 @@ _ckhrtimer=linux-6.6.3+
 _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.6.y-bore3.5.8.patch
+_bore=0001-linux6.6.y-bore3.6.0.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -111,20 +111,20 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('0ce68ec6019019140043263520955ecd04839e55a1baab2fa9155b42bb6fd841'
+sha256sums=('5036c434e11e4b36d8da3f489851f7f829cf785fa7f7887468537a9ea4572416'
             'SKIP'
             # config
-            'c74c0b7f1bfce06233b40f2c5348a6e7f6d6ca4bbedb55e01a23d49ce94a1e11'
+            '0962d8e1a991ee5b47d80b7e7e326885f3e125da7276fc34ccc7168165d9529e'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
             '89320b47288f40100e03039585733fe98fd1b60902616f95987b66cbb97502df'
             # bore scheduler
-            '51dfadc77d3857c2ffea6ac04deccd0bc5b8909c5b8735f045062f74633471fb'
+            'deba6242855e3b48b097b5cb4e467ba20b3109a6b43dc51e0bcfba1e5551cbe3'
             # -O3
             'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
             # AMD preferred core patch
-            'cddf3313eac15f631462d2e203d0a405e7bb7a60c2f01a1dac687e5a1b78e4ac'
+            'bb8ef7b00e959e495852b94ff17314ffcc9b855ca257af4012c2d2cdeff14c9c'
             # archlinux patches
             '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
             '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
