@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.6.8
-pkgrel=2
+pkgver=6.6.9
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -96,6 +96,7 @@ _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.6.y-bore3.6.1.patch
+_pstate=amd-pstate-patches-v6
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -103,7 +104,7 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.6-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.6/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://github.com/CachyOS/kernel-patches/raw/master/6.6/0002-amd-pref-core.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.6/$_pstate/0001-amd-6.6-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
 )
@@ -111,7 +112,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('5036c434e11e4b36d8da3f489851f7f829cf785fa7f7887468537a9ea4572416'
+sha256sums=('8ebc65af0cfc891ba63dce0546583da728434db0f5f6a54d979f25ec47f548b3'
             'SKIP'
             # config
             '0962d8e1a991ee5b47d80b7e7e326885f3e125da7276fc34ccc7168165d9529e'
@@ -123,8 +124,8 @@ sha256sums=('5036c434e11e4b36d8da3f489851f7f829cf785fa7f7887468537a9ea4572416'
             'a39eb5b0202337e721b5fa45049bb4651eecd94ac8b66cbcbcb860f0ac1fc5a0'
             # -O3
             'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
-            # AMD preferred core patch
-            'bb8ef7b00e959e495852b94ff17314ffcc9b855ca257af4012c2d2cdeff14c9c'
+            # AMD pstate patch
+            '288bbce057b61ab53410069fd167b38a05f6e75c5cf5fc399183341ebb715262'
             # archlinux patches
             '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
             '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
