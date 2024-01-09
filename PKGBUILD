@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.6.10
-pkgrel=2
+pkgver=6.7
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -95,16 +95,16 @@ _ckhrtimer=linux-6.6.3+
 _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.6.y-bore4.0.0.patch
-_pstate=amd-pstate-patches-v6
+_bore=0001-linux6.7.y-bore4.0.0.patch
+_pstate=amd-pstate-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.6-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.6/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.6/$_pstate/0001-amd-6.6-merge-changes-from-dev-tree.patch
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.7-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.7/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.7/$_pstate/0001-amd-6.7-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
 )
@@ -112,23 +112,23 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('9ee627e4c109aec7fca3eda5898e81d201af2c7eb2f7d9d7d94c1f0e1205546c'
+sha256sums=('ef31144a2576d080d8c31698e83ec9f66bf97c677fa2aaf0d5bbb9f3345b1069'
             'SKIP'
             # config
-            '0962d8e1a991ee5b47d80b7e7e326885f3e125da7276fc34ccc7168165d9529e'
+            '30dc83cea1292b03d791e000ee005431f82663bbd2dda83b6d8a3e8926afc33c'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
             '89320b47288f40100e03039585733fe98fd1b60902616f95987b66cbb97502df'
             # bore scheduler
-            '6339a792833be907ea1fafb7f1625374e0d972d01cd5249f2391b18d9c73755b'
+            '239e76867db58713d58c1eba6860cd6370945469962c9ca3077b8978b0e97b96'
             # -O3
-            'e2ab34f737034b1192f7d3b0a1ac4b91c7c98815cd0e43f37569103a2bb0ea80'
+            '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
-            '288bbce057b61ab53410069fd167b38a05f6e75c5cf5fc399183341ebb715262'
+            'be1db03fbf3cba008f04c37470d9cc5568fa48dbc72f2fb43d214f8a2fc24d20'
             # archlinux patches
-            '199282adf86f6fccc0d99186be259ba5cce4278b5dd8e763d562f0db069fdca7'
-            '71100e0468c5e63106ae5d78cffa69c09a86e875e4958fa8faf89da9cce4fd77'
+            '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
+            '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
 )
 
 prepare() {
