@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.7
-pkgrel=3
+pkgrel=4
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
