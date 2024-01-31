@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.7.1
-pkgrel=2
+pkgver=6.7.2
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -96,7 +96,7 @@ _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.7.y-bore4.1.3.patch
-_pstate=amd-pstate-patches-v3
+_pstate=amd-pstate-patches-v4
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -109,15 +109,16 @@ source=(
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-wifi-ath11k-rely-on-mac80211-debugfs-handling-for-vif.patch
   0004-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
+  0005-nouveau-rip-out-fence-irq-allow-block-sequences.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('1ecffa568e86a2202ba5533ad9034bc263a9aa14e189597a94f09b3854ad68c3'
+sha256sums=('c34de41baa29c475c0834e88a3171e255ff86cd32d83c6bffc2b797e60bfa671'
             'SKIP'
             # config
-            'daf3a8bede27b3d38b24e8378cd98eef96866d977dd9dc7ed7e637f3083bac57'
+            'e6b8df5348d7d0cfd2bbcab342cfb1742b83aa24f02915c808a26127131be9e8'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -127,12 +128,13 @@ sha256sums=('1ecffa568e86a2202ba5533ad9034bc263a9aa14e189597a94f09b3854ad68c3'
             # -O3
             '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
-            '036e988ced22e2b72825496e9cfd233c4a7cd2c55a4429a9d7380cbe29193cd6'
+            '10a3a05269c96645856f107e8e8d4c9f137a632302feefba3a2bebecffb3c4d3'
             # archlinux patches
             '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
             '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
             'edf40a8454442b6afc6484942cd90535cd3e01ddc2dfe20d56f377f5bc736819'
             '6400a06e6eb3a24b650bc3b1bba9626622f132697987f718e7ed6a5b8c0317bc'
+            'acb4a8e341f4574decb470cac03708f0cc6588f701374aa27e12a635255e443e'
 )
 
 prepare() {
