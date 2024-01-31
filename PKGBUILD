@@ -96,7 +96,7 @@ _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.7.y-bore4.1.3.patch
-_pstate=amd-pstate-patches-v4
+_pstate=amd-pstate-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -128,7 +128,7 @@ sha256sums=('c34de41baa29c475c0834e88a3171e255ff86cd32d83c6bffc2b797e60bfa671'
             # -O3
             '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
-            '10a3a05269c96645856f107e8e8d4c9f137a632302feefba3a2bebecffb3c4d3'
+            '036e988ced22e2b72825496e9cfd233c4a7cd2c55a4429a9d7380cbe29193cd6'
             # archlinux patches
             '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
             '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
