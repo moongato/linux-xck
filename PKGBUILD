@@ -95,7 +95,7 @@ _ckhrtimer=linux-6.6.3+
 _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
-_bore=0001-linux6.7.y-bore4.1.3.patch
+_bore=0001-linux6.7.y-bore4.1.4.patch
 _pstate=amd-pstate-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -122,7 +122,7 @@ sha256sums=('b7f08c652747574a3aa26e317d7a8f23ffab3fb645e1b1533b215dcfd5742b44'
             # hrtimers patch
             '89320b47288f40100e03039585733fe98fd1b60902616f95987b66cbb97502df'
             # bore scheduler
-            '301dc58b4d3250898b7c5bcd8689f0d9a7dff775f4c07f135853d64dc92aae4b'
+            '22e9d79314c373f8b9a0b68f678c558b726e53bfaf67668e596c0c1783bfb76d'
             # -O3
             '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
