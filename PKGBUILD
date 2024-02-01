@@ -71,7 +71,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.7.2
+pkgver=6.7.3
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -107,18 +107,16 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/6.7/$_pstate/0001-amd-6.7-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-wifi-ath11k-rely-on-mac80211-debugfs-handling-for-vif.patch
-  0004-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0005-nouveau-rip-out-fence-irq-allow-block-sequences.patch
+  0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c34de41baa29c475c0834e88a3171e255ff86cd32d83c6bffc2b797e60bfa671'
+sha256sums=('b7f08c652747574a3aa26e317d7a8f23ffab3fb645e1b1533b215dcfd5742b44'
             'SKIP'
             # config
-            'e6b8df5348d7d0cfd2bbcab342cfb1742b83aa24f02915c808a26127131be9e8'
+            '4a4a88d9606f38299195f6a77b5ac9cedf9c24d14b461e8e2eeed11f01c3e0ea'
             # gcc patch
             'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
             # hrtimers patch
@@ -132,9 +130,7 @@ sha256sums=('c34de41baa29c475c0834e88a3171e255ff86cd32d83c6bffc2b797e60bfa671'
             # archlinux patches
             '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
             '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
-            'edf40a8454442b6afc6484942cd90535cd3e01ddc2dfe20d56f377f5bc736819'
             '6400a06e6eb3a24b650bc3b1bba9626622f132697987f718e7ed6a5b8c0317bc'
-            'acb4a8e341f4574decb470cac03708f0cc6588f701374aa27e12a635255e443e'
 )
 
 prepare() {
