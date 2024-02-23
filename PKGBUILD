@@ -72,7 +72,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.7.5
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -96,13 +96,13 @@ _commit=0253362c705f4fb947d8abf927dfa23403e98eb4
 
 _gcc_more_v=20221217
 _bore=0001-linux6.7.y-bore4.2.0.patch
-_pstate=amd-pstate-patches-v13
+_pstate=amd-pstate-patches-v16
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/linux-6.7-bore/$_bore
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.7-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.7/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.7/$_pstate/0001-amd-6.7-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
@@ -126,7 +126,7 @@ sha256sums=('29f6464061b8179cbb77fc5591e06a2199324e018c9ed730ca3e6dfb145539ff'
             # -O3
             '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
-            'c535d9b5c88b0080781ee63a3a360b373e981edd17d225675a0e9500ca43814e'
+            'e3ce5b8e6bc2251f7ec096eddd5df19cdb643eda6acb2547336559b43164f2bf'
             # archlinux patches
             '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
             '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
