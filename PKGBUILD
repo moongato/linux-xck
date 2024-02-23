@@ -71,8 +71,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.7.5
-pkgrel=2
+pkgver=6.7.6
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -91,10 +91,10 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.6.3+
-_commit=0253362c705f4fb947d8abf927dfa23403e98eb4
+_ckhrtimer=linux-6.7.y
+_commit=2545022ef4c3b71ad07031164c764d45b37af2a3
 
-_gcc_more_v=20221217
+_gcc_more_v=20240221.2
 _bore=0001-linux6.7.y-bore4.2.0.patch
 _pstate=amd-pstate-patches-v16
 source=(
@@ -113,14 +113,14 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('29f6464061b8179cbb77fc5591e06a2199324e018c9ed730ca3e6dfb145539ff'
+sha256sums=('e489ec0e1370d089b446d565aded7a698093d2b7c4122a18f21edb6ef93d37d3'
             'SKIP'
             # config
-            'dabe309363abb87349c5540a9eaa147405cabd05bbdd4e94fdc809d760d3e298'
+            'ccb9e604267825f1a64cd9a8f170bcc6a871676b0d30aac909278de2ada54679'
             # gcc patch
-            'f1d586e111932890ad5e0df15d092fb9b3f87bae4ea17812aae9b0ec98fe2db0'
+            '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
-            '89320b47288f40100e03039585733fe98fd1b60902616f95987b66cbb97502df'
+            '36981db4140b0c68c58855a9fefa336373501a0737005bbe824f6e7616808702'
             # bore scheduler
             '1e17548c6d48fbc54d3e7c8c9edb03484972284a9f99dd47406a93e66d0a2494'
             # -O3
@@ -188,7 +188,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   msg2 "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-5.17+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-6.1.79-6.8-rc3.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
@@ -225,6 +225,7 @@ prepare() {
 build() {
   cd linux-${pkgver}
   make LLVM=$_LLVM LLVM_IAS=$_LLVM all
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM -C tools/bpf/bpftool vmlinux.h feature-clang-bpf-co-re=1
 }
 
 _package() {
@@ -280,7 +281,7 @@ _package-headers() {
 
   echo "Installing build files..."
   install -Dt "$builddir" -m644 .config Makefile Module.symvers System.map \
-    localversion.* version vmlinux
+    localversion.* version vmlinux tools/bpf/bpftool/vmlinux.h
   install -Dt "$builddir/kernel" -m644 kernel/Makefile
   install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
   cp -t "$builddir" -a scripts
