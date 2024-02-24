@@ -62,12 +62,13 @@ _subarch=
 #  36. Intel Alder Lake (MALDERLAKE) (NEW)
 #  37. Intel Raptor Lake (MRAPTORLAKE) (NEW)
 #  38. Intel Meteor Lake (MMETEORLAKE) (NEW)
-#  39. Generic-x86-64 (GENERIC_CPU)
-#  40. Generic-x86-64-v2 (GENERIC_CPU2) (NEW)
-#  41. Generic-x86-64-v3 (GENERIC_CPU3) (NEW)
-#  42. Generic-x86-64-v4 (GENERIC_CPU4) (NEW)
-#  43. Intel-Native optimizations autodetected by the compiler (MNATIVE_INTEL) (NEW)
-#  44. AMD-Native optimizations autodetected by the compiler (MNATIVE_AMD) (NEW)
+#  39. Intel Emerald Rapids (MEMERALDRAPIDS) (NEW)
+#  40. Generic-x86-64 (GENERIC_CPU)
+#  41. Generic-x86-64-v2 (GENERIC_CPU2) (NEW)
+#  42. Generic-x86-64-v3 (GENERIC_CPU3) (NEW)
+#  43. Generic-x86-64-v4 (GENERIC_CPU4) (NEW)
+#  44. Intel-Native optimizations autodetected by the compiler (MNATIVE_INTEL) (NEW)
+#  45. AMD-Native optimizations autodetected by the compiler (MNATIVE_AMD) (NEW)
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
