@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.7.6
-pkgrel=3
+pkgver=6.7.7
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -114,10 +114,10 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('e489ec0e1370d089b446d565aded7a698093d2b7c4122a18f21edb6ef93d37d3'
+sha256sums=('256b8b44570ddbe266eb3ad0c2cba2616f1609b4a3de5014a3da5512907b14d9'
             'SKIP'
             # config
-            '63864008007035195e79dff443265fe2fe6545ddcee868d367045aad7d56a38e'
+            'f2073ee5a97c81af6310a3701c9215555d65943d42a872be3d4234b5ef66a59c'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
