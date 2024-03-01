@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.7.6
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -97,7 +97,7 @@ _commit=2545022ef4c3b71ad07031164c764d45b37af2a3
 
 _gcc_more_v=20240221.2
 _bore=0001-linux6.7.y-bore4.2.4.patch
-_pstate=amd-pstate-patches-v16
+_pstate=amd-pstate-patches-v17
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -117,7 +117,7 @@ validpgpkeys=(
 sha256sums=('e489ec0e1370d089b446d565aded7a698093d2b7c4122a18f21edb6ef93d37d3'
             'SKIP'
             # config
-            'ccb9e604267825f1a64cd9a8f170bcc6a871676b0d30aac909278de2ada54679'
+            '63864008007035195e79dff443265fe2fe6545ddcee868d367045aad7d56a38e'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -127,7 +127,7 @@ sha256sums=('e489ec0e1370d089b446d565aded7a698093d2b7c4122a18f21edb6ef93d37d3'
             # -O3
             '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
-            'e3ce5b8e6bc2251f7ec096eddd5df19cdb643eda6acb2547336559b43164f2bf'
+            '676805a11d010981f6f607da792b6f8b552d4171ee3ad769bed9b443159ca4dd'
             # archlinux patches
             '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
             '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
