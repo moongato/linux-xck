@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.7.8
+pkgver=6.7.9
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -97,6 +97,7 @@ _commit=2545022ef4c3b71ad07031164c764d45b37af2a3
 
 _gcc_more_v=20240221.2
 _bore=0001-linux6.7.y-bore4.5.0.patch
+_test=0001-linux6.7.y-bore4.5.1.patch
 _pstate=amd-pstate-patches-v17
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -104,6 +105,7 @@ source=(
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.7-bore/$_bore
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.7-bore/$_test
   https://github.com/sirlucjan/kernel-patches/raw/master/6.7/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.7/$_pstate/0001-amd-6.7-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
@@ -114,7 +116,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('469ff46b98685df13b56c98417c64ba7a30f8a45baf34aa99f07935e1bf65c18'
+sha256sums=('0fd733fc0778f8da1fdf66df1698d394248807de71eef83a4d1218bcb3dfd346'
             'SKIP'
             # config
             'f2073ee5a97c81af6310a3701c9215555d65943d42a872be3d4234b5ef66a59c'
@@ -124,6 +126,8 @@ sha256sums=('469ff46b98685df13b56c98417c64ba7a30f8a45baf34aa99f07935e1bf65c18'
             '36981db4140b0c68c58855a9fefa336373501a0737005bbe824f6e7616808702'
             # bore scheduler
             '6f0c6ac5cd7bd468b0f5d63ced2e34bf2cf57a04156252c38e4021354bb1e564'
+            # bore testing
+            #'7e69dca62b0371293748a2c16e2562277e3f93b12f152d242d85e9c1dc732913'
             # -O3
             '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
             # AMD pstate patch
