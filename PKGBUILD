@@ -92,8 +92,8 @@ options=('!strip')
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.7.y
-_commit=2545022ef4c3b71ad07031164c764d45b37af2a3
+_ckhrtimer=linux-6.8.y
+_commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _bore=0001-linux6.8.y-bore4.5.0.patch
@@ -123,7 +123,7 @@ sha256sums=('c969dea4e8bb6be991bbf7c010ba0e0a5643a3a8d8fb0a2aaa053406f1e965f3'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
-            '36981db4140b0c68c58855a9fefa336373501a0737005bbe824f6e7616808702'
+            '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # bore scheduler
             #'09883311108d461da63a04012d7a2b7f6a4165ee0c4e9cb7a5dc3f9ade326fc7'
             # bore testing
