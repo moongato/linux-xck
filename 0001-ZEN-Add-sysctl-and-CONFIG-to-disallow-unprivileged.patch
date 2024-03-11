@@ -1,4 +1,4 @@
-From 35d79b574508f84805b19ef3e1c4b21b9605e946 Mon Sep 17 00:00:00 2001
+From 324e885547a38a7dd177ebf6e114fab360c7f127 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
 Date: Mon, 16 Sep 2019 04:53:20 +0200
 Subject: [PATCH] ZEN: Add sysctl and CONFIG to disallow unprivileged
@@ -36,10 +36,10 @@ index 6030a823561735..60b7fe5fa74ad4 100644
  {
  	return &init_user_ns;
 diff --git a/init/Kconfig b/init/Kconfig
-index 9ffb103fc927bc..f91ccd3c1456d9 100644
+index bee58f7468c36a..85998966617c77 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -1226,6 +1226,22 @@ config USER_NS
+@@ -1247,6 +1247,22 @@ config USER_NS
  
  	  If unsure, say N.
  
@@ -63,12 +63,12 @@ index 9ffb103fc927bc..f91ccd3c1456d9 100644
  	bool "PID Namespaces"
  	default y
 diff --git a/kernel/fork.c b/kernel/fork.c
-index 10917c3e1f0366..458360cf9bfbc0 100644
+index 0d944e92a43ffa..5449c990a91a44 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -100,6 +100,10 @@
- #include <linux/user_events.h>
+@@ -102,6 +102,10 @@
  #include <linux/iommu.h>
+ #include <linux/rseq.h>
  
 +#ifdef CONFIG_USER_NS
 +#include <linux/user_namespace.h>
@@ -77,7 +77,7 @@ index 10917c3e1f0366..458360cf9bfbc0 100644
  #include <asm/pgalloc.h>
  #include <linux/uaccess.h>
  #include <asm/mmu_context.h>
-@@ -2265,6 +2269,10 @@ __latent_entropy struct task_struct *copy_process(
+@@ -2260,6 +2264,10 @@ __latent_entropy struct task_struct *copy_process(
  	if ((clone_flags & (CLONE_NEWUSER|CLONE_FS)) == (CLONE_NEWUSER|CLONE_FS))
  		return ERR_PTR(-EINVAL);
  
@@ -88,7 +88,7 @@ index 10917c3e1f0366..458360cf9bfbc0 100644
  	/*
  	 * Thread groups must share signals as well, and detached threads
  	 * can only be started up within the thread group.
-@@ -3411,6 +3419,12 @@ int ksys_unshare(unsigned long unshare_flags)
+@@ -3406,6 +3414,12 @@ int ksys_unshare(unsigned long unshare_flags)
  	if (unshare_flags & CLONE_NEWNS)
  		unshare_flags |= CLONE_FS;
  
@@ -132,7 +132,7 @@ index 157f7ce2942d26..881fc4f5d61e35 100644
  	{
  		.procname	= "tainted",
 diff --git a/kernel/user_namespace.c b/kernel/user_namespace.c
-index eabe8bcc704265..ac9d1f702086e6 100644
+index ce4d99df5f0eb4..8272e2e359f117 100644
 --- a/kernel/user_namespace.c
 +++ b/kernel/user_namespace.c
 @@ -22,6 +22,13 @@

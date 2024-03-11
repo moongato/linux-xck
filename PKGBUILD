@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.7.9
+pkgver=6.8
 pkgrel=1
 arch=(x86_64)
 license=(GPL2)
@@ -96,18 +96,18 @@ _ckhrtimer=linux-6.7.y
 _commit=2545022ef4c3b71ad07031164c764d45b37af2a3
 
 _gcc_more_v=20240221.2
-_bore=0001-linux6.7.y-bore4.5.0.patch
-_test=0001-linux6.7.y-bore4.5.1.patch
-_pstate=amd-pstate-patches-v17
+_bore=0001-linux6.8.y-bore4.5.0.patch
+_test=0001-linux6.8.y-bore4.5.2.patch
+_pstate=amd-pstate-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.7-bore/$_bore
-  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.7-bore/$_test
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.7/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.7/$_pstate/0001-amd-6.7-merge-changes-from-dev-tree.patch
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_test
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
@@ -116,26 +116,26 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('0fd733fc0778f8da1fdf66df1698d394248807de71eef83a4d1218bcb3dfd346'
+sha256sums=('c969dea4e8bb6be991bbf7c010ba0e0a5643a3a8d8fb0a2aaa053406f1e965f3'
             'SKIP'
             # config
-            'f2073ee5a97c81af6310a3701c9215555d65943d42a872be3d4234b5ef66a59c'
+            'e51faf8671b85c983bcc3679a7d446a07d24e4a33d92b46dd7c6c1635166db11'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '36981db4140b0c68c58855a9fefa336373501a0737005bbe824f6e7616808702'
             # bore scheduler
-            '6f0c6ac5cd7bd468b0f5d63ced2e34bf2cf57a04156252c38e4021354bb1e564'
+            #'09883311108d461da63a04012d7a2b7f6a4165ee0c4e9cb7a5dc3f9ade326fc7'
             # bore testing
-            #'7e69dca62b0371293748a2c16e2562277e3f93b12f152d242d85e9c1dc732913'
+            '0bbf47b6548a8d3c18cb23607e347fce0c469b460a597ac0740632e7fad81164'
             # -O3
-            '350d20d5089f7232fb595239e00752b27ea45750972e5c04095b598a797bb0e0'
+            '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            '676805a11d010981f6f607da792b6f8b552d4171ee3ad769bed9b443159ca4dd'
+            '93605063da8a30cd43afba9ae1034ad20b4f6013da13a0ac9d9d65ae557ec91e'
             # archlinux patches
-            '099039db458da10124143ba474df691fe8fd753c17ddaadc31ba9eae17604772'
-            '05785265b86c411eddad3eca54f308f604e2a91ab11b8ef0c229e0f94ab16013'
-            '6400a06e6eb3a24b650bc3b1bba9626622f132697987f718e7ed6a5b8c0317bc'
+            '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
+            '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
+            '0cc9aa35d01ae48740d742cde4e845e4dad845e30e806b5dfd18aa14767520b2'
 )
 
 prepare() {
@@ -193,7 +193,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   msg2 "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-6.1.79-6.8-rc3.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-6.8-rc4+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
