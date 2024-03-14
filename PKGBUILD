@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.8
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -98,7 +98,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 _gcc_more_v=20240221.2
 _bore=0001-linux6.8.y-bore4.5.0.patch
 _test=0001-linux6.8.y-bore4.5.2.patch
-_pstate=amd-pstate-patches
+_pstate=amd-pstate-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -131,7 +131,7 @@ sha256sums=('c969dea4e8bb6be991bbf7c010ba0e0a5643a3a8d8fb0a2aaa053406f1e965f3'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            '93605063da8a30cd43afba9ae1034ad20b4f6013da13a0ac9d9d65ae557ec91e'
+            '8e7043a8d75749b7e6c64fcee16084cd72756d92f792fe14776b2fc69ad09950'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
