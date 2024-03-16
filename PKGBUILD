@@ -75,20 +75,23 @@ pkgbase=linux-xck
 pkgver=6.8.1
 pkgrel=1
 arch=(x86_64)
-license=(GPL2)
+license=(GPL-2.0-only)
 makedepends=(
   bc
   cpio
   gettext
   libelf
   pahole
-  python
   perl
+  python
   tar
   xz
 )
 [[ -n "$_clangbuild" ]] && makedepends+=(clang llvm lld python)
-options=('!strip')
+options=(
+  !debug
+  !strip
+)
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
@@ -119,7 +122,7 @@ validpgpkeys=(
 sha256sums=('8d0c8936e3140a0fbdf511ad7a9f21121598f3656743898f47bb9052d37cff68'
             'SKIP'
             # config
-            'e51faf8671b85c983bcc3679a7d446a07d24e4a33d92b46dd7c6c1635166db11'
+            'e7b190e279404a962248133675957223a5c3d251409272ad361ed6bdc5927ef4'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
