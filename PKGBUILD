@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8
-pkgrel=2
+pkgver=6.8.1
+pkgrel=1
 arch=(x86_64)
 license=(GPL2)
 makedepends=(
@@ -98,7 +98,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 _gcc_more_v=20240221.2
 _bore=0001-linux6.8.y-bore4.5.0.patch
 _test=0001-linux6.8.y-bore4.5.2.patch
-_pstate=amd-pstate-patches-v2
+_pstate=amd-pstate-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -116,7 +116,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c969dea4e8bb6be991bbf7c010ba0e0a5643a3a8d8fb0a2aaa053406f1e965f3'
+sha256sums=('8d0c8936e3140a0fbdf511ad7a9f21121598f3656743898f47bb9052d37cff68'
             'SKIP'
             # config
             'e51faf8671b85c983bcc3679a7d446a07d24e4a33d92b46dd7c6c1635166db11'
@@ -131,7 +131,7 @@ sha256sums=('c969dea4e8bb6be991bbf7c010ba0e0a5643a3a8d8fb0a2aaa053406f1e965f3'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            '8e7043a8d75749b7e6c64fcee16084cd72756d92f792fe14776b2fc69ad09950'
+            'aa59e6c9886b3209b1999b328f527dce5991507e90829aa92d33de5484bf31ad'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
