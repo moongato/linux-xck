@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.8.1
-pkgrel=4
+pkgrel=5
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,16 +99,14 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_bore=0001-linux6.8.y-bore4.5.2.patch
-_test=0001-linux6.8.y-bore5.0.0.patch
+_bore=0001-linux6.8.y-bore5.0.1.patch
 _pstate=amd-pstate-patches-v3
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_test
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
@@ -128,9 +126,7 @@ sha256sums=('8d0c8936e3140a0fbdf511ad7a9f21121598f3656743898f47bb9052d37cff68'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # bore scheduler
-            #'0bbf47b6548a8d3c18cb23607e347fce0c469b460a597ac0740632e7fad81164'
-            # bore testing
-            '04abf0db679f67183fd2056f9ee367842a139a922276a05607fe29cc65d9e381'
+            '5adf62a81dd7e131713da2feeff9537b4b4a1997fcfffab4752b313a6f25ef91'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
