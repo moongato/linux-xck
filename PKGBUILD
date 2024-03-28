@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.8.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -113,6 +113,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
+  0004-xen-netfront-Add-missing-skb_mark_for_recycle.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -121,7 +122,7 @@ validpgpkeys=(
 sha256sums=('9ac322d85bcf98a04667d929f5c2666b15bd58c6c2d68dd512c72acbced07d04'
             'SKIP'
             # config
-            'e7b190e279404a962248133675957223a5c3d251409272ad361ed6bdc5927ef4'
+            '554ce914651fd13769009590ab9154b71b8d2517046e38d5a6de1b2d0c8cc4fe'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -138,6 +139,7 @@ sha256sums=('9ac322d85bcf98a04667d929f5c2666b15bd58c6c2d68dd512c72acbced07d04'
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
             '0cc9aa35d01ae48740d742cde4e845e4dad845e30e806b5dfd18aa14767520b2'
+            '79348e440b02d743c1435959a966306f1f29c8aa9eaf3b2eb1d4f5aa4fe2ea81'
 )
 
 prepare() {
