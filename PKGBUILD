@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.8.2
-pkgrel=2
+pkgrel=2.1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -110,6 +110,7 @@ source=(
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
@@ -134,7 +135,7 @@ sha256sums=('9ac322d85bcf98a04667d929f5c2666b15bd58c6c2d68dd512c72acbced07d04'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            #'e509cf4634bd611675351e417b523131f96af07e35eff7a83eb66559ca9c0f6b'
+            'cd12cffa7dbb56cc4ab7f9009e4ed43094bca9aa37f4e105bda3854a3e724474'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
