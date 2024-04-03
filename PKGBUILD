@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8.2
-pkgrel=2.1
+pkgver=6.8.3
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -110,7 +110,7 @@ source=(
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0001-amd-pstate.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
@@ -120,10 +120,10 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('9ac322d85bcf98a04667d929f5c2666b15bd58c6c2d68dd512c72acbced07d04'
+sha256sums=('db7eb56d5014ee9a7fac0c715053155d92798d98d9197a2173eef1f0a496c986'
             'SKIP'
             # config
-            '554ce914651fd13769009590ab9154b71b8d2517046e38d5a6de1b2d0c8cc4fe'
+            '16e3094601e1845478e217ebdfc5ec66dfadc8e82ceff2d989ea3689a6bb4586'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -135,7 +135,7 @@ sha256sums=('9ac322d85bcf98a04667d929f5c2666b15bd58c6c2d68dd512c72acbced07d04'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            'cd12cffa7dbb56cc4ab7f9009e4ed43094bca9aa37f4e105bda3854a3e724474'
+            'e5b057e77b36b7de39de237855e4190c22272915ebfa1391f55031f2debd1c09'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
