@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8.3
+pkgver=6.8.4
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -120,10 +120,10 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('db7eb56d5014ee9a7fac0c715053155d92798d98d9197a2173eef1f0a496c986'
+sha256sums=('d5dec495fc00605fa9e04114df547fbc92b33d9ea7a4a2b7073c589590e79e63'
             'SKIP'
             # config
-            '16e3094601e1845478e217ebdfc5ec66dfadc8e82ceff2d989ea3689a6bb4586'
+            '9baa33aa917c6bc72783efa1725f8e831c6cf09f4e506e41720fa80cd9cacefa'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -135,7 +135,7 @@ sha256sums=('db7eb56d5014ee9a7fac0c715053155d92798d98d9197a2173eef1f0a496c986'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            'e5b057e77b36b7de39de237855e4190c22272915ebfa1391f55031f2debd1c09'
+            '22daba0137db50a293cffb2057ab489d67625891a0b7394d9f504a901d495605'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
