@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8.4
+pkgver=6.8.5
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -114,13 +114,15 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-xen-netfront-Add-missing-skb_mark_for_recycle.patch
+  0004-Bluetooth-l2cap-Dont-double-set-the.patch
+  0005-gcc-plugins-stackleak-Avoid-head-text-section.patch
+  0006-nouveau-fix-devinit-paths-to-only-handle-display-on-GSP.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('d5dec495fc00605fa9e04114df547fbc92b33d9ea7a4a2b7073c589590e79e63'
+sha256sums=('138923e5d73748b4bdbe9b5a0b8f36dfac9fcc16753a9222928dc6c963effa89'
             'SKIP'
             # config
             '9baa33aa917c6bc72783efa1725f8e831c6cf09f4e506e41720fa80cd9cacefa'
@@ -135,12 +137,14 @@ sha256sums=('d5dec495fc00605fa9e04114df547fbc92b33d9ea7a4a2b7073c589590e79e63'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            '22daba0137db50a293cffb2057ab489d67625891a0b7394d9f504a901d495605'
+            'd7abdab03286ba405c33541ea46e9a117852f4fffd5a681804ca3be7b5613092'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
             '0cc9aa35d01ae48740d742cde4e845e4dad845e30e806b5dfd18aa14767520b2'
-            '79348e440b02d743c1435959a966306f1f29c8aa9eaf3b2eb1d4f5aa4fe2ea81'
+            'aad9bfc59d51d0830093d822bd4b539e42454940d6fd83fb2a834533dc3f2da2'
+            '2d635179ef2c87b247c612da45e92ffbffdeb5a5f0e82d1e9e7c43c4623cd5fc'
+            'cfd351075211698e9edc9d42d61acddaa32573c9a48353ba0f0419ce0bbde00b'
 )
 
 prepare() {
