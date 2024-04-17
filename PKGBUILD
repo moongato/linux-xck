@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8.6
+pkgver=6.8.7
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -114,16 +114,16 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-Bluetooth-l2cap-Dont-double-set-the.patch
+  0004-docs-kernel_include-py-Fix-build-with-docutils-0-21-1.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('9e723232d603ab45ebf043c34714c48f277ab195c29abcb8472f2a4c3a5a1995'
+sha256sums=('291d1a1faf4e87b3b0ea9729080db887aafd1ff2fac1430ceca921e46bc22fae'
             'SKIP'
             # config
-            '9d4195a96169c5d4150b90ed1958a527af6bc494c74ed12e715aa35ef17caa85'
+            'b783800bb0f192d9e2f8c6043b1392b42034041960778986fb8a99c0e0e64a64'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -135,12 +135,12 @@ sha256sums=('9e723232d603ab45ebf043c34714c48f277ab195c29abcb8472f2a4c3a5a1995'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            '0ee2c5f49b87295528267fec22a9f6a75303cce0774b7261097831ab2f5df5cc'
+            '78e43567ea57cc57dfef36eaf38ffcca842b4a337d52e7faf9a55e617e08b354'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
             '0cc9aa35d01ae48740d742cde4e845e4dad845e30e806b5dfd18aa14767520b2'
-            '113829fce4e224879a7df579fae4b6a5adaacc8670aa443f4d89c591fa91f435'
+            '4b6d4b6b092cfa4f5c257d6531ae95554627b853b864b0be3fac5c1754ffc311'
 )
 
 prepare() {
