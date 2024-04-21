@@ -100,14 +100,13 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v5
+_sched_ext=sched-ext-patches-v6
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
-  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/sched-ext-patches-v6/0001-sched-6.8-Implement-BPF-extensible-scheduler-class.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_sched_ext/0001-sched-6.8-Implement-BPF-extensible-scheduler-class.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
