@@ -99,15 +99,15 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_bore=0001-linux6.8.y-bore5.0.3.patch
-_pstate=amd-pstate-patches-v4
+_pstate=amd-pstate-patches-v5
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/sched-ext-patches-v6/0001-sched-6.8-Implement-BPF-extensible-scheduler-class.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
@@ -123,13 +123,13 @@ validpgpkeys=(
 sha256sums=('291d1a1faf4e87b3b0ea9729080db887aafd1ff2fac1430ceca921e46bc22fae'
             'SKIP'
             # config
-            'b783800bb0f192d9e2f8c6043b1392b42034041960778986fb8a99c0e0e64a64'
+            '673237dee3720e0772897be1d148da3b717915efef48d68e894a13f9a9747127'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
-            # bore scheduler
-            'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
+            # ext scheduler
+            'fe3ddd44c925d3a7e2e3bb3ced4215178d7714314a79ba16c8145a51fb71f276'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
