@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8.8
+pkgver=6.8.9
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -100,7 +100,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v5
-_sched_ext=sched-ext-patches-v6
+_sched_ext=sched-ext-patches-v7
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -119,22 +119,22 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('1c4cdcb9d560fad1fb95db2cb8afbedc922f9ead848371fe40363b13f9f631ba'
+sha256sums=('f905f1238ea7a8e85314bacf283302e8097006010d25fcea726d0de0ea5bc9b6'
             'SKIP'
             # config
-            'dc6715947bda46199fb6441df3a15aae117c39b18ebf0de8c870d3b40b334158'
+            '36721e832998d64219dbbd2ac0d95ccf4e17c1b8ac3683561d79af6b8981ecac'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'fe3ddd44c925d3a7e2e3bb3ced4215178d7714314a79ba16c8145a51fb71f276'
+            'fcc1791c0151cb1ff71b91eee02c3f3e2cd926e5f5e9c8990f2a2d29ac74b752'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            'ed0ecd37c8744433097c49c59dd23038e8d5cd06d57f3813011d8dac8f2b7e18'
+            '3aeca03db6b43f0a373518a596857b99dc8dd1f94add33969a3aef734bb8ad90'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
