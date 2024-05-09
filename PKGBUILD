@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.8.9
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,7 +99,7 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches-v5
+_pstate=amd-pstate-patches-v14
 _sched_ext=sched-ext-patches-v7
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -108,8 +108,8 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_sched_ext/0001-sched-6.8-Implement-BPF-extensible-scheduler-class.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  #https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
+  #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
@@ -134,7 +134,7 @@ sha256sums=('f905f1238ea7a8e85314bacf283302e8097006010d25fcea726d0de0ea5bc9b6'
             # -O3
             '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
             # AMD pstate patch
-            '3aeca03db6b43f0a373518a596857b99dc8dd1f94add33969a3aef734bb8ad90'
+            '311a74289125419b6ceee81a02211719072c15e863a9e4be5ca2da3efefb189e'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
             '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
