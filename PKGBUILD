@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.8.9
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -100,13 +100,13 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v14
-_sched_ext=sched-ext-patches-v7
+_sched_ext=bore-sched-ext-patches-v10
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_sched_ext/0001-sched-6.8-Implement-BPF-extensible-scheduler-class.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_sched_ext/0001-bore-sched-ext-patches.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
@@ -122,13 +122,13 @@ validpgpkeys=(
 sha256sums=('f905f1238ea7a8e85314bacf283302e8097006010d25fcea726d0de0ea5bc9b6'
             'SKIP'
             # config
-            '36721e832998d64219dbbd2ac0d95ccf4e17c1b8ac3683561d79af6b8981ecac'
+            'b112dd29998961e83f70af5f660eead610faef5fd701418fd6ac17d084d3ca86'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'fcc1791c0151cb1ff71b91eee02c3f3e2cd926e5f5e9c8990f2a2d29ac74b752'
+            'bf01091be8739224bf033e6225a7e255983431c29948d43b841d6e05faf56b1b'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
