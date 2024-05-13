@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.8.9
-pkgrel=3
+pkgver=6.9
+pkgrel=0
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,27 +99,28 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches-v14
-_sched_ext=bore-sched-ext-patches-v10
+_pstate=amd-pstate-patches
+_sched_ext=bore-sched-ext-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_sched_ext/0001-bore-sched-ext-patches.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.8/$_pstate/0001-amd-6.8-merge-changes-from-dev-tree.patch
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_sched_ext/0001-bore-sched-ext-patches.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.9/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-docs-kernel_include-py-Fix-build-with-docutils-0-21-1.patch
+  0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
+  0003-docs-kernel_include-py-Fix-build-with-docutils-0-21-1.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('f905f1238ea7a8e85314bacf283302e8097006010d25fcea726d0de0ea5bc9b6'
+sha256sums=('24fa01fb989c7a3e28453f117799168713766e119c5381dac30115f18f268149'
             'SKIP'
             # config
             'b112dd29998961e83f70af5f660eead610faef5fd701418fd6ac17d084d3ca86'
@@ -128,16 +129,15 @@ sha256sums=('f905f1238ea7a8e85314bacf283302e8097006010d25fcea726d0de0ea5bc9b6'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'bf01091be8739224bf033e6225a7e255983431c29948d43b841d6e05faf56b1b'
+            'c501ea48bd16b684caddee2ec2feb16ef727f570a145f52b5ceb3baeb07082ca'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
-            '96c98d6681850eb59c73510e39007313c54af12b3d120d5d4f7e6368a6579e8d'
+            '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            '311a74289125419b6ceee81a02211719072c15e863a9e4be5ca2da3efefb189e'
+            'f11e6e93cd62f0d4256ac97939552116e1509331e9a9ddc634e4df34cf8a852d'
             # archlinux patches
             '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
-            '86c9161a7bc208e056dfe70f45db1e82ff3cb35ffbe545577e1d960c62243ecf'
             '0cc9aa35d01ae48740d742cde4e845e4dad845e30e806b5dfd18aa14767520b2'
             '4b6d4b6b092cfa4f5c257d6531ae95554627b853b864b0be3fac5c1754ffc311'
 )
