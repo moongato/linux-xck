@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.9
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,7 +99,7 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches
+_pstate=amd-pstate-patches-v2
 _sched_ext=bore-sched-ext-patches
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -113,8 +113,9 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
   #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0003-docs-kernel_include-py-Fix-build-with-docutils-0-21-1.patch
+  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
+  0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
+  0004-docs-kernel_include-py-Fix-build-with-docutils-0-21-1.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -123,7 +124,7 @@ validpgpkeys=(
 sha256sums=('24fa01fb989c7a3e28453f117799168713766e119c5381dac30115f18f268149'
             'SKIP'
             # config
-            'b112dd29998961e83f70af5f660eead610faef5fd701418fd6ac17d084d3ca86'
+            '515fec71767b5b23a7b70641518cbb5ac9083e07dd40e693809df1fd310eba21'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -135,11 +136,12 @@ sha256sums=('24fa01fb989c7a3e28453f117799168713766e119c5381dac30115f18f268149'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            'f11e6e93cd62f0d4256ac97939552116e1509331e9a9ddc634e4df34cf8a852d'
+            'd75aea574ed2f36399ce82dac9b648459e7a6e0d01c2ab1a38ec5dc778693810'
             # archlinux patches
-            '2a42a0137397a19d70743a670c2f663303e4003bd09fc9dad57de9ecdc6f0431'
-            '0cc9aa35d01ae48740d742cde4e845e4dad845e30e806b5dfd18aa14767520b2'
-            '4b6d4b6b092cfa4f5c257d6531ae95554627b853b864b0be3fac5c1754ffc311'
+            '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
+            '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
+            'd26231a7ad8976a90ad17cf413db503951d93641eb3d709c33c2fc1c27c2d197'
+            '5e8335b6e8b5a7ab395197d6c66931669ec8dde33c22a63a917d00afdc5616e1'
 )
 
 prepare() {
