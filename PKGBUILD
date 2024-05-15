@@ -115,7 +115,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-docs-kernel_include-py-Fix-build-with-docutils-0-21-1.patch
+  0004-docs-kernel_include.py-Fix-build-with-docutils-0-21-1.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
