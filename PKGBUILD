@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.9
+pkgver=6.9.1
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -100,7 +100,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v2
-_sched_ext=bore-sched-ext-patches
+_sched_ext=bore-sched-ext-patches-v2
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -121,7 +121,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('24fa01fb989c7a3e28453f117799168713766e119c5381dac30115f18f268149'
+sha256sums=('01b414ba98fd189ecd544435caf3860ae2a790e3ec48f5aa70fdf42dc4c5c04a'
             'SKIP'
             # config
             '515fec71767b5b23a7b70641518cbb5ac9083e07dd40e693809df1fd310eba21'
@@ -130,7 +130,7 @@ sha256sums=('24fa01fb989c7a3e28453f117799168713766e119c5381dac30115f18f268149'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'c501ea48bd16b684caddee2ec2feb16ef727f570a145f52b5ceb3baeb07082ca'
+            '504558d7e25dd60bb4f07c092044155f49695651320f95545866422854517e34'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
