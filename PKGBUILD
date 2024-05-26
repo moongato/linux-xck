@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.9.1
-pkgrel=3
+pkgver=6.9.2
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,7 +99,7 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches-v2
+_pstate=amd-pstate-patches-v5
 _sched_ext=bore-sched-ext-patches-v7
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -115,16 +115,15 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-docs-kernel_include.py-Fix-build-with-docutils-0-21-1.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('01b414ba98fd189ecd544435caf3860ae2a790e3ec48f5aa70fdf42dc4c5c04a'
+sha256sums=('d46c5bdf2c5961cc2a4dedefe0434d456865e95e4a7cd9f93fff054f9090e5f9'
             'SKIP'
             # config
-            '14445349758e5dc54fc8c9d203b30168357d44870ab3967be1559218e65ba936'
+            '3c5a5c63f1af10a41ee67d4a3f59527dd65f1d73b5c8a22f521d245e4751a881'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -136,12 +135,11 @@ sha256sums=('01b414ba98fd189ecd544435caf3860ae2a790e3ec48f5aa70fdf42dc4c5c04a'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            'd75aea574ed2f36399ce82dac9b648459e7a6e0d01c2ab1a38ec5dc778693810'
+            '93f991df3b758a6a157f49444b073e1b57776b70438f24c21f8acdfc15e28e21'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
             'd26231a7ad8976a90ad17cf413db503951d93641eb3d709c33c2fc1c27c2d197'
-            '5e8335b6e8b5a7ab395197d6c66931669ec8dde33c22a63a917d00afdc5616e1'
 )
 
 prepare() {
