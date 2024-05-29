@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.9.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,8 +99,8 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches-v5
-_sched_ext=bore-sched-ext-patches-v7
+_pstate=amd-pstate-patches-v7
+_sched_ext=bore-sched-ext-patches-v11
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -129,13 +129,13 @@ sha256sums=('d46c5bdf2c5961cc2a4dedefe0434d456865e95e4a7cd9f93fff054f9090e5f9'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'e742df50fd12519bb624b22852f300a61a96117fb11008e5a86196c76ca93851'
+            'e5429439771a0201eb3fcb74bd835b8591b69194efe0e306fa9d84cab7104196'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            '93f991df3b758a6a157f49444b073e1b57776b70438f24c21f8acdfc15e28e21'
+            '66980803488ab7be39e1f4edd56c15335c748dd0f08a444ec801c1bfe377e812'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
