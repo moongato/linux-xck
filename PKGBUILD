@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.9.3
-pkgrel=2
+pkgver=6.9.4
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -99,8 +99,8 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches-v9
-_sched_ext=bore-sched-ext-patches-v11
+_pstate=amd-pstate-patches-v10
+_sched_ext=bore-sched-ext-patches-v14
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -120,7 +120,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c321c46401368774fc236f57095b205a5da57415f9a6008018902f9fd5eddfae'
+sha256sums=('272800e0d1a7d01a78bce95a3aaf5c80816f50eb15c517d7003e58355760ecc2'
             'SKIP'
             # config
             'f113c19bf185b11c505a808cabdb251f26094d57c0a34941cfaeb8e6f45dcdaa'
@@ -129,13 +129,13 @@ sha256sums=('c321c46401368774fc236f57095b205a5da57415f9a6008018902f9fd5eddfae'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'e5429439771a0201eb3fcb74bd835b8591b69194efe0e306fa9d84cab7104196'
+            'fbb79a997b2860ea51e9c6fcce7453dd397bc69541e143adfde5a0fd2abb5111'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            'a4163e0fa20c0480a76108234474b75108fe9bfd94ca1338c5bff57c956c661c'
+            '6f3e6f865f28f41b34ca1e2afc4114c919378bf3279eb3517ce1e001870a8936'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
