@@ -115,6 +115,7 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
+  0004-x86-topology-amd-Evaluate-SMT-in-CPUID-leaf-0x8000001e-only.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -123,7 +124,7 @@ validpgpkeys=(
 sha256sums=('272800e0d1a7d01a78bce95a3aaf5c80816f50eb15c517d7003e58355760ecc2'
             'SKIP'
             # config
-            'f113c19bf185b11c505a808cabdb251f26094d57c0a34941cfaeb8e6f45dcdaa'
+            '00d0822938972ebe63b574a4a1d6e50d12d2bb43203ecf7c27683f964acebc75'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -140,6 +141,7 @@ sha256sums=('272800e0d1a7d01a78bce95a3aaf5c80816f50eb15c517d7003e58355760ecc2'
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
             'd26231a7ad8976a90ad17cf413db503951d93641eb3d709c33c2fc1c27c2d197'
+            'e92dc75e5440ff65a801b88f915c8b7d06773c76758722abf8ef15cbaf06a52d'
 )
 
 prepare() {
