@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.9.4
+pkgver=6.9.5
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -99,8 +99,8 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
-_pstate=amd-pstate-patches-v10
-_sched_ext=bore-sched-ext-patches-v14
+_pstate=amd-pstate-patches-v12
+_sched_ext=bore-sched-ext-patches-v16
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -115,33 +115,37 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-x86-topology-amd-Evaluate-SMT-in-CPUID-leaf-0x8000001e-only.patch
+  0004-scsi-core-Introduce-the-BLIST_SKIP_IO_HINTS-flag.patch
+  0005-usb-Do-not-query-the-IO-advice-hints-grouping-mode-page-for.patch
+  0006-wifi-mac80211-fix-monitor-channel-with-chanctx-emulation.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('272800e0d1a7d01a78bce95a3aaf5c80816f50eb15c517d7003e58355760ecc2'
+sha256sums=('a51fb4ab5003a6149bd9bf4c18c9b1f0f4945c272549095ab154b9d1052f95b1'
             'SKIP'
             # config
-            '00d0822938972ebe63b574a4a1d6e50d12d2bb43203ecf7c27683f964acebc75'
+            '960afea404852ddbb4c3bc7357fb4de89e1dbabd99a418c190e0310c037f1ba3'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'fbb79a997b2860ea51e9c6fcce7453dd397bc69541e143adfde5a0fd2abb5111'
+            '2e91c835cf479b6a9b1aefbcd73a49e89458c594fa6ee770733a0d4e065f117f'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            '6f3e6f865f28f41b34ca1e2afc4114c919378bf3279eb3517ce1e001870a8936'
+            '223f919008730c96e797a4c2d3319b6f0953fd98738f3f8747b8e4bd8f9f50f4'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
             'd26231a7ad8976a90ad17cf413db503951d93641eb3d709c33c2fc1c27c2d197'
-            'e92dc75e5440ff65a801b88f915c8b7d06773c76758722abf8ef15cbaf06a52d'
+            '16805ab5394c3b070200fafdb07e10704990b306a5353681d3a5abcac523c07a'
+            'a1cc325f7925885b2fb95102fca2188fddaa0dc3e53388b730b3b2bb6fffead1'
+            '81a9ee672486daee988d7d796383d8231ea0397b9b0c710fca662778a6f17305'
 )
 
 prepare() {
