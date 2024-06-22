@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.9.5
-pkgrel=2
+pkgver=6.9.6
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -100,7 +100,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v19
+_sched_ext=bore-sched-ext-patches-v21
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -110,8 +110,8 @@ source=(
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.8-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_sched_ext/0001-bore-sched-ext-patches.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.9/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
-  #https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.8/0002-amd-pstate.patch
+  #https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.9/0002-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
@@ -123,7 +123,7 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('a51fb4ab5003a6149bd9bf4c18c9b1f0f4945c272549095ab154b9d1052f95b1'
+sha256sums=('5d4366e2b89998f274abe03557ef3bc78b58e47fc62c102d51e6f49e5ed96b4b'
             'SKIP'
             # config
             '960afea404852ddbb4c3bc7357fb4de89e1dbabd99a418c190e0310c037f1ba3'
@@ -132,13 +132,13 @@ sha256sums=('a51fb4ab5003a6149bd9bf4c18c9b1f0f4945c272549095ab154b9d1052f95b1'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            '7eaea4794dce5d8e4b6d9d5c02d7deae8b93794b0fb888959fef3f40865254ed'
+            'ca69b9b88852b4477a811023ea5a637aaa60ab4321e098d8f4f1e1b84da1c984'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            '223f919008730c96e797a4c2d3319b6f0953fd98738f3f8747b8e4bd8f9f50f4'
+            'e8f4e948be97b3e2f6605fe363248458be9b69e148c0dd0bd34ba443e5ac0e07'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
