@@ -138,7 +138,7 @@ sha256sums=('5d4366e2b89998f274abe03557ef3bc78b58e47fc62c102d51e6f49e5ed96b4b'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            'e8f4e948be97b3e2f6605fe363248458be9b69e148c0dd0bd34ba443e5ac0e07'
+            '6deab7ca21027d9312af73d20d6946ca3f195a60b9e1927b1617300940fdcf02'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
