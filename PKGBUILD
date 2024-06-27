@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.9.6
+pkgver=6.9.7
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -100,7 +100,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v21
+_sched_ext=bore-sched-ext-patches-v22
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -115,15 +115,12 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-scsi-core-Introduce-the-BLIST_SKIP_IO_HINTS-flag.patch
-  0005-usb-Do-not-query-the-IO-advice-hints-grouping-mode-page-for.patch
-  0006-wifi-mac80211-fix-monitor-channel-with-chanctx-emulation.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('5d4366e2b89998f274abe03557ef3bc78b58e47fc62c102d51e6f49e5ed96b4b'
+sha256sums=('e4f588cd91eef9d461e5e14fdf9415feff8a72fbcc274089a0f768a58de001f8'
             'SKIP'
             # config
             '960afea404852ddbb4c3bc7357fb4de89e1dbabd99a418c190e0310c037f1ba3'
@@ -132,20 +129,17 @@ sha256sums=('5d4366e2b89998f274abe03557ef3bc78b58e47fc62c102d51e6f49e5ed96b4b'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'ca69b9b88852b4477a811023ea5a637aaa60ab4321e098d8f4f1e1b84da1c984'
+            '5fe8df7861c93ec86b006d740d5fd670f44ad9544f4eba29c8094c1926e0e0c0'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '0f3def20686bec24c7db34019b5a22f5b74c6b439c8f7a39223d0f09fbc750bd'
             # AMD pstate patch
-            '6deab7ca21027d9312af73d20d6946ca3f195a60b9e1927b1617300940fdcf02'
+            'ee543c86a6e5ded5564f2f0deb5ea727802208e74baab75b88b193981e51b23b'
             # archlinux patches
             '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
             '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
             'd26231a7ad8976a90ad17cf413db503951d93641eb3d709c33c2fc1c27c2d197'
-            '16805ab5394c3b070200fafdb07e10704990b306a5353681d3a5abcac523c07a'
-            'a1cc325f7925885b2fb95102fca2188fddaa0dc3e53388b730b3b2bb6fffead1'
-            '81a9ee672486daee988d7d796383d8231ea0397b9b0c710fca662778a6f17305'
 )
 
 prepare() {
