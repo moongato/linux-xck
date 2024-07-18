@@ -73,7 +73,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.10
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -123,7 +123,7 @@ validpgpkeys=(
 sha256sums=('774698422ee54c5f1e704456f37c65c06b51b4e9a8b0866f34580d86fef8e226'
             'SKIP'
             # config
-            '3884da8031a60413e20cb83381c635abcfb78b33910ef345c4c4fdf1d5ddcb3b'
+            '8027d56859ab4535d62e539f60ba9e2f04a83cebecf94588a2228e5e72629100'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
@@ -137,9 +137,9 @@ sha256sums=('774698422ee54c5f1e704456f37c65c06b51b4e9a8b0866f34580d86fef8e226'
             # AMD pstate patch
             'e7ef984f6c29a4a41a6ee11fead1ae64f4d71c9188200fd0646d532c4b56802c'
             # archlinux patches
-            '6dce2ae80d898792a8314fcb1e329dcc14707dbaa04288cb1f569e96a0cf9fcb'
-            '1bd2afd5086814ebaf3a3f2d7d84ce0dc9a72533a8f25338d403d79329c66e90'
-            'd26231a7ad8976a90ad17cf413db503951d93641eb3d709c33c2fc1c27c2d197'
+            'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
+            'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
+            '8d94b26df0f2543aea4578ba25f547defa581cfafa0d17e3d6c792c8af5f8fda'
 )
 
 prepare() {

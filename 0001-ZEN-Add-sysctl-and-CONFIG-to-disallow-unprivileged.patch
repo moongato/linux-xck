@@ -1,4 +1,4 @@
-From 9d9743a00d2244e8e86f51583516a86f40f36c62 Mon Sep 17 00:00:00 2001
+From 09cf00123d64ac2c4b39cf6a0b6c28bd20eb3e77 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
 Date: Mon, 16 Sep 2019 04:53:20 +0200
 Subject: [PATCH] ZEN: Add sysctl and CONFIG to disallow unprivileged
@@ -36,10 +36,10 @@ index 6030a823561735..60b7fe5fa74ad4 100644
  {
  	return &init_user_ns;
 diff --git a/init/Kconfig b/init/Kconfig
-index 664bedb9a71fbe..746e382ad7477f 100644
+index febdea2afc3be3..e5ae14b4aac369 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -1247,6 +1247,22 @@ config USER_NS
+@@ -1251,6 +1251,22 @@ config USER_NS
  
  	  If unsure, say N.
  
@@ -63,7 +63,7 @@ index 664bedb9a71fbe..746e382ad7477f 100644
  	bool "PID Namespaces"
  	default y
 diff --git a/kernel/fork.c b/kernel/fork.c
-index aebb3e6c96dc62..f186c72983b063 100644
+index 99076dbe27d83f..18750b83c5644b 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
 @@ -104,6 +104,10 @@
@@ -102,7 +102,7 @@ index aebb3e6c96dc62..f186c72983b063 100644
  	if (err)
  		goto bad_unshare_out;
 diff --git a/kernel/sysctl.c b/kernel/sysctl.c
-index 81cc974913bb90..db581894e611c8 100644
+index e0b917328cf996..e70ae9c11dea1d 100644
 --- a/kernel/sysctl.c
 +++ b/kernel/sysctl.c
 @@ -80,6 +80,9 @@
