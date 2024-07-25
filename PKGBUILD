@@ -72,8 +72,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.10
-pkgrel=2
+pkgver=6.10.1
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -100,7 +100,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v4
+_sched_ext=bore-sched-ext-patches-v6
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -120,22 +120,22 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('774698422ee54c5f1e704456f37c65c06b51b4e9a8b0866f34580d86fef8e226'
+sha256sums=('70109dfd1cd1c5f8a58eb1cb37122b9bf93f9c6a6280bf91019263c7339cf76b'
             'SKIP'
             # config
-            '1424c749ad97e046e6f5d88ecd1ebb5a0bab56bd01525b12915270b3518b46ce'
+            'c959b4bd8ad413f1b869208747e41e75e8bca77142754a314c9e163c5a147f49'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'd39074b193318d9547e7514574e7eb2f5f4f025e8d235bb5cb158998610eb19f'
+            'b4e4a45541a1dbf6628247200b1ccc7e76a2766a5075b0f681b2b547b2c884a6'
             # bore testing
             #'ebf9b9f122f2cbaa549f2fc536524fc39c6308f862fab6e8fe0a75a6361d235d'
             # -O3
             '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
             # AMD pstate patch
-            '9f34ee42cd5817d19a7239540b21a06289c70f51f035fdedd20d6ea8ff3faa25'
+            'e53119b376875ba830110f622056f36e94abd953699ab2adc0e91926b3cfab19'
             # archlinux patches
             'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
             'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
