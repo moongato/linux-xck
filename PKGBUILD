@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.10.3
+pkgver=6.10.4
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -100,7 +100,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240221.2
 _pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v7
+_sched_ext=bore-sched-ext-patches-v9
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -108,43 +108,45 @@ source=(
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.10-bore/$_bore
-  #https://github.com/sirlucjan/kernel-patches/raw/master/6.10/$_sched_ext/0001-bore-sched-ext-patches.patch
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.10-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.10/$_sched_ext/0001-bore-sched-ext-patches.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.10/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.10/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-ALSA-hda-Conditionally-use-snooping-for-AMD-HDMI.patch
-  0005-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
+  0004-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
+  0005-btrfs-only-run-the-extent-map-shrinker-from-kswapd-tasks.patch
+  0006-drm-i915-display-correct-dual-pps-handling-for-MTL_PCH.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('fa5f22fd67dd05812d39dca579320c493048e26c4a556048a12385e7ae6fc698'
+sha256sums=('e2c69dfd5fa00c741ebac4560bed9f7be6abb727d05a719e4df9e99df11555f8'
             'SKIP'
             # config
-            'd6e394ddf3f55f0ff137e8b11a0a15a811f3be9be78523db313ffe68dff6d7e9'
+            '92482365e695481476e4d2ba2803450699f629fbd7f2f50d10d93cb0d38c60f3'
             # gcc patch
             '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            #'d9201b8ec3dd77abad00cfd0b8fdae6defdb5cdfacf8103d9fc9654191e6f847'
+            'fd568a10c5be9916b75f0e991adf34f05236f1b1ac19f3c3bafbee260d8e638e'
             # bore testing
-            '787f08424e863d6736f0ff5163f6b878c865226f1f8140dda8cfec51513453cd'
+            #'787f08424e863d6736f0ff5163f6b878c865226f1f8140dda8cfec51513453cd'
             # -O3
             '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
             # AMD pstate patch
-            '52be5bf9aa3e9fd52e351fccdaa799fe9124312de9b744f3ed9c11621e038869'
+            'd8dcf4d00c9977444b32a9dffa84e621d6880b9ced130b3806cbdf4844d7dd4f'
             # archlinux patches
             'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
             'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
             '8d94b26df0f2543aea4578ba25f547defa581cfafa0d17e3d6c792c8af5f8fda'
-            '9068cdacb6f98baa7da32d287d87864db731133b61d65f5181ba04082ea99ebf'
             '1aaab660e23a932fc9f8381f707ec689f72be68480751408c7c4cce8b7281cc9'
+            '746d89aa004d0baf4144fc096fb9097704b1b21aafb5a782e7747e82cbfcbac7'
+            '94a3ce29e3376f3f0faef404eb5b5a749bf004151a7e0df546dcdea788d94887'
 )
 
 prepare() {
