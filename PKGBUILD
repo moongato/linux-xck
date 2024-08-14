@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.10.4
+pkgver=6.10.5
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -118,13 +118,12 @@ source=(
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0004-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
   0005-btrfs-only-run-the-extent-map-shrinker-from-kswapd-tasks.patch
-  0006-drm-i915-display-correct-dual-pps-handling-for-MTL_PCH.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('e2c69dfd5fa00c741ebac4560bed9f7be6abb727d05a719e4df9e99df11555f8'
+sha256sums=('30909eb2e0434dce97a93cd97ed0dfab7688a124bc3ebc3ecf6c776de09ccc0b'
             'SKIP'
             # config
             '92482365e695481476e4d2ba2803450699f629fbd7f2f50d10d93cb0d38c60f3'
@@ -139,14 +138,13 @@ sha256sums=('e2c69dfd5fa00c741ebac4560bed9f7be6abb727d05a719e4df9e99df11555f8'
             # -O3
             '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
             # AMD pstate patch
-            'd8dcf4d00c9977444b32a9dffa84e621d6880b9ced130b3806cbdf4844d7dd4f'
+            'a12aa94431ad439ea1e1a8563bb51c465343214af267337c7293c219c6b62b8b'
             # archlinux patches
             'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
             'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
             '8d94b26df0f2543aea4578ba25f547defa581cfafa0d17e3d6c792c8af5f8fda'
             '1aaab660e23a932fc9f8381f707ec689f72be68480751408c7c4cce8b7281cc9'
             '746d89aa004d0baf4144fc096fb9097704b1b21aafb5a782e7747e82cbfcbac7'
-            '94a3ce29e3376f3f0faef404eb5b5a749bf004151a7e0df546dcdea788d94887'
 )
 
 prepare() {
