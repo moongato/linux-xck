@@ -72,7 +72,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.10.8
+pkgver=6.10.9
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -117,12 +117,13 @@ source=(
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0004-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
+  0005-soundwire-stream-Revert-soundwire-stream-fix-programming.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c0923235779d4606bba87f72b6fe11f796e9e40c1ca9f4d5dbe04cd47ee3c595'
+sha256sums=('a4489b70e0a7c2dc8f501b9cd7fc76989be2febb5519e163ecf816064f2f6858'
             'SKIP'
             # config
             'fb4106a188461d2e590deb3a93574e8068232a73129253a7d5264492a9e19916'
@@ -137,12 +138,13 @@ sha256sums=('c0923235779d4606bba87f72b6fe11f796e9e40c1ca9f4d5dbe04cd47ee3c595'
             # -O3
             '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
             # AMD pstate patch
-            '28ef9fecca5ede398549b87cf16c90f6e09db7d3710961f9fb26d8cde4728196'
+            '22ccc8bd26c97c561b2940f32458af7b704a0c52cd744a5f83539e7111b18ce7'
             # archlinux patches
             'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
             'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
             '8d94b26df0f2543aea4578ba25f547defa581cfafa0d17e3d6c792c8af5f8fda'
-            '1aaab660e23a932fc9f8381f707ec689f72be68480751408c7c4cce8b7281cc9'            
+            '1aaab660e23a932fc9f8381f707ec689f72be68480751408c7c4cce8b7281cc9'
+            '7d6f5921ef40af14c5c8474e7e7dc85fccea2c613aa3ce369856d46a24d9ec05'          
 )
 
 prepare() {
