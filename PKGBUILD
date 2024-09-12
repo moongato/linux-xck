@@ -21,7 +21,7 @@ _clangbuild=
 
 # Optionally select a sub architecture by number or leave blank which will
 # require user interaction during the build. Note that the generic (default)
-# option is 39.
+# option is 40.
 _subarch=
 
 #  1. AMD Opteron/Athlon64/Hammer/K8 (MK8)
@@ -64,15 +64,18 @@ _subarch=
 #  38. Intel Meteor Lake (MMETEORLAKE) (NEW)
 #  39. Intel Emerald Rapids (MEMERALDRAPIDS) (NEW)
 #  40. Generic-x86-64 (GENERIC_CPU)
-#  41. Generic-x86-64-v2 (GENERIC_CPU2) (NEW)
-#  42. Generic-x86-64-v3 (GENERIC_CPU3) (NEW)
-#  43. Generic-x86-64-v4 (GENERIC_CPU4) (NEW)
-#  44. Intel-Native optimizations autodetected by the compiler (MNATIVE_INTEL) (NEW)
-#  45. AMD-Native optimizations autodetected by the compiler (MNATIVE_AMD) (NEW)
+#  41. AMD-x86-64-v2 (MAMD_CPU_V2) (NEW)
+#  42. AMD-x86-64-v3 (MAMD_CPU_V3) (NEW)
+#  43. AMD-x86-64-v4 (MAMD_CPU_V4) (NEW)
+#  44. Intel-x86-64-v2 (MINTEL_CPU_V2) (NEW)
+#  45. Intel-x86-64-v3 (MINTEL_CPU_V3) (NEW)
+#  46. Intel-x86-64-v4 (MINTEL_CPU_V4) (NEW)
+#  47. Intel-Native optimizations autodetected by the compiler (MNATIVE_INTEL) (NEW)
+#  48. AMD-Native optimizations autodetected by the compiler (MNATIVE_AMD) (NEW)
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.10.9
+pkgver=6.10.10
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -98,7 +101,7 @@ options=(
 _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
-_gcc_more_v=20240221.2
+_gcc_more_v=20240912.1
 _pstate=amd-pstate-patches-v12
 _sched_ext=bore-sched-ext-patches-v9
 _bore=0001-linux6.10.y-bore5.2.10.patch
@@ -123,12 +126,12 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('a4489b70e0a7c2dc8f501b9cd7fc76989be2febb5519e163ecf816064f2f6858'
+sha256sums=('e687e735b5eb9efb6d67b42433c93fc9118106a995514f062652873b5e809bcd'
             'SKIP'
             # config
-            'fb4106a188461d2e590deb3a93574e8068232a73129253a7d5264492a9e19916'
+            'a7d265478a2fe30f3a1c04d21694ff3d4e89959e92e9ca21934d15ffe9885d43'
             # gcc patch
-            '1d3ac3e581cbc5108f882fcdc75d74f7f069654c71bad65febe5ba15a7a3a14f'
+            '3d0d5741a7e37a038a1bfc194c194afdc5e025fcaf1646f8591ce1bea5919893'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
@@ -138,7 +141,7 @@ sha256sums=('a4489b70e0a7c2dc8f501b9cd7fc76989be2febb5519e163ecf816064f2f6858'
             # -O3
             '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
             # AMD pstate patch
-            '22ccc8bd26c97c561b2940f32458af7b704a0c52cd744a5f83539e7111b18ce7'
+            '86f18404ac894c2fcdc111e8d40dd127fb4ae3bb8dda65cf4e5f7e8e7fe2d0a6'
             # archlinux patches
             'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
             'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
