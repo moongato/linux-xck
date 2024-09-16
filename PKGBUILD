@@ -75,8 +75,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.10.10
-pkgrel=2
+pkgver=6.11
+pkgrel=0
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -112,42 +112,38 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.10-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.10/$_sched_ext/0001-bore-sched-ext-patches.patch
+  #https://github.com/sirlucjan/kernel-patches/raw/master/6.10/$_sched_ext/0001-bore-sched-ext-patches.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.10/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.10/0001-amd-pstate.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.11/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0004-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
-  0005-soundwire-stream-Revert-soundwire-stream-fix-programming.patch
+  0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
+  0003-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('e687e735b5eb9efb6d67b42433c93fc9118106a995514f062652873b5e809bcd'
+sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             'SKIP'
             # config
-            'a7d265478a2fe30f3a1c04d21694ff3d4e89959e92e9ca21934d15ffe9885d43'
+            'fce9b8540a10901263ed56014ec37613d773ee57735777b9f1ea0821763d5db9'
             # gcc patch
             '3d0d5741a7e37a038a1bfc194c194afdc5e025fcaf1646f8591ce1bea5919893'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'cde82c0acf50cd6cb9158f630c1eb7c26dfc115976f863c7f99d25f275278600'
+            #'cde82c0acf50cd6cb9158f630c1eb7c26dfc115976f863c7f99d25f275278600'
             # bore testing
             #'787f08424e863d6736f0ff5163f6b878c865226f1f8140dda8cfec51513453cd'
             # -O3
             '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
             # AMD pstate patch
-            '86f18404ac894c2fcdc111e8d40dd127fb4ae3bb8dda65cf4e5f7e8e7fe2d0a6'
+            'SKIP'
             # archlinux patches
-            'e3f4f46f5c1ad83c66982d83f0f9c48782b36d83d48c9981b5e65656bbe1723b'
-            'ed2a66601025863f53a1f01f135ad337cffffaf9cc8e6a60146963c794cb3f7d'
-            '8d94b26df0f2543aea4578ba25f547defa581cfafa0d17e3d6c792c8af5f8fda'
-            '1aaab660e23a932fc9f8381f707ec689f72be68480751408c7c4cce8b7281cc9'
-            '7d6f5921ef40af14c5c8474e7e7dc85fccea2c613aa3ce369856d46a24d9ec05'          
+            '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
+            'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
+            'dbbce816cdadcfd7fdb5024c84ea1e4c92dbfabc38789515ae7b4e65c8ca4038'
 )
 
 prepare() {

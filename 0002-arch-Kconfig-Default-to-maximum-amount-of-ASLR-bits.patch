@@ -1,4 +1,4 @@
-From 0262147589a1cead63ecaf36385aa23fdb62f50e Mon Sep 17 00:00:00 2001
+From e181bca5cc92a93beba1bece5d1edb394a0824a3 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
 Date: Sat, 13 Jan 2024 15:29:25 +0100
 Subject: [PATCH] arch/Kconfig: Default to maximum amount of ASLR bits

@@ -1,4 +1,4 @@
-From 7d93cffed605c00ed8a3d8093838d0d758d08da0 Mon Sep 17 00:00:00 2001
+From de4bb6bc2729865f3823ccf456ebd09675ebd39c Mon Sep 17 00:00:00 2001
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Sun, 28 Jul 2024 13:06:10 +0200
 Subject: [PATCH] x86/apic: Remove logical destination mode for 64-bit
