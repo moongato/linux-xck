@@ -76,7 +76,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.11
-pkgrel=0
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -103,7 +103,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240912.1
 _pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v10
+_sched_ext=bore-sched-ext-patches-v2
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -112,8 +112,8 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.10-bore/$_bore
-  #https://github.com/sirlucjan/kernel-patches/raw/master/6.10/$_sched_ext/0001-bore-sched-ext-patches.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.10/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.11/$_sched_ext/0001-bore-sched-ext-patches.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.11/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.11/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
@@ -133,13 +133,13 @@ sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            #'cde82c0acf50cd6cb9158f630c1eb7c26dfc115976f863c7f99d25f275278600'
+            'f1054bbae75369a2bfeb52461168e5691ded88b34b55c66b01f21e8c2cf3c508'
             # bore testing
             #'787f08424e863d6736f0ff5163f6b878c865226f1f8140dda8cfec51513453cd'
             # -O3
-            '50eaf8398b50d1ef3078f37ff844cc5e1a00f3644580ad5cae6193b8413e76d4'
+            'da8586d97065d16d0835525eded91dc148fad7d8cb094ca351a53252dcf59524'
             # AMD pstate patch
-            'SKIP'
+            'b5431719a021435b0e87f7579b064c954338953a1da3b276f7d1676cade425cc'
             # archlinux patches
             '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
