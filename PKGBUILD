@@ -76,7 +76,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.11
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -101,7 +101,7 @@ options=(
 _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
-_gcc_more_v=20240912.1
+_gcc_more_v=20240919
 _pstate=amd-pstate-patches-v12
 _sched_ext=bore-sched-ext-patches-v2
 _bore=0001-linux6.10.y-bore5.2.10.patch
@@ -129,7 +129,7 @@ sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             # config
             'fce9b8540a10901263ed56014ec37613d773ee57735777b9f1ea0821763d5db9'
             # gcc patch
-            '3d0d5741a7e37a038a1bfc194c194afdc5e025fcaf1646f8591ce1bea5919893'
+            '67f6cc7b4faeda2f5d564565b762ea645da9aca9d74d6fbe19ee5df6f428a5a1'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
@@ -139,7 +139,7 @@ sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             # -O3
             'da8586d97065d16d0835525eded91dc148fad7d8cb094ca351a53252dcf59524'
             # AMD pstate patch
-            'b5431719a021435b0e87f7579b064c954338953a1da3b276f7d1676cade425cc'
+            '839d34f4c04b475a5373cffff3286ea6dbffbead343911f596ec5d648ad4b417'
             # archlinux patches
             '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
@@ -201,7 +201,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   msg2 "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-uarches-for-kernel-6.8-rc4+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.8-rc4+.patch"
 
   if [ -n "$_subarch" ]; then
     # user wants a subarch so apply choice defined above interactively via 'yes'
