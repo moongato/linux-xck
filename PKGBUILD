@@ -76,7 +76,7 @@ _subarch=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.11
-pkgrel=2
+pkgrel=3
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -103,7 +103,7 @@ _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240919
 _pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v2
+_sched_ext=bore-sched-ext-patches-v3
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
@@ -133,7 +133,7 @@ sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
             # ext scheduler
-            'f1054bbae75369a2bfeb52461168e5691ded88b34b55c66b01f21e8c2cf3c508'
+            '0f235289205a70a10852c9b732246f54cf3941331261a509a7105dddb7edbdbf'
             # bore testing
             #'787f08424e863d6736f0ff5163f6b878c865226f1f8140dda8cfec51513453cd'
             # -O3
