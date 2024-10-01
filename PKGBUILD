@@ -75,8 +75,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.11
-pkgrel=4
+pkgver=6.11.1
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -102,29 +102,25 @@ _ckhrtimer=linux-6.8.y
 _commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
 
 _gcc_more_v=20240919
-_pstate=amd-pstate-patches-v12
-_sched_ext=bore-sched-ext-patches-v4
+_sched_ext=bore-sched-ext-patches-v5
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.8-bore/$_bore
-  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/testing/linux-6.10-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.11/$_sched_ext/0001-bore-sched-ext-patches.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.11/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  #https://github.com/sirlucjan/kernel-patches/raw/master/6.9/$_pstate/0001-amd-6.9-merge-changes-from-dev-tree.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/master/6.11/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
+  0004-firmware-sysfb-Disable-sysfb-for-firmware-buffers-with.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
+sha256sums=('2a372373b4e1eaf55f2a2f104bfa91477ec9b263acf8f3aed08f4d8bdc78ee3d'
             'SKIP'
             # config
             'fce9b8540a10901263ed56014ec37613d773ee57735777b9f1ea0821763d5db9'
@@ -132,18 +128,15 @@ sha256sums=('55d2c6c025ebc27810c748d66325dd5bc601e8d32f8581d9e77673529bdacb2e'
             '67f6cc7b4faeda2f5d564565b762ea645da9aca9d74d6fbe19ee5df6f428a5a1'
             # hrtimers patch
             '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
-            # ext scheduler
-            'c23d3a2ac624edcfeb498e12e6319c6795d92b396289e6c7a5f45a489b40ea95'
-            # bore testing
-            #'787f08424e863d6736f0ff5163f6b878c865226f1f8140dda8cfec51513453cd'
+            # bore-sched-ext patch
+            '9436d047ac0bb2612bfc344b506a103f598c016f75cab2383a5cb7b211728d75'
             # -O3
             'da8586d97065d16d0835525eded91dc148fad7d8cb094ca351a53252dcf59524'
-            # AMD pstate patch
-            '839d34f4c04b475a5373cffff3286ea6dbffbead343911f596ec5d648ad4b417'
             # archlinux patches
             '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
             'dbbce816cdadcfd7fdb5024c84ea1e4c92dbfabc38789515ae7b4e65c8ca4038'
+            'bd1a3bfe0833c016297916911de5178ab1c18a5f7b905944dc9e96c029ed8586'
 )
 
 prepare() {
