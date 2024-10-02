@@ -19,60 +19,6 @@ _localmodcfg=
 # Compile using clang rather than gcc
 _clangbuild=
 
-# Optionally select a sub architecture by number or leave blank which will
-# require user interaction during the build. Note that the generic (default)
-# option is 40.
-_subarch=
-
-#  1. AMD Opteron/Athlon64/Hammer/K8 (MK8)
-#  2. AMD Opteron/Athlon64/Hammer/K8 with SSE3 (MK8SSE3) (NEW)
-#  3. AMD 61xx/7x50/PhenomX3/X4/II/K10 (MK10) (NEW)
-#  4. AMD Barcelona (MBARCELONA) (NEW)
-#  5. AMD Bobcat (MBOBCAT) (NEW)
-#  6. AMD Jaguar (MJAGUAR) (NEW)
-#  7. AMD Bulldozer (MBULLDOZER) (NEW)
-#  8. AMD Piledriver (MPILEDRIVER) (NEW)
-#  9. AMD Steamroller (MSTEAMROLLER) (NEW)
-#  10. AMD Excavator (MEXCAVATOR) (NEW)
-#  11. AMD Zen (MZEN) (NEW)
-#  12. AMD Zen 2 (MZEN2) (NEW)
-#  13. AMD Zen 3 (MZEN3) (NEW)
-#  14. AMD Zen 4 (MZEN4) (NEW)
-#  15. Intel P4 / older Netburst based Xeon (MPSC)
-#  16. Intel Core 2 (MCORE2)
-#  17. Intel Atom (MATOM)
-#  18. Intel Nehalem (MNEHALEM) (NEW)
-#  19. Intel Westmere (MWESTMERE) (NEW)
-#  20. Intel Silvermont (MSILVERMONT) (NEW)
-#  21. Intel Goldmont (MGOLDMONT) (NEW)
-#  22. Intel Goldmont Plus (MGOLDMONTPLUS) (NEW)
-#  23. Intel Sandy Bridge (MSANDYBRIDGE) (NEW)
-#  24. Intel Ivy Bridge (MIVYBRIDGE) (NEW)
-#  25. Intel Haswell (MHASWELL) (NEW)
-#  26. Intel Broadwell (MBROADWELL) (NEW)
-#  27. Intel Skylake (MSKYLAKE) (NEW)
-#  28. Intel Skylake X (MSKYLAKEX) (NEW)
-#  29. Intel Cannon Lake (MCANNONLAKE) (NEW)
-#  30. Intel Ice Lake (MICELAKE) (NEW)
-#  31. Intel Cascade Lake (MCASCADELAKE) (NEW)
-#  32. Intel Cooper Lake (MCOOPERLAKE) (NEW)
-#  33. Intel Tiger Lake (MTIGERLAKE) (NEW)
-#  34. Intel Sapphire Rapids (MSAPPHIRERAPIDS) (NEW)
-#  35. Intel Rocket Lake (MROCKETLAKE) (NEW)
-#  36. Intel Alder Lake (MALDERLAKE) (NEW)
-#  37. Intel Raptor Lake (MRAPTORLAKE) (NEW)
-#  38. Intel Meteor Lake (MMETEORLAKE) (NEW)
-#  39. Intel Emerald Rapids (MEMERALDRAPIDS) (NEW)
-#  40. Generic-x86-64 (GENERIC_CPU)
-#  41. AMD-x86-64-v2 (MAMD_CPU_V2) (NEW)
-#  42. AMD-x86-64-v3 (MAMD_CPU_V3) (NEW)
-#  43. AMD-x86-64-v4 (MAMD_CPU_V4) (NEW)
-#  44. Intel-x86-64-v2 (MINTEL_CPU_V2) (NEW)
-#  45. Intel-x86-64-v3 (MINTEL_CPU_V3) (NEW)
-#  46. Intel-x86-64-v4 (MINTEL_CPU_V4) (NEW)
-#  47. Intel-Native optimizations autodetected by the compiler (MNATIVE_INTEL) (NEW)
-#  48. AMD-Native optimizations autodetected by the compiler (MNATIVE_AMD) (NEW)
-
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.11.1
@@ -98,10 +44,10 @@ options=(
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # acknowledgment to xanmod for initially keeping the hrtimer patches up to date
-_ckhrtimer=linux-6.8.y
-_commit=ae3cbb29c43ca1baa6781f547d17b8ee5663e9d7
+_ckhrtimer=linux-6.11.y
+_commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
-_gcc_more_v=20240919
+_gcc_more_v=20240922
 _sched_ext=bore-sched-ext-patches-v5
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
@@ -125,9 +71,9 @@ sha256sums=('2a372373b4e1eaf55f2a2f104bfa91477ec9b263acf8f3aed08f4d8bdc78ee3d'
             # config
             'c286ebc42a2fc1887eddfa40ce2a6d51f001e3535778415defb8f25cde13f644'
             # gcc patch
-            '67f6cc7b4faeda2f5d564565b762ea645da9aca9d74d6fbe19ee5df6f428a5a1'
+            '5846616133bea55bef2f01541b84f3e8c3ef3ae20a5c973f625b7643c86bb47e'
             # hrtimers patch
-            '111adfc5b9c7d3bfd7d1a06286e7bee853dd1f51ecca3948eed39710eaf51381'
+            'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore-sched-ext patch
             '9436d047ac0bb2612bfc344b506a103f598c016f75cab2383a5cb7b211728d75'
             # -O3
@@ -186,9 +132,6 @@ prepare() {
     export _LLVM_IAS=$_LLVM
   fi
 
-  # non-interactively apply ck1 default options
-  # this isn't redundant if we want a clean selection of subarch below
-  make LLVM=$_LLVM LLVM_IAS=$_LLVM olddefconfig
   diff -u ../config .config || :
 
   # https://github.com/graysky2/kernel_gcc_patch
@@ -196,13 +139,9 @@ prepare() {
   msg2 "Patching to enable GCC optimization for other uarchs..."
   patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.8-rc4+.patch"
 
-  if [ -n "$_subarch" ]; then
-    # user wants a subarch so apply choice defined above interactively via 'yes'
-    yes "$_subarch" | make LLVM=$_LLVM LLVM_IAS=$_LLVM oldconfig
-  else
-    # no subarch defined so allow user to pick one
-    make LLVM=$_LLVM LLVM_IAS=$_LLVM oldconfig
-  fi
+  # since there are multiple options in the above patch (uarch + ISA setting), the yes method that worked
+  # in the past will no long work so remove it
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM olddefconfig
 
   ### Optionally load needed modules for the make localmodconfig
   # See https://aur.archlinux.org/packages/modprobed-db
