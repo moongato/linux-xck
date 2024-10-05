@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 6.11.1-arch1 Kernel Configuration
+# Linux/x86 6.11.2-arch1 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (GCC) 14.2.1 20240910"
 CONFIG_CC_IS_GCC=y
@@ -412,10 +412,49 @@ CONFIG_JAILHOUSE_GUEST=y
 CONFIG_ACRN_GUEST=y
 CONFIG_INTEL_TDX_GUEST=y
 # CONFIG_MK8 is not set
+# CONFIG_MK8SSE3 is not set
+# CONFIG_MK10 is not set
+# CONFIG_MBARCELONA is not set
+# CONFIG_MBOBCAT is not set
+# CONFIG_MJAGUAR is not set
+# CONFIG_MBULLDOZER is not set
+# CONFIG_MPILEDRIVER is not set
+# CONFIG_MSTEAMROLLER is not set
+# CONFIG_MEXCAVATOR is not set
+# CONFIG_MZEN is not set
+# CONFIG_MZEN2 is not set
+CONFIG_MZEN3=y
+# CONFIG_MZEN4 is not set
+# CONFIG_MZEN5 is not set
 # CONFIG_MPSC is not set
-# CONFIG_MCORE2 is not set
 # CONFIG_MATOM is not set
-CONFIG_GENERIC_CPU=y
+# CONFIG_MCORE2 is not set
+# CONFIG_MNEHALEM is not set
+# CONFIG_MWESTMERE is not set
+# CONFIG_MSILVERMONT is not set
+# CONFIG_MGOLDMONT is not set
+# CONFIG_MGOLDMONTPLUS is not set
+# CONFIG_MSANDYBRIDGE is not set
+# CONFIG_MIVYBRIDGE is not set
+# CONFIG_MHASWELL is not set
+# CONFIG_MBROADWELL is not set
+# CONFIG_MSKYLAKE is not set
+# CONFIG_MSKYLAKEX is not set
+# CONFIG_MCANNONLAKE is not set
+# CONFIG_MICELAKE is not set
+# CONFIG_MCASCADELAKE is not set
+# CONFIG_MCOOPERLAKE is not set
+# CONFIG_MTIGERLAKE is not set
+# CONFIG_MSAPPHIRERAPIDS is not set
+# CONFIG_MROCKETLAKE is not set
+# CONFIG_MALDERLAKE is not set
+# CONFIG_MRAPTORLAKE is not set
+# CONFIG_MMETEORLAKE is not set
+# CONFIG_MEMERALDRAPIDS is not set
+# CONFIG_GENERIC_CPU is not set
+# CONFIG_MNATIVE_INTEL is not set
+# CONFIG_MNATIVE_AMD is not set
+CONFIG_X86_64_VERSION=1
 CONFIG_X86_INTERNODE_CACHE_SHIFT=6
 CONFIG_X86_L1_CACHE_SHIFT=6
 CONFIG_X86_TSC=y
@@ -6052,7 +6091,6 @@ CONFIG_VIDEO_V4L2_SUBDEV_API=y
 # CONFIG_VIDEO_ADV_DEBUG is not set
 # CONFIG_VIDEO_FIXED_MINOR_RANGES is not set
 CONFIG_VIDEO_TUNER=m
-CONFIG_V4L2_JPEG_HELPER=m
 CONFIG_V4L2_MEM2MEM_DEV=m
 CONFIG_V4L2_FLASH_LED_CLASS=m
 CONFIG_V4L2_FWNODE=m
@@ -6368,7 +6406,6 @@ CONFIG_VIDEO_CADENCE_CSI2TX=m
 #
 # Chips&Media media platform drivers
 #
-CONFIG_VIDEO_E5010_JPEG_ENC=m
 
 #
 # Intel media platform drivers
@@ -6406,7 +6443,6 @@ CONFIG_VIDEO_CAFE_CCIC=m
 #
 # Raspberry Pi media platform drivers
 #
-CONFIG_VIDEO_RASPBERRYPI_PISP_BE=m
 
 #
 # Renesas media platform drivers

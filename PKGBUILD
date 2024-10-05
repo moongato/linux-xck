@@ -22,7 +22,7 @@ _clangbuild=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.11.2
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -47,7 +47,7 @@ options=(
 _ckhrtimer=linux-6.11.y
 _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
-_gcc_more_v=20240922
+_gcc_more_v=20241001
 _sched_ext=bore-sched-ext-patches-v9
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
@@ -61,6 +61,7 @@ source=(
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
   0004-firmware-sysfb-Disable-sysfb-for-firmware-buffers-with.patch
+  0005-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -69,9 +70,9 @@ validpgpkeys=(
 sha256sums=('ec9ef7a0b9cebb55940e1ef87a1f9e1004b10456a119dc386bb3e565b0d39c42'
             'SKIP'
             # config
-            'c286ebc42a2fc1887eddfa40ce2a6d51f001e3535778415defb8f25cde13f644'
+            'b9c78ba618d8476b6981bebd7d1f613215bdf739511c48dd830f88beb273f18b'
             # gcc patch
-            '5846616133bea55bef2f01541b84f3e8c3ef3ae20a5c973f625b7643c86bb47e'
+            '3c0a38110cc21dca6b6efec03ce82ed24f473da190354cf740b5ecd6f6589aa7'
             # hrtimers patch
             'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore-sched-ext patch
@@ -83,6 +84,7 @@ sha256sums=('ec9ef7a0b9cebb55940e1ef87a1f9e1004b10456a119dc386bb3e565b0d39c42'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
             'dbbce816cdadcfd7fdb5024c84ea1e4c92dbfabc38789515ae7b4e65c8ca4038'
             'bd1a3bfe0833c016297916911de5178ab1c18a5f7b905944dc9e96c029ed8586'
+            '0bc9488c34ba95f6161326f69f6b571400e8339ba40d8b5567c6e2c0f4a6fe17'
 )
 
 prepare() {
