@@ -21,8 +21,8 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.11.2
-pkgrel=3
+pkgver=6.11.3
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -59,15 +59,13 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/6.11/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0003-x86-apic-Remove-logical-destination-mode-for-64-bit.patch
-  0004-firmware-sysfb-Disable-sysfb-for-firmware-buffers-with.patch
-  0005-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
+  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('ec9ef7a0b9cebb55940e1ef87a1f9e1004b10456a119dc386bb3e565b0d39c42'
+sha256sums=('057263d0afc17d5253794afd3d239ba4da4aa734b22fa36c1665f41b95449b73'
             'SKIP'
             # config
             'b9c78ba618d8476b6981bebd7d1f613215bdf739511c48dd830f88beb273f18b'
@@ -82,8 +80,6 @@ sha256sums=('ec9ef7a0b9cebb55940e1ef87a1f9e1004b10456a119dc386bb3e565b0d39c42'
             # archlinux patches
             '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
-            'dbbce816cdadcfd7fdb5024c84ea1e4c92dbfabc38789515ae7b4e65c8ca4038'
-            'bd1a3bfe0833c016297916911de5178ab1c18a5f7b905944dc9e96c029ed8586'
             '0bc9488c34ba95f6161326f69f6b571400e8339ba40d8b5567c6e2c0f4a6fe17'
 )
 
