@@ -22,7 +22,7 @@ _clangbuild=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.11.4
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -47,7 +47,7 @@ options=(
 _ckhrtimer=linux-6.11.y
 _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
-_gcc_more_v=20241001
+_gcc_more_v=20241018
 _sched_ext=bore-sched-ext-patches-v11
 _bore=0001-linux6.10.y-bore5.2.10.patch
 source=(
@@ -60,6 +60,8 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
+  0004-Bluetooth-btusb-Fix-not-being-able-to-reconnect-after.patch
+  0005-netfilter-xtables-fix-a-bunch-of-typos-causing-some-targets.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
@@ -70,7 +72,7 @@ sha256sums=('bd54b0a0a46574919706698b1411ec48cf2a58345c4d8990e414acc4730e8f55'
             # config
             '270396622bfc2811742404e8fa2d7a7032711610d7d60192d2637ec5f05ae3a3'
             # gcc patch
-            '3c0a38110cc21dca6b6efec03ce82ed24f473da190354cf740b5ecd6f6589aa7'
+            'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
             'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore-sched-ext patch
@@ -81,6 +83,8 @@ sha256sums=('bd54b0a0a46574919706698b1411ec48cf2a58345c4d8990e414acc4730e8f55'
             '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
             '0bc9488c34ba95f6161326f69f6b571400e8339ba40d8b5567c6e2c0f4a6fe17'
+            'd69f292f1499d1529c17e1e601eb3ab3e463261352e8cd5f7b74516db7fecc4c'
+            '98491367eb96af6bf2ef73ca6ef914b10410f42bff53d3cf038c58106bc5b45b'
 )
 
 prepare() {
@@ -135,7 +139,7 @@ prepare() {
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
   msg2 "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.8-rc4+.patch"
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch"
 
   # since there are multiple options in the above patch (uarch + ISA setting), the yes method that worked
   # in the past will no long work so remove it
