@@ -21,8 +21,8 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.11.5
-pkgrel=2
+pkgver=6.11.6
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -57,16 +57,16 @@ source=(
   "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/sirlucjan/kernel-patches/raw/master/6.11/$_sched_ext/0001-bore-sched-ext-patches.patch
   https://github.com/sirlucjan/kernel-patches/raw/master/6.11/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.11/x86-patches-v3/0001-x86-uaccess-Avoid-barrier_nospec-in-64-bit-copy_from.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0004-netfilter-xtables-fix-a-bunch-of-typos-causing-some-targets.patch
+  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch  
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('471485b3b7f2fb637bd8fe3d00944c4c135c7d8ee02f357f33690baab0752a07'
+sha256sums=('c954f60197008f1e1f32a1e77293903cf3801d2543ec4bf521f5651eb7f133ce'
             'SKIP'
             # config
             '270396622bfc2811742404e8fa2d7a7032711610d7d60192d2637ec5f05ae3a3'
@@ -78,11 +78,12 @@ sha256sums=('471485b3b7f2fb637bd8fe3d00944c4c135c7d8ee02f357f33690baab0752a07'
             '9c3987d5b05dff991469bc0de9d41c02194740c66a460fcf0ba6ccd01a515820'
             # -O3
             'da8586d97065d16d0835525eded91dc148fad7d8cb094ca351a53252dcf59524'
+            # x86 patch
+            '62c17a9447393b91056ab2dd9b3157ee5ad6ae23dc8fcc47d59724673611f633'
             # archlinux patches
             '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
             'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
-            '0bc9488c34ba95f6161326f69f6b571400e8339ba40d8b5567c6e2c0f4a6fe17'
-            '98491367eb96af6bf2ef73ca6ef914b10410f42bff53d3cf038c58106bc5b45b'
+            '0bc9488c34ba95f6161326f69f6b571400e8339ba40d8b5567c6e2c0f4a6fe17'            
 )
 
 prepare() {
