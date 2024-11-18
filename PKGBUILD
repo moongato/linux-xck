@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.11.9
+pkgver=6.12
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -48,42 +48,37 @@ _ckhrtimer=linux-6.11.y
 _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
 _gcc_more_v=20241018
-_sched_ext=bore-sched-ext-patches-v14
-_bore=0001-linux6.10.y-bore5.2.10.patch
+_sched_ext=bore-patches
+_bore=0001-linux6.12-bore5.7.3.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
-  "ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.11/$_sched_ext/0001-bore-sched-ext-patches.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.11/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.11/x86-patches-v3/0001-x86-uaccess-Avoid-barrier_nospec-in-64-bit-copy_from.patch
+  #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.12/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch  
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('75658a7aa3bd9598c96ee1e5862c5e1d34fced75c28d825c727a1510a6f384b4'
+sha256sums=('b1a2562be56e42afb3f8489d4c2a7ac472ac23098f1ef1c1e40da601f54625eb'
             'SKIP'
             # config
-            '0fa106c30e03d5aebb8e649d65ace4868e1f12745cc2b888ae69070a801f7b9a'
+            '1b61804d28ce4a56859ec9dfd441f969dc484542f85c8abfc1682ed5cea1c915'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
-            'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
-            # bore-sched-ext patch
-            '9cdd68b160a520f7f0c78573abe7cfa5a0be44aa5095202101023845af44af26'
+            #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
+            # bore patch
+            '745cf143535eac77dc32db3b997ee8ea9c6adb4244b982677af5a96a0b318ca1'
             # -O3
-            'da8586d97065d16d0835525eded91dc148fad7d8cb094ca351a53252dcf59524'
-            # x86 patch
-            '62c17a9447393b91056ab2dd9b3157ee5ad6ae23dc8fcc47d59724673611f633'
+            'd588fca6db5eb134f6414308cadc51518ed740a29c7df19b8ef7e1126d49d48b'
             # archlinux patches
-            '5bc756fcf5f702325ad0caf07b9cf31bcab44e011cb7a929322c6983367340d9'
-            'e39b1fccd4374317baafab971f112f32664b2211a0d92d933c218bb504fcc0b6'
-            '0bc9488c34ba95f6161326f69f6b571400e8339ba40d8b5567c6e2c0f4a6fe17'            
+            '3cf389ced2b40e6457421cb27892bf126b73032fbf1de895ecc37b13d981a17c'
+            '423b2c6fbc8d6df79997550bef1b1e4f6f402b668007d150013623a83a12b49e'
 )
 
 prepare() {
@@ -121,11 +116,11 @@ prepare() {
   scripts/config --enable CONFIG_HZ_1000
 
   # these are ck's htrimer patches
-  echo "Patching with ck hrtimer patches..."
+  #echo "Patching with ck hrtimer patches..."
 
-  for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_ckhrtimer"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   if [[ -n "$_clangbuild" ]]; then
     scripts/config -e LTO_CLANG_THIN
