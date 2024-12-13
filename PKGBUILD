@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.12.3
+pkgver=6.12.4
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -48,8 +48,8 @@ _ckhrtimer=linux-6.11.y
 _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
 _gcc_more_v=20241018
-_sched_ext=bore-patches-v11
-_bore=0001-linux6.12-bore5.8.10.patch
+_sched_ext=bore-patches-v13
+_bore=0001-linux6.12-bore5.7.13.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -65,16 +65,16 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c89809cc777d50f1ea484a118630281a26383707a0e752c96fd834f6e765deae'
+sha256sums=('6f35f821433d8421be7167990747c7c4a0c451958fb96883446301af13d71152'
             'SKIP'
             # config
-            'dd7a863e4cdd9e7f213748fc16966993715bd018520fc000921d7ea98c1e24ac'
+            '2b5db5e65fbf217b3a6cbfb5746c6393f9ba801eae8bf1d31b9fb96c6e4aa822'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
-            '1aafe368fa8c04e1bfcb82710a6140eb2a43ce453962d5bbfbde506fae3a96d0'
+            '13dae0bd105ac4d5605cb892933915bda315ad1317b3b9a419f6280d858032a8'
             # -O3
             'd588fca6db5eb134f6414308cadc51518ed740a29c7df19b8ef7e1126d49d48b'
             # archlinux patches
