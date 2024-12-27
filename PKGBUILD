@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.12.6
+pkgver=6.12.7
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -49,38 +49,41 @@ _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
 _gcc_more_v=20241018
 _sched_ext=bore-patches-v13
-_bore=0001-linux6.12-bore5.7.13.patch
+_bore=0001-linux6.12.y-bore5.7.15.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
+  #https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.12-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.12/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch  
+  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
+  0004-drm-amdgpu-Add-missing-statement-in-resume_phase3.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('d450ab215de4e1f8bb85e0f4216760fa33fd024b4526b144f4ce0d9012b29c9e'
+sha256sums=('f785fb648a0e0b66a943bb3228a4b6ed62c90b985cd1ebf69da5d38e589da0cf'
             'SKIP'
             # config
-            '2d7cf5d6647d6e935b94a67d2def34a4aa20284d3627a53b3651fda3a8035fb2'
+            '682b504c9c75eb5449551dd5f60df3b541215083b7d1c386c016577b7edd9b49'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
-            '13dae0bd105ac4d5605cb892933915bda315ad1317b3b9a419f6280d858032a8'
+            'a41817aebcc85b378809c223bb11a705cb03251e6e9f9b5027f8506787a417d2'
             # -O3
             'd588fca6db5eb134f6414308cadc51518ed740a29c7df19b8ef7e1126d49d48b'
             # archlinux patches
             '3cf389ced2b40e6457421cb27892bf126b73032fbf1de895ecc37b13d981a17c'
             '423b2c6fbc8d6df79997550bef1b1e4f6f402b668007d150013623a83a12b49e'
-            'dbebb94c876571eb8d2e1e330e19c1879c1b0914eabe234ab6cf2b56bad17dc1'           
+            'dbebb94c876571eb8d2e1e330e19c1879c1b0914eabe234ab6cf2b56bad17dc1'
+            '9b046d96e03e4c5cc232f2f8c515366dfeed0d2a3666fce3f9c4a89a86976afc'           
 )
 
 prepare() {
