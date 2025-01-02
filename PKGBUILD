@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.12.7
+pkgver=6.12.8
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -61,13 +61,13 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0004-drm-amdgpu-Add-missing-statement-in-resume_phase3.patch
+  0004-drm-amdgpu-fix-backport-of-commit-73dae652dcac.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('f785fb648a0e0b66a943bb3228a4b6ed62c90b985cd1ebf69da5d38e589da0cf'
+sha256sums=('2291da065ca04b715c89ee50362aec3f021a7414bc963f1b56736682c8122979'
             'SKIP'
             # config
             '682b504c9c75eb5449551dd5f60df3b541215083b7d1c386c016577b7edd9b49'
@@ -83,7 +83,7 @@ sha256sums=('f785fb648a0e0b66a943bb3228a4b6ed62c90b985cd1ebf69da5d38e589da0cf'
             '3cf389ced2b40e6457421cb27892bf126b73032fbf1de895ecc37b13d981a17c'
             '423b2c6fbc8d6df79997550bef1b1e4f6f402b668007d150013623a83a12b49e'
             'dbebb94c876571eb8d2e1e330e19c1879c1b0914eabe234ab6cf2b56bad17dc1'
-            '9b046d96e03e4c5cc232f2f8c515366dfeed0d2a3666fce3f9c4a89a86976afc'           
+            '3352c7e6711d182a6dbb9d00030fa421655041b9b91cb55edd91254edb6daf7a'           
 )
 
 prepare() {
