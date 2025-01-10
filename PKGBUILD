@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.12.8
+pkgver=6.12.9
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -61,16 +61,15 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0004-drm-amdgpu-fix-backport-of-commit-73dae652dcac.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('2291da065ca04b715c89ee50362aec3f021a7414bc963f1b56736682c8122979'
+sha256sums=('87be0360df0931b340d2bac35161a548070fbc3a8c352c49e21e96666c26aeb4'
             'SKIP'
             # config
-            '682b504c9c75eb5449551dd5f60df3b541215083b7d1c386c016577b7edd9b49'
+            'ef4aceac7b410a1eb8ffa84ade9a354b518c630072447a0f3792f71c0f824630'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
@@ -83,7 +82,6 @@ sha256sums=('2291da065ca04b715c89ee50362aec3f021a7414bc963f1b56736682c8122979'
             '3cf389ced2b40e6457421cb27892bf126b73032fbf1de895ecc37b13d981a17c'
             '423b2c6fbc8d6df79997550bef1b1e4f6f402b668007d150013623a83a12b49e'
             'dbebb94c876571eb8d2e1e330e19c1879c1b0914eabe234ab6cf2b56bad17dc1'
-            '3352c7e6711d182a6dbb9d00030fa421655041b9b91cb55edd91254edb6daf7a'           
 )
 
 prepare() {
