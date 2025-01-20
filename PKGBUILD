@@ -22,7 +22,7 @@ _clangbuild=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.12.10
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -49,7 +49,7 @@ _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
 _gcc_more_v=20241018
 _sched_ext=bore-patches-v13
-_bore=0001-linux6.12.y-bore5.7.15.patch
+_bore=0001-linux6.12.y-bore5.9.6.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
@@ -75,7 +75,7 @@ sha256sums=('4a516e5ed748537a73cb42ec47fbbeb6df8b1298e8892c29c0e91de79095b297'
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
-            'a41817aebcc85b378809c223bb11a705cb03251e6e9f9b5027f8506787a417d2'
+            '2e082c38b70431891a237b4829e1fd936c818616aae8dd598406e54a9aa6d146'
             # -O3
             'd588fca6db5eb134f6414308cadc51518ed740a29c7df19b8ef7e1126d49d48b'
             # archlinux patches
