@@ -1,4 +1,4 @@
-From a256060d45cbdd5d245d4c8933c4ec5734993965 Mon Sep 17 00:00:00 2001
+From 1625f44ae8c1675bb31c40dbe152ef9c5b73d981 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <jan.steffens@gmail.com>
 Date: Mon, 16 Sep 2019 04:53:20 +0200
 Subject: [PATCH] ZEN: Add sysctl and CONFIG to disallow unprivileged
@@ -36,10 +36,10 @@ index 7183e5aca28291..56573371a2f8af 100644
  {
  	return &init_user_ns;
 diff --git a/init/Kconfig b/init/Kconfig
-index c521e1421ad4ab..ea4b96dc30b6a4 100644
+index a20e6efd3f0fbd..646ef233e0d6d6 100644
 --- a/init/Kconfig
 +++ b/init/Kconfig
-@@ -1300,6 +1300,22 @@ config USER_NS
+@@ -1310,6 +1310,22 @@ config USER_NS
  
  	  If unsure, say N.
  
@@ -63,10 +63,10 @@ index c521e1421ad4ab..ea4b96dc30b6a4 100644
  	bool "PID Namespaces"
  	default y
 diff --git a/kernel/fork.c b/kernel/fork.c
-index 22f43721d031d4..8287afdd01d2f3 100644
+index 9b301180fd4162..0cb5431b4d7ea6 100644
 --- a/kernel/fork.c
 +++ b/kernel/fork.c
-@@ -107,6 +107,10 @@
+@@ -106,6 +106,10 @@
  #include <linux/pidfs.h>
  #include <linux/tick.h>
  
@@ -77,7 +77,7 @@ index 22f43721d031d4..8287afdd01d2f3 100644
  #include <asm/pgalloc.h>
  #include <linux/uaccess.h>
  #include <asm/mmu_context.h>
-@@ -2138,6 +2142,10 @@ __latent_entropy struct task_struct *copy_process(
+@@ -2158,6 +2162,10 @@ __latent_entropy struct task_struct *copy_process(
  	if ((clone_flags & (CLONE_NEWUSER|CLONE_FS)) == (CLONE_NEWUSER|CLONE_FS))
  		return ERR_PTR(-EINVAL);
  
@@ -88,7 +88,7 @@ index 22f43721d031d4..8287afdd01d2f3 100644
  	/*
  	 * Thread groups must share signals as well, and detached threads
  	 * can only be started up within the thread group.
-@@ -3291,6 +3299,12 @@ int ksys_unshare(unsigned long unshare_flags)
+@@ -3311,6 +3319,12 @@ int ksys_unshare(unsigned long unshare_flags)
  	if (unshare_flags & CLONE_NEWNS)
  		unshare_flags |= CLONE_FS;
  
@@ -102,7 +102,7 @@ index 22f43721d031d4..8287afdd01d2f3 100644
  	if (err)
  		goto bad_unshare_out;
 diff --git a/kernel/sysctl.c b/kernel/sysctl.c
-index 79e6cb1d5c48f8..676e89dc38c339 100644
+index 5c9202cb8f59f3..19e7c283bab3e8 100644
 --- a/kernel/sysctl.c
 +++ b/kernel/sysctl.c
 @@ -80,6 +80,9 @@
@@ -115,7 +115,7 @@ index 79e6cb1d5c48f8..676e89dc38c339 100644
  
  /* shared constants to be used in various sysctls */
  const int sysctl_vals[] = { 0, 1, 2, 3, 4, 100, 200, 1000, 3000, INT_MAX, 65535, -1 };
-@@ -1618,6 +1621,15 @@ static struct ctl_table kern_table[] = {
+@@ -1617,6 +1620,15 @@ static struct ctl_table kern_table[] = {
  		.mode		= 0644,
  		.proc_handler	= proc_dointvec,
  	},

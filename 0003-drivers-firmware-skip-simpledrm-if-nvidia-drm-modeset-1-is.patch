@@ -1,4 +1,4 @@
-From 27554e7f37f7efda1405880f525230fc1afed56b Mon Sep 17 00:00:00 2001
+From 3b41f60941b200156e3a7c06cbcd58f6ce374326 Mon Sep 17 00:00:00 2001
 From: Javier Martinez Canillas <javierm@redhat.com>
 Date: Thu, 19 May 2022 14:40:07 +0200
 Subject: [PATCH] drivers/firmware: skip simpledrm if nvidia-drm.modeset=1 is
@@ -50,7 +50,7 @@ Cherry-picked-for: https://gitlab.archlinux.org/archlinux/packaging/packages/lin
  1 file changed, 17 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/firmware/sysfb.c b/drivers/firmware/sysfb.c
-index a3df782fa687b0..940d8f51434176 100644
+index 7c5c03f274b951..a60b0a4faf29e5 100644
 --- a/drivers/firmware/sysfb.c
 +++ b/drivers/firmware/sysfb.c
 @@ -35,6 +35,22 @@
@@ -76,7 +76,7 @@ index a3df782fa687b0..940d8f51434176 100644
  static struct platform_device *pd;
  static DEFINE_MUTEX(disable_lock);
  static bool disabled;
-@@ -145,7 +161,7 @@ static __init int sysfb_init(void)
+@@ -164,7 +180,7 @@ static __init int sysfb_init(void)
  
  	/* try to create a simple-framebuffer device */
  	compatible = sysfb_parse_mode(si, &mode);
