@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.13.3
+pkgver=6.13.4
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -62,12 +62,13 @@ source=(
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0004-fuse-prevent-folio-use-after-free-in-readahead.patch
+  0005-mei-vsc-Use-wakeuphostint-when-getting-the-host-wakeup.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('da33fb15ed2628aaaa8b7870b5f29dec794b2134a6da5208149d0e14e3cac02c'
+sha256sums=('b80e0bc8efbc31e9ce5a84d1084dcccfa40e01bea8cc25afd06648b93d61339e'
             'SKIP'
             # config
             'aec7d06e4ffd3b30d1c926cc3e468a76228100e4753bf954937b6e0d009651c4'
@@ -84,6 +85,7 @@ sha256sums=('da33fb15ed2628aaaa8b7870b5f29dec794b2134a6da5208149d0e14e3cac02c'
             'c88f1f2e920f8e88b529839944f72bd50bb4466ef6642efc3310609299360138'
             'bdd6c833582c2fafa56d9c0edc58833d45ad44c998b72c3502c0e51856b65d01'
             'b7b1a4d3940c0e54cf8cdb5b7637345273866df9b63fc485530fa8f48791004b'
+            '0db0bd36cf8e162fe2d66a4e99b0bdb29040fc6b0e3e479590c134a23d1a4356'
 )
 
 prepare() {
