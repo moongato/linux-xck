@@ -22,7 +22,7 @@ _clangbuild=
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
 pkgver=6.13.5
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -58,6 +58,7 @@ source=(
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.13-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.13/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.13/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
@@ -81,6 +82,8 @@ sha256sums=('283ecb0784f3fbc16dd822fb1d9642e230ec7515ed33f120e551b839f355e6e2'
             '9154233475c2abdfa000d1cec1a5229fc8b6d1cfd5a70f542ebda01c9de0d73e'
             # -O3
             '3f77927776987f5569d71426cb3b2f800c8fe777fd1737a7e6461ea6aeb6e8f4'
+            # amd-pstate
+            'SKIP'
             # archlinux patches
             'f9ffdfd5a2523d5a63dd2ac4523a5a7cfab8c64fb963ba5c41e1d62591d854aa'
             'c88f1f2e920f8e88b529839944f72bd50bb4466ef6642efc3310609299360138'
