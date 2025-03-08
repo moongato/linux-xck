@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.13.5
+pkgver=6.13.6
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -61,18 +61,19 @@ source=(
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0004-fuse-prevent-folio-use-after-free-in-readahead.patch
-  0005-mei-vsc-Use-wakeuphostint-when-getting-the-host-wakeup.patch
-  0006-x86-insn_decoder_test-allow-longer-symbol-names.patch
+  0004-mei-vsc-Use-wakeuphostint-when-getting-the-host-wakeup.patch
+  0005-x86-insn_decoder_test-allow-longer-symbol-names.patch
+  0006-EDAC-igen6-Fix-the-flood-of-invalid-error-reports.patch
+  0007-usb-xhci-Fix-host-controllers-dying-after-suspend-and.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('283ecb0784f3fbc16dd822fb1d9642e230ec7515ed33f120e551b839f355e6e2'
+sha256sums=('de0053cb413d408f20fd1d5788219951b8a4403e5dac1b1d9032090938acd199'
             'SKIP'
             # config
-            '7717b957d2571cb5de805a9af4c34cead16eab4b44781d998f690dea97d72ba4'
+            '9e21b889a4fb9906a7191796bfbe6de45ec1b4556b35d336d18e1f3448f2dd2c'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
@@ -85,9 +86,10 @@ sha256sums=('283ecb0784f3fbc16dd822fb1d9642e230ec7515ed33f120e551b839f355e6e2'
             'f9ffdfd5a2523d5a63dd2ac4523a5a7cfab8c64fb963ba5c41e1d62591d854aa'
             'c88f1f2e920f8e88b529839944f72bd50bb4466ef6642efc3310609299360138'
             'bdd6c833582c2fafa56d9c0edc58833d45ad44c998b72c3502c0e51856b65d01'
-            'b7b1a4d3940c0e54cf8cdb5b7637345273866df9b63fc485530fa8f48791004b'
             '0db0bd36cf8e162fe2d66a4e99b0bdb29040fc6b0e3e479590c134a23d1a4356'
             '414689b197fc4a9107ddf4476095bebeca1bbb9ace49d9850b45e603f1dcdaea'
+            '9eeca25f4cba844d80a471dac673c0077a43e9a4fd19d1098d261107348fda6f'
+            'b49cc915fa9a1ce868fd6d451fab145ef91c10abd6c0e5706916d7a628db4f65'
 )
 
 prepare() {
