@@ -1,6 +1,6 @@
-From 13f25cbf4938799eb8b832b9f455532ff0c9c3d3 Mon Sep 17 00:00:00 2001
+From 995a6ec43814b32b2d1db14049a099c36fa1ae23 Mon Sep 17 00:00:00 2001
 From: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
-Date: Mon, 10 Feb 2025 15:17:37 +0800
+Date: Wed, 12 Feb 2025 16:33:54 +0800
 Subject: [PATCH] EDAC/igen6: Fix the flood of invalid error reports
 
 The ECC_ERROR_LOG register of certain SoCs may contain the invalid value
@@ -12,9 +12,13 @@ log value ~0.
 Fixes: e14232afa944 ("EDAC/igen6: Add polling support")
 Reported-by: Ramses <ramses@well-founded.dev>
 Closes: https://lore.kernel.org/all/OISL8Rv--F-9@well-founded.dev/
+Tested-by: Ramses <ramses@well-founded.dev>
 Reported-by: John <therealgraysky@proton.me>
 Closes: https://lore.kernel.org/all/p5YcxOE6M3Ncxpn2-Ia_wCt61EM4LwIiN3LroQvT_-G2jMrFDSOW5k2A9D8UUzD2toGpQBN1eI0sL5dSKnkO8iteZegLoQEj-DwQaMhGx4A=@proton.me/
+Tested-by: John <therealgraysky@proton.me>
 Signed-off-by: Qiuxu Zhuo <qiuxu.zhuo@intel.com>
+Signed-off-by: Tony Luck <tony.luck@intel.com>
+Link: https://lore.kernel.org/r/20250212083354.31919-1-qiuxu.zhuo@intel.com
 ---
  drivers/edac/igen6_edac.c | 21 +++++++++++++++------
  1 file changed, 15 insertions(+), 6 deletions(-)

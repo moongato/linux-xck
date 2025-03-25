@@ -1,4 +1,4 @@
-From 3b41f60941b200156e3a7c06cbcd58f6ce374326 Mon Sep 17 00:00:00 2001
+From efc0392da4fc56ec70668d658c6c5272ef65b56f Mon Sep 17 00:00:00 2001
 From: Javier Martinez Canillas <javierm@redhat.com>
 Date: Thu, 19 May 2022 14:40:07 +0200
 Subject: [PATCH] drivers/firmware: skip simpledrm if nvidia-drm.modeset=1 is
@@ -43,6 +43,7 @@ For this to work, the CONFIG_FB_EFI and CONFIG_FB_VESA config options must
 be enabled besides CONFIG_DRM_SIMPLEDRM.
 
 Signed-off-by: Javier Martinez Canillas <javierm@redhat.com>
+Source: https://gitlab.com/cki-project/kernel-ark/-/merge_requests/1788
 Cherry-picked-for: https://bugs.archlinux.org/task/73720
 Cherry-picked-for: https://gitlab.archlinux.org/archlinux/packaging/packages/linux/-/issues/94
 ---

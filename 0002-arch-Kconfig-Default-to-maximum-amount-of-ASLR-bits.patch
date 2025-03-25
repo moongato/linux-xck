@@ -1,16 +1,18 @@
-From 18dea3ffeed9626c3215b9f9587f84f6f2ad991b Mon Sep 17 00:00:00 2001
+From bf23eb52f955c7adedb91b0b39def31130d7fe39 Mon Sep 17 00:00:00 2001
 From: "Jan Alexander Steffens (heftig)" <heftig@archlinux.org>
 Date: Sat, 13 Jan 2024 15:29:25 +0100
 Subject: [PATCH] arch/Kconfig: Default to maximum amount of ASLR bits
 
-To mitigate https://zolutal.github.io/aslrnt/; do this with a patch to
-avoid having to enable `CONFIG_EXPERT`.
+To mitigate CVE-2024-26621 and improve randomization quality further. Do
+this with a patch to avoid having to enable `CONFIG_EXPERT`.
+
+Cherry-picked-for: https://zolutal.github.io/aslrnt/
 ---
  arch/Kconfig | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/arch/Kconfig b/arch/Kconfig
-index 6682b2a53e342c..fe54298ae05ca4 100644
+index b8a4ff36558228..9b087f9bb4133e 100644
 --- a/arch/Kconfig
 +++ b/arch/Kconfig
 @@ -1137,7 +1137,7 @@ config ARCH_MMAP_RND_BITS
