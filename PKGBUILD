@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.13.8
+pkgver=6.14
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -49,46 +49,46 @@ _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
 _gcc_more_v=20241018
 _sched_ext=bore-patches-v13
-_bore=0001-linux6.13.y-bore5.9.6.patch
+_bore=0001-linux6.14.y-bore5.9.6.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.13-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.13/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.13/0001-amd-pstate.patch
+  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.14/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.14/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0004-x86-insn_decoder_test-allow-longer-symbol-names.patch
+  0004-Kunit-to-check-the-longest-symbol-length.patch
   0005-EDAC-igen6-Fix-the-flood-of-invalid-error-reports.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('259afa59d73d676bec2ae89beacd949e08d54d3f70a7f8b0a742315095751abb'
+sha256sums=('a294b683e7b161bb0517bb32ec7ed1d2ea7603dfbabad135170ed12d00c47670'
             'SKIP'
             # config
-            '55c0be75cba7f7b0889e40458b19159e8a412cf8bae06de97b88847652911f00'
+            'f0a58a946f2cee0288ca86946a3b5978a2a6c7ec83476a68e2cc10bfbc40a40c'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
-            '9154233475c2abdfa000d1cec1a5229fc8b6d1cfd5a70f542ebda01c9de0d73e'
+            'ce4ab0af57bd1345281ff3b46d7b99d7e6c260c29fde68752cce9c24c4979416'
             # -O3
-            '3f77927776987f5569d71426cb3b2f800c8fe777fd1737a7e6461ea6aeb6e8f4'
+            'e4faa75f0f24711cc1b06738585eb7938044aa97c37f77b73b5847496e1859da'
             # amd-pstate
-            'SKIP'
+            '00905121dbe62cb3979a3feec49c5a85996c1c616f28f035b5bd7597d650b101'
             # archlinux patches
-            'f9ffdfd5a2523d5a63dd2ac4523a5a7cfab8c64fb963ba5c41e1d62591d854aa'
-            'c88f1f2e920f8e88b529839944f72bd50bb4466ef6642efc3310609299360138'
-            'bdd6c833582c2fafa56d9c0edc58833d45ad44c998b72c3502c0e51856b65d01'
-            '414689b197fc4a9107ddf4476095bebeca1bbb9ace49d9850b45e603f1dcdaea'
-            '9eeca25f4cba844d80a471dac673c0077a43e9a4fd19d1098d261107348fda6f'
+            '7feabd3b0f6d4e0fb69b6c92e78dafedd648d55417498228c7ab12f1cbf700d1'
+            '0919260055da1fd271b05a659a26eef64ab9577e76c7a8f7363a568a0160fd5d'
+            '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
+            'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
+            'c9005f2c6ebc4b8bb2a35e0e888a788b2482ad6616e98984981765fbc0b3d807'
 )
 
 prepare() {
