@@ -57,7 +57,7 @@ source=(
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.13/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.14/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.14/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
@@ -80,7 +80,7 @@ sha256sums=('a294b683e7b161bb0517bb32ec7ed1d2ea7603dfbabad135170ed12d00c47670'
             # bore patch
             'ce4ab0af57bd1345281ff3b46d7b99d7e6c260c29fde68752cce9c24c4979416'
             # -O3
-            '3f77927776987f5569d71426cb3b2f800c8fe777fd1737a7e6461ea6aeb6e8f4'
+            'e4faa75f0f24711cc1b06738585eb7938044aa97c37f77b73b5847496e1859da'
             # amd-pstate
             '00905121dbe62cb3979a3feec49c5a85996c1c616f28f035b5bd7597d650b101'
             # archlinux patches
