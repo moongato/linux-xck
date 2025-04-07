@@ -21,8 +21,8 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14
-pkgrel=2
+pkgver=6.14.1
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -57,22 +57,23 @@ source=(
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   #https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
   https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.14/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.13/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.14/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0004-Kunit-to-check-the-longest-symbol-length.patch
   0005-EDAC-igen6-Fix-the-flood-of-invalid-error-reports.patch
+  0006-drm-amdgpu-mes11-optimize-MES-pipe-FW-version-fetching.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('a294b683e7b161bb0517bb32ec7ed1d2ea7603dfbabad135170ed12d00c47670'
+sha256sums=('5bf122d1879fd64fadf0cecfcd477957ebce1bc5931c14835ee0eda88463e407'
             'SKIP'
             # config
-            'f0a58a946f2cee0288ca86946a3b5978a2a6c7ec83476a68e2cc10bfbc40a40c'
+            '150019e7a4636cddfc74ea8cfdd4f574574757a48ed3457d21ca936405b9f00b'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
@@ -80,15 +81,16 @@ sha256sums=('a294b683e7b161bb0517bb32ec7ed1d2ea7603dfbabad135170ed12d00c47670'
             # bore patch
             '5e1353412ce1a5b4dfcd8282b2f6c4224396f1d97b85aad7bc97aaa49496e2cc'
             # -O3
-            'e4faa75f0f24711cc1b06738585eb7938044aa97c37f77b73b5847496e1859da'
+            '3f77927776987f5569d71426cb3b2f800c8fe777fd1737a7e6461ea6aeb6e8f4'
             # amd-pstate
-            '00905121dbe62cb3979a3feec49c5a85996c1c616f28f035b5bd7597d650b101'
+            'SKIP'
             # archlinux patches
             '7feabd3b0f6d4e0fb69b6c92e78dafedd648d55417498228c7ab12f1cbf700d1'
             '0919260055da1fd271b05a659a26eef64ab9577e76c7a8f7363a568a0160fd5d'
             '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
             'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
             'c9005f2c6ebc4b8bb2a35e0e888a788b2482ad6616e98984981765fbc0b3d807'
+            'ccf935d49d66d94eded785b8ad2ad108125948f919dad659f10bd317ba6bc214'
 )
 
 prepare() {
