@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14.1
+pkgver=6.14.2
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -48,38 +48,37 @@ _ckhrtimer=linux-6.11.y
 _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
 _gcc_more_v=20241018
-_sched_ext=bore-patches-v13
-_bore=0001-linux6.14.y-bore5.9.6r3.patch
+_sched=bore-patches-v2
+_bore=0001-linux6.14-bore5.9.6.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  #https://github.com/sirlucjan/kernel-patches/raw/master/6.12/$_sched_ext/$_bore
-  https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.14/$_sched/$_bore
+  #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
   https://github.com/sirlucjan/kernel-patches/raw/master/6.13/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.14/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0004-Kunit-to-check-the-longest-symbol-length.patch
-  0005-EDAC-igen6-Fix-the-flood-of-invalid-error-reports.patch
-  0006-drm-amdgpu-mes11-optimize-MES-pipe-FW-version-fetching.patch
+  0005-drm-amdgpu-mes11-optimize-MES-pipe-FW-version-fetching.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('5bf122d1879fd64fadf0cecfcd477957ebce1bc5931c14835ee0eda88463e407'
+sha256sums=('c5c682a354ea3190139357a57d34a79e5c37221ace823a938e10116b577a2e1b'
             'SKIP'
             # config
-            '150019e7a4636cddfc74ea8cfdd4f574574757a48ed3457d21ca936405b9f00b'
+            '356e326039e8da40710fa06dfdb5660cf4d9a03d613c91873930e03746419f4a'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
-            '5e1353412ce1a5b4dfcd8282b2f6c4224396f1d97b85aad7bc97aaa49496e2cc'
+            '63965f87b5bb4aa8b0f4410bae7034db86a9b144c9dbec2582162186db342368'
             # -O3
             '3f77927776987f5569d71426cb3b2f800c8fe777fd1737a7e6461ea6aeb6e8f4'
             # amd-pstate
@@ -89,7 +88,6 @@ sha256sums=('5bf122d1879fd64fadf0cecfcd477957ebce1bc5931c14835ee0eda88463e407'
             '0919260055da1fd271b05a659a26eef64ab9577e76c7a8f7363a568a0160fd5d'
             '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
             'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
-            'c9005f2c6ebc4b8bb2a35e0e888a788b2482ad6616e98984981765fbc0b3d807'
             'ccf935d49d66d94eded785b8ad2ad108125948f919dad659f10bd317ba6bc214'
 )
 
