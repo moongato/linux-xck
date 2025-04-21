@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14.2
+pkgver=6.14.3
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -64,15 +64,16 @@ source=(
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0004-Kunit-to-check-the-longest-symbol-length.patch
   0005-drm-amdgpu-mes11-optimize-MES-pipe-FW-version-fetching.patch
+  0006-wifi-iwlwifi-pcie-set-state-to-no-FW-before-reset.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('c5c682a354ea3190139357a57d34a79e5c37221ace823a938e10116b577a2e1b'
+sha256sums=('91c6c322c32568f09922a02ed35f46372ca8526714c6555b3115b9e9c156652a'
             'SKIP'
             # config
-            '356e326039e8da40710fa06dfdb5660cf4d9a03d613c91873930e03746419f4a'
+            '16d6f773c6da67937585167cecea2dc710a6bc2f3cc750d24e689386ac007a5e'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
@@ -82,13 +83,14 @@ sha256sums=('c5c682a354ea3190139357a57d34a79e5c37221ace823a938e10116b577a2e1b'
             # -O3
             'e4faa75f0f24711cc1b06738585eb7938044aa97c37f77b73b5847496e1859da'
             # amd-pstate
-            '9a24d9e25872a995cca0ecaea6908f411b69d516a1d92c0db3af2f66d8d5421b'
+            'SKIP'
             # archlinux patches
             '7feabd3b0f6d4e0fb69b6c92e78dafedd648d55417498228c7ab12f1cbf700d1'
             '0919260055da1fd271b05a659a26eef64ab9577e76c7a8f7363a568a0160fd5d'
             '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
             'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
             'ccf935d49d66d94eded785b8ad2ad108125948f919dad659f10bd317ba6bc214'
+            '3ed2e2407131de2ba93190390d46e96a8d04c56b977d7dd6fc671c1baa795bb4'
 )
 
 prepare() {
