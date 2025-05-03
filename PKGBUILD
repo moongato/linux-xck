@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14.4
+pkgver=6.14.5
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -68,10 +68,10 @@ validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('9452f28d7a0051fba4886712395b484c4c7fcf9f85944a62fd3d97dc923f5339'
+sha256sums=('28207ec52bbeaa3507010aeff944f442f7d9f22b286b79caf45ec6df1b24f409'
             'SKIP'
             # config
-            'b1c96f5b1154a3c370fd4c00fdbff2dfacad0f4b69c8043f35222224d9eb6af6'
+            'b6e8691a7d3d1694f3c2787f41c9fb10df41c0bbeab5e7ea1e384a0904728e0a'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
