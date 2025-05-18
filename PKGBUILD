@@ -21,8 +21,8 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14.6
-pkgrel=2
+pkgver=6.14.7
+pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
 makedepends=(
@@ -65,15 +65,16 @@ source=(
   0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
   0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0004-Kunit-to-check-the-longest-symbol-length.patch
+  0005-Bluetooth-hci_event-Fix-not-using-key-encryption-size-when.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('21817f1998e2230f81f7e4f605fa6fdcb040e14fa27d99c27ddb16ce749797a9'
+sha256sums=('8112202bc26d086957a94d2109a6dcd4478c5ba18d0f0a5e1c5dfeea01f54972'
             'SKIP'
             # config
-            'b6e8691a7d3d1694f3c2787f41c9fb10df41c0bbeab5e7ea1e384a0904728e0a'
+            'ea891df16e6ad47a72966f61497cf9dac93e956375d7dc52326dcebb016113ff'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
@@ -90,6 +91,7 @@ sha256sums=('21817f1998e2230f81f7e4f605fa6fdcb040e14fa27d99c27ddb16ce749797a9'
             '0919260055da1fd271b05a659a26eef64ab9577e76c7a8f7363a568a0160fd5d'
             '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
             'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
+            '763debcebfbbd2f83a0254675e93a99aa3d2aa279c28c791d97f84aebd2e527e'
 )
 
 prepare() {
