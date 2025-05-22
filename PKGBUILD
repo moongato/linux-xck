@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14.7
+pkgver=6.14.8
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -62,19 +62,20 @@ source=(
   https://github.com/sirlucjan/kernel-patches/raw/master/6.14/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
   https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.14/0001-amd-pstate.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
-  0002-arch-Kconfig-Default-to-maximum-amount-of-ASLR-bits.patch
-  0003-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0004-Kunit-to-check-the-longest-symbol-length.patch
-  0005-Bluetooth-hci_event-Fix-not-using-key-encryption-size-when.patch
+  0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
+  0003-Kunit-to-check-the-longest-symbol-length.patch
+  0004-Bluetooth-hci_event-Fix-not-using-key-encryption-size-when.patch
+  0005-loop-dont-require-write_iter-for-writable-files-in.patch
+  0006-Revert-drm-amd-display-more-liberal-vmin-vmax-update-for.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('8112202bc26d086957a94d2109a6dcd4478c5ba18d0f0a5e1c5dfeea01f54972'
+sha256sums=('62b12ecd3075a357eb320935657de84e01552803717dad383fa7cc3aa4aa2905'
             'SKIP'
             # config
-            'ea891df16e6ad47a72966f61497cf9dac93e956375d7dc52326dcebb016113ff'
+            '63b2e47a7f096ab615e61f0608e2a7b39b8145fdb8e6f08630b4da0fdf58c285'
             # gcc patch
             'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
             # hrtimers patch
@@ -88,10 +89,11 @@ sha256sums=('8112202bc26d086957a94d2109a6dcd4478c5ba18d0f0a5e1c5dfeea01f54972'
             'SKIP'
             # archlinux patches
             '7feabd3b0f6d4e0fb69b6c92e78dafedd648d55417498228c7ab12f1cbf700d1'
-            '0919260055da1fd271b05a659a26eef64ab9577e76c7a8f7363a568a0160fd5d'
             '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
             'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
             '763debcebfbbd2f83a0254675e93a99aa3d2aa279c28c791d97f84aebd2e527e'
+            '54c870a377666fe53e8e145310ed52eae8c2c57001bcc506d96d503ddc41cf67'
+            'df7542846bf7043eb88f7fbf38c7c49247a280db6ec636bb7e3a383aed10db34'
 )
 
 prepare() {
