@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.14.8
+pkgver=6.15.1
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -33,6 +33,9 @@ makedepends=(
   pahole
   perl
   python
+  rust
+  rust-bindgen
+  rust-src
   tar
   xz
 )
@@ -55,45 +58,39 @@ _bore=0001-bore-smt-cores-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
-  "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
+  #"more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.14/$_sched/$_bore
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.15/$_sched/$_bore
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
-  https://github.com/sirlucjan/kernel-patches/raw/master/6.14/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
-  https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.14/0001-amd-pstate.patch
-  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged.patch
+  https://github.com/sirlucjan/kernel-patches/raw/master/6.15/kbuild-cachyos-patches/0001-Cachy-Allow-O3.patch
+  https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.15/0001-amd-pstate.patch
+  0001-add-sysctl-to-allow-disabling-unprivileged-CLONE_NEWUSER.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-Kunit-to-check-the-longest-symbol-length.patch
-  0004-Bluetooth-hci_event-Fix-not-using-key-encryption-size-when.patch
-  0005-loop-dont-require-write_iter-for-writable-files-in.patch
-  0006-Revert-drm-amd-display-more-liberal-vmin-vmax-update-for.patch
+  0003-Revert-drm-amd-display-more-liberal-vmin-vmax-update-for.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('62b12ecd3075a357eb320935657de84e01552803717dad383fa7cc3aa4aa2905'
+sha256sums=('44f1bb84fe512e7bafe0e6dc85d38ec1c6c8fcbe97ccb51d8c19930b799f0d64'
             'SKIP'
             # config
-            '63b2e47a7f096ab615e61f0608e2a7b39b8145fdb8e6f08630b4da0fdf58c285'
+            '15a4877a2cb084986c1bf093a7af2e348ba37a537dd13716646fa943476dee41'
             # gcc patch
-            'b3fd8b1c5bbd39a577afcccf6f1119fdf83f6d72119f4c0811801bdd51d1bc61'
+            #''
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
             #'63965f87b5bb4aa8b0f4410bae7034db86a9b144c9dbec2582162186db342368'
-            '98c554281c318ab805100b15e6eac49d7e7dfa1cbc31b5f743e87670244a2068'
+            '50be48ccd39cbe036872a374d92200be14471eec8f8458f40bb69b67310ee78c'
             # -O3
-            'e4faa75f0f24711cc1b06738585eb7938044aa97c37f77b73b5847496e1859da'
+            '8ad361ce6c08c4d817960194638861b4c21894293b9e19cef38f19cb9e1a252c'
             # amd-pstate
             'SKIP'
             # archlinux patches
-            '7feabd3b0f6d4e0fb69b6c92e78dafedd648d55417498228c7ab12f1cbf700d1'
-            '230355f2bb66f5c29bf3f8b744e928340d4a627164a3e8a4311181ed598bd21b'
-            'f7935fb9b1b152fc66ce478bdc34c818f714f199ec74671a8fd3534c6f16e8f6'
-            '763debcebfbbd2f83a0254675e93a99aa3d2aa279c28c791d97f84aebd2e527e'
-            '54c870a377666fe53e8e145310ed52eae8c2c57001bcc506d96d503ddc41cf67'
-            'df7542846bf7043eb88f7fbf38c7c49247a280db6ec636bb7e3a383aed10db34'
+            'f8629e16ea4f5fbf8bb6a421797c837d83ba29da953fee1cd3b47ed8e1477a1c'
+            '370687d1156b293fa916c998ce05fffdc942bc4fd70e2471f802908921159726'
+            '29e29583a355ecd8c2bb0d1e22791f8544a89af4fc575239973d1f4523fbf50c'
 )
 
 prepare() {
@@ -147,8 +144,8 @@ prepare() {
 
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
-  msg2 "Patching to enable GCC optimization for other uarchs..."
-  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch"
+  #msg2 "Patching to enable GCC optimization for other uarchs..."
+  #patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch"
 
   # since there are multiple options in the above patch (uarch + ISA setting), the yes method that worked
   # in the past will no long work so remove it
@@ -197,6 +194,7 @@ _package() {
   )
   provides=(
     KSMBD-MODULE
+    NTSYNC-MODULE
     VIRTUALBOX-GUEST-MODULES
     WIREGUARD-MODULE
   )
