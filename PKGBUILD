@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.15.1
+pkgver=6.15.3
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -66,16 +66,16 @@ source=(
   https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.15/0001-amd-pstate.patch
   0001-add-sysctl-to-allow-disabling-unprivileged-CLONE_NEWUSER.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-Revert-drm-amd-display-more-liberal-vmin-vmax-update-for.patch
+  0003-drm-i915-snps_hdmi_pll-Fix-64-bit-divisor-truncation-by.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('44f1bb84fe512e7bafe0e6dc85d38ec1c6c8fcbe97ccb51d8c19930b799f0d64'
+sha256sums=('12b50c89925438d9cd7385a0cafc9c433e6562ac5df00a21889fce9f548d65b0'
             'SKIP'
             # config
-            '15a4877a2cb084986c1bf093a7af2e348ba37a537dd13716646fa943476dee41'
+            '1934474a8c69f4fab9179df0820299e9a845d64d731a1e552a1159105b894f54'
             # gcc patch
             #''
             # hrtimers patch
@@ -90,7 +90,7 @@ sha256sums=('44f1bb84fe512e7bafe0e6dc85d38ec1c6c8fcbe97ccb51d8c19930b799f0d64'
             # archlinux patches
             'f8629e16ea4f5fbf8bb6a421797c837d83ba29da953fee1cd3b47ed8e1477a1c'
             '370687d1156b293fa916c998ce05fffdc942bc4fd70e2471f802908921159726'
-            '29e29583a355ecd8c2bb0d1e22791f8544a89af4fc575239973d1f4523fbf50c'
+            '911fe185b16f7be6b63403509679a54b4bcafb0d201cd36ec2c8e57536fd9b38'           
 )
 
 prepare() {
