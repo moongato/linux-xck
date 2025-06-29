@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.15.3
+pkgver=6.15.4
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -67,15 +67,16 @@ source=(
   0001-add-sysctl-to-allow-disabling-unprivileged-CLONE_NEWUSER.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
   0003-drm-i915-snps_hdmi_pll-Fix-64-bit-divisor-truncation-by.patch
+  0004-btrfs-fix-invalid-inode-pointer-dereferences-during-log.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('12b50c89925438d9cd7385a0cafc9c433e6562ac5df00a21889fce9f548d65b0'
+sha256sums=('0eafd627b602f58d73917d00e4fc3196ba18cba67df6995a42aa74744d8efa16'
             'SKIP'
             # config
-            '1934474a8c69f4fab9179df0820299e9a845d64d731a1e552a1159105b894f54'
+            '5f9c0f57e2a49c28c4838a2b1366f14b6909d30217e609d25a98ecdd487cef20'
             # gcc patch
             #''
             # hrtimers patch
@@ -90,7 +91,8 @@ sha256sums=('12b50c89925438d9cd7385a0cafc9c433e6562ac5df00a21889fce9f548d65b0'
             # archlinux patches
             'f8629e16ea4f5fbf8bb6a421797c837d83ba29da953fee1cd3b47ed8e1477a1c'
             '370687d1156b293fa916c998ce05fffdc942bc4fd70e2471f802908921159726'
-            '911fe185b16f7be6b63403509679a54b4bcafb0d201cd36ec2c8e57536fd9b38'           
+            '911fe185b16f7be6b63403509679a54b4bcafb0d201cd36ec2c8e57536fd9b38'
+            '162168f13926d85447eb6b1aadf0ed8509f31b8dc4ef457906bbee90a4781810'        
 )
 
 prepare() {
