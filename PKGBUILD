@@ -21,7 +21,7 @@ _clangbuild=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-xck
-pkgver=6.15.4
+pkgver=6.15.6
 pkgrel=1
 arch=(x86_64)
 license=(GPL-2.0-only)
@@ -50,15 +50,15 @@ options=(
 _ckhrtimer=linux-6.11.y
 _commit=7bdeefd29a299f812f1d14ef7ef46bdb32ed5b6d
 
-_gcc_more_v=20241018
+_gcc_more_v=20250612
 #_sched=bore-patches-v2
-_sched=bore-smt-cores-patches
+_sched=bore-smt-cores-patches-v2
 #_bore=0001-linux6.14-bore5.9.6.patch
 _bore=0001-bore-smt-cores-patches.patch
 source=(
   "https://www.kernel.org/pub/linux/kernel/v6.x/linux-$pkgver.tar".{xz,sign}
   config  # the main kernel config file
-  #"more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
+  "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   #"ck-hrtimer-$_commit.tar.gz::https://github.com/graysky2/linux-patches/archive/$_commit.tar.gz"
   https://github.com/sirlucjan/kernel-patches/raw/master/6.15/$_sched/$_bore
   #https://github.com/firelzrd/bore-scheduler/raw/main/patches/stable/linux-6.14-bore/$_bore
@@ -66,24 +66,22 @@ source=(
   https://raw.githubusercontent.com/CachyOS/kernel-patches/refs/heads/master/6.15/0001-amd-pstate.patch
   0001-add-sysctl-to-allow-disabling-unprivileged-CLONE_NEWUSER.patch
   0002-drivers-firmware-skip-simpledrm-if-nvidia-drm-modeset-1-is.patch
-  0003-drm-i915-snps_hdmi_pll-Fix-64-bit-divisor-truncation-by.patch
-  0004-btrfs-fix-invalid-inode-pointer-dereferences-during-log.patch
 )
 validpgpkeys=(
   ABAF11C65A2970B130ABE3C479BE3E4300411886  # Linus Torvalds
   647F28654894E3BD457199BE38DBBDC86092693E  # Greg Kroah-Hartman
 )
-sha256sums=('0eafd627b602f58d73917d00e4fc3196ba18cba67df6995a42aa74744d8efa16'
+sha256sums=('2bb586c954277d070c8fdf6d7275faa93b4807d9bf3353b491d8149cca02b4fc'
             'SKIP'
             # config
-            '5f9c0f57e2a49c28c4838a2b1366f14b6909d30217e609d25a98ecdd487cef20'
+            '86277954076d7221569ff3a4cb7c5839f20c18ac548730c2456662cf07113de6'
             # gcc patch
-            #''
+            '91adc6bf4b263480399d24a7640e11b0302d4b411910ee99eee2788b34bd297a'
             # hrtimers patch
             #'afa9bf94d6820c86041c7d55c25b04fe7f1aec86adbe45cb282d285901e827b3'
             # bore patch
             #'63965f87b5bb4aa8b0f4410bae7034db86a9b144c9dbec2582162186db342368'
-            '50be48ccd39cbe036872a374d92200be14471eec8f8458f40bb69b67310ee78c'
+            'aba5f2f83d70a782433323eaf0e264893c28cf01f7448c6527ca2a11822745dd'
             # -O3
             '8ad361ce6c08c4d817960194638861b4c21894293b9e19cef38f19cb9e1a252c'
             # amd-pstate
@@ -91,8 +89,6 @@ sha256sums=('0eafd627b602f58d73917d00e4fc3196ba18cba67df6995a42aa74744d8efa16'
             # archlinux patches
             'f8629e16ea4f5fbf8bb6a421797c837d83ba29da953fee1cd3b47ed8e1477a1c'
             '370687d1156b293fa916c998ce05fffdc942bc4fd70e2471f802908921159726'
-            '911fe185b16f7be6b63403509679a54b4bcafb0d201cd36ec2c8e57536fd9b38'
-            '162168f13926d85447eb6b1aadf0ed8509f31b8dc4ef457906bbee90a4781810'        
 )
 
 prepare() {
@@ -146,8 +142,8 @@ prepare() {
 
   # https://github.com/graysky2/kernel_gcc_patch
   # make sure to apply after olddefconfig to allow the next section
-  #msg2 "Patching to enable GCC optimization for other uarchs..."
-  #patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch"
+  msg2 "Patching to enable GCC optimization for other uarchs..."
+  patch -Np1 -i "$srcdir/kernel_compiler_patch-$_gcc_more_v/more-ISA-levels-and-uarches-for-kernel-6.15-rc1+.patch"
 
   # since there are multiple options in the above patch (uarch + ISA setting), the yes method that worked
   # in the past will no long work so remove it
